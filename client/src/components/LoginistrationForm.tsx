@@ -19,12 +19,16 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
     const handleRegistration = async () => {
         const data = await dispatch(fetchRegistration({ email, password }))
         if (!data) throw Error('Произошла ошибка при получении данных. Попробуйте позже');
+        if (data.type === 'user/fetchRegistration/rejected') throw Error('Произошла ошибка на стороне сервера. Попробуйте позже');
+
         navigate('/rates');
     };
 
     const handleLogin = async () => {
         const data = await dispatch(fetchLogin({ email, password }))
         if (!data) throw Error('Произошла ошибка при получении данных. Попробуйте позже');
+        if (data.type === 'user/fetchLogin/rejected') throw Error('Произошла ошибка на стороне сервера. Попробуйте позже');
+
         navigate('/exercises');
     };
 
