@@ -89,6 +89,7 @@ hr {
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 30px 0;
 }
 .header .header__content,
@@ -221,6 +222,7 @@ hr {
 }
 .rates__list-cards {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
 }
 .rates__card {
@@ -229,7 +231,7 @@ hr {
     align-items: center;
     gap: 12px;
     padding: 20px;
-    min-width: 21.5vw;
+    min-width: 21.4vw;
     background-color: #ffffff1c;
     border-radius: 20px;
     border: solid 1px var(--color-white);
@@ -254,4 +256,19 @@ hr {
     right: -15px;
     color: var(--color-grey);
     filter: blur(0.5px);
+}
+
+@media all and (max-device-width: 767px) {
+    .header {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .rates__list-cards {
+        margin-bottom: 40px;
+    }
+    .rates__card {
+        width: 100%;
+    }
 }
