@@ -38,6 +38,9 @@ input {
     border: solid 1px var(--color-white);
     border-radius: 24px;
 }
+input::placeholder {
+    color: #dbdbdb;
+}
 button {
     padding: 8px 20px;
     color: var(--color-white);
@@ -79,6 +82,7 @@ hr {
 /* Content emelent */
 .content {
     min-height: 80vh;
+    margin-bottom: 50px;
 }
 .content__title {
     text-align: center;
@@ -256,6 +260,54 @@ hr {
     right: -15px;
     color: var(--color-grey);
     filter: blur(0.5px);
+}
+
+/* Exercises List page */
+.exercises-list__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 30vw);
+    justify-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+.exercises-list__card {
+    cursor: pointer;
+}
+.exercises-list__img {
+    width: 30vw;
+    border-radius: 24px 24px 0 0;
+}
+.exercises-list__text-block {
+    background-color: var(--color-white);
+    padding: 15px;
+    border-radius: 0 0 24px 20px;
+}
+.exercises-list__text {
+    color: black;
+}
+
+/* Exercise page */
+.exercise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.exercise__header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.exercise__video {
+    max-height: 75vh;
+}
+
+/* Page 404 */
+.not-found__content {
+    display: flex;
+    justify-content: center;
+}
+.not-found__img {
+    border-radius: 20px;
 }
 
 @media all and (max-device-width: 767px) {

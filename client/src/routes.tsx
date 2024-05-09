@@ -6,7 +6,8 @@ import Policy from './pages/Policy';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
 import Rates from './pages/Rates';
-import Exercises from './pages/Exercises';
+import ExercisesList from './pages/ExercisesList';
+import Exercise from './pages/Exercise';
 
 const routes = [
     {
@@ -50,8 +51,12 @@ export const authRoutes = [
         element: <Main />,
     },
     {
+        path: 'exercises/:name',
+        element: <Exercise />
+    },
+    {
         path: 'exercises',
-        element: <Exercises />
+        element: <ExercisesList />
     },
     {
         path: '*',
