@@ -1,4 +1,4 @@
-
+//back
 import wideGripLatPullDown from '../assets/video/back/wideGripLatPullDown.mp4'
 import pulloverStanding from'../assets/video/back/pulloverStanding.mp4'
 import negativePullUps from'../assets/video/back/negativePullUps.mp4'
@@ -22,18 +22,112 @@ import swimmer from'../assets/video/back/swimmer.mov'
 import pullUpFromYogaPose from'../assets/video/back/pullUpFromYogaPose.mov'
 import hyperextension from'../assets/video/back/hyperextension.mov'
 import pullUpsInTheGravitron from'../assets/video/back/pullUpsInTheGravitron.mov'
+
+//chestArms
+import armyPress from'../assets/video/chest-arms/armyPress.mov'
+import swingToTheSide from'../assets/video/chest-arms/swingToTheSide.mov'
+import bicepsInCrossover from'../assets/video/chest-arms/bicepsInCrossover.mov'
+import smithPushUps from'../assets/video/chest-arms/smithPushUps.mov'
+import frenchChemLyingDown from'../assets/video/chest-arms/frenchChemLyingDown.mov'
+import reversePushUps from'../assets/video/chest-arms/reversePushUps.mov'
+import dipsGravitron from'../assets/video/chest-arms/dipsGravitron.mov'
+import bicepsStaticDynamic from'../assets/video/chest-arms/bicepsStaticDynamic.mov'
+import dumbbellBenchPress from'../assets/video/chest-arms/dumbbellBenchPress.mov'
+import platePressUp from'../assets/video/chest-arms/platePressUp.mov'
+import tricepsInCrossover from'../assets/video/chest-arms/tricepsInCrossover.mov'
+import frenchStandingPress from'../assets/video/chest-arms/frenchStandingPress.mov'
+import pushUpsWithAnElasticBand from'../assets/video/chest-arms/pushUpsWithAnElasticBand.mov'
+import benchPress from'../assets/video/chest-arms/benchPress.mov'
+import negativePushUps from'../assets/video/chest-arms/negativePushUps.mov'
+import swingStaticsDynamics from'../assets/video/chest-arms/swingStaticsDynamics.mov'
+
+//warmUp
+import shoulderWarmUp from'../assets/video/warm-up/shoulderWarmUp.mov'
+import warmUpWithAStick from'../assets/video/warm-up/warmUpWithAStick.mov'
+import warmUpOnKnees from'../assets/video/warm-up/warmUpOnKnees.mov'
+
+
 const warmUp = [
     {
-        name: 'Американский жим',
-        src: negativePullUps,
+        name: 'Разминка на плечи',
+        src: shoulderWarmUp
     },
+    {
+        name: 'Разминка с палкой',
+        src: warmUpWithAStick
+    },
+    {
+        name: 'Разминка на колени',
+        src: warmUpOnKnees
+    },
+    
 ];
 
 const chestArms = [
     {
-        name: 'Американский жим',
-        src: negativePullUps,
+        name: 'Армейский жим',
+        src: armyPress
     },
+    {
+        name: 'Махи в сторону',
+        src: swingToTheSide
+    },
+    {
+        name: 'Бицепс в кроссовере ',
+        src: bicepsInCrossover
+    },
+    {
+        name: 'Отжимания от смита',
+        src: smithPushUps
+    },
+    {
+        name: 'Французкий жим лёжа ',
+        src: frenchChemLyingDown
+    },
+    {
+        name: 'Обратные отжимания от скамьи',
+        src: reversePushUps
+    },
+    {
+        name: 'Отжимания на брусьях(гравитрон)',
+        src: dipsGravitron
+    },
+    {
+        name: 'Бицепс <статика+динамика>',
+        src: bicepsStaticDynamic
+    },
+    {
+        name: 'Жим гантелей лёжа',
+        src: dumbbellBenchPress
+    },  
+    {
+        name: 'Жим блина наверх',
+        src: platePressUp
+    },  
+    {
+        name: 'Трицепс в кроссовере',
+        src: tricepsInCrossover
+    },  
+    {
+        name: 'Французкий жим стоя',
+        src: frenchStandingPress
+    }, 
+     {
+        name: 'Отжимания в резиной',
+        src: pushUpsWithAnElasticBand
+    },
+    {
+        name: 'Жим штанги лёжа',
+        src: benchPress
+    },
+    {
+        name: 'Негативные отжимания ',
+        src: negativePushUps
+    },
+    {
+        name: 'Махи <статика+динамика>',
+        src: swingStaticsDynamics
+    }, 
 ];
 
 const back = [  
