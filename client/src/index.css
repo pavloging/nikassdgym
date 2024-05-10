@@ -280,7 +280,7 @@ hr {
 .exercises-list__text-block {
     background-color: var(--color-white);
     padding: 15px;
-    border-radius: 0 0 24px 20px;
+    border-radius: 0 0 24px 24px;
 }
 .exercises-list__text {
     color: black;

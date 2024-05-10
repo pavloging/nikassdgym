@@ -37,7 +37,7 @@ const Exercise: FC = () => {
             {filteredExercise.map((item) => (
                 <div className="exercise__card" key={item.name}>
                     <div className="exercise__video-block">
-                        <video className="exercise__video" controls autoPlay loop>
+                        <video className="exercise__video" controls loop>
                             <source src={item.src} type="video/mp4"></source>
                         </video>
                     </div>
