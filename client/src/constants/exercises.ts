@@ -46,7 +46,55 @@ import shoulderWarmUp from'../assets/video/warm-up/shoulderWarmUp.mov'
 import warmUpWithAStick from'../assets/video/warm-up/warmUpWithAStick.mov'
 import warmUpOnKnees from'../assets/video/warm-up/warmUpOnKnees.mov'
 
+//press
+import kneeElbowObliquely from'../assets/video/press/kneeElbowObliquely.mov'
+import birchTreeHoldingOntoASupport from'../assets/video/press/birchTreeHoldingOntoASupport.mov'
+import strapOnBarefoot from'../assets/video/press/strapOnBarefoot.mov'
+import lateralBendsToTheSide from'../assets/video/press/lateralBendsToTheSide.mov'
+import walkingPlank from'../assets/video/press/walkingPlank.mov'
+import absHanging from'../assets/video/press/absHanging.mov'
+import barefootTwisting from'../assets/video/press/barefootTwisting.mov'
+import birchTreeOnAnInclinedBench from'../assets/video/press/birchTreeOnAnInclinedBench.mov'
+import inclineСrunch from'../assets/video/press/inclineСrunch.mov'
+import bircTreeOnTheFloor from'../assets/video/press/bircTreeOnTheFloor.mov'
+import pancakeCrunches from'../assets/video/press/pancakeCrunches.mov'
+import scissors from'../assets/video/press/scissors.mov'
+import kneeToSidePlank from'../assets/video/press/kneeToSidePlank.mov'
+import plankClimber from'../assets/video/press/plankClimber.mov'
+import loweringTheLegs from'../assets/video/press/loweringTheLegs.mov'
+import bar from'../assets/video/press/bar.mov'
+import loweringLegsAlternately from'../assets/video/press/loweringLegsAlternately.mov'
+import cravingForSocks from'../assets/video/press/cravingForSocks.mov'
 
+//legs
+import legPress from'../assets/video/legs/legPress.mp4'
+import sumoDeadlift from'../assets/video/legs/sumoDeadlift.mov'
+import bulgarianSquatsInTrx from'../assets/video/legs/bulgarianSquatsInTrx.mov'
+import backSquats from'../assets/video/legs/backSquats.mov'
+import bulgarianLungesInCrossover from'../assets/video/legs/bulgarianLungesInCrossover.mov'
+import gluteBridgeWithDumbbells from'../assets/video/legs/gluteBridgeWithDumbbells.mov'
+import romanianDeadlift from'../assets/video/legs/romanianDeadlift.mov'
+import romanianThrustSwallow from'../assets/video/legs/romanianThrustSwallow.mov'
+import legExtensionSitting from'../assets/video/legs/legExtensionSitting.mov'
+import smithSquats from'../assets/video/legs/smithSquats.mov'
+import backLunges from'../assets/video/legs/backLunges.mov'
+import sumoSquats from'../assets/video/legs/sumoSquats.mov'
+import barbellSquats from'../assets/video/legs/barbellSquats.mov'
+import shinFlexion from'../assets/video/legs/ shinFlexion.mov'
+import romanianDeadliftOnOneLeg from'../assets/video/legs/romanianDeadliftOnOneLeg.mov'
+import lungesIntoMotion from'../assets/video/legs/lungesIntoMotion.mov' 
+import romanianDeadliftInSmith from'../assets/video/legs/romanianDeadliftInSmith.mov'
+import seatedLegPinch from'../assets/video/legs/seatedLegPinch.mov'
+import kickbackInCrossover from'../assets/video/legs/kickbackInCrossover.mov'
+import glutealBridgeInSmith from'../assets/video/legs/glutealBridgeInSmith.mov'
+import squats from'../assets/video/legs/squats.mov'
+import bulgarianLunges from'../assets/video/legs/bulgarianLunges.mov'
+import fallenWoman from'../assets/video/legs/fallenWoman.mov'
+import caviarOnAHill from'../assets/video/legs/caviarOnAHill.mov'
+import RomanianDeadliftWithOneFootToTheWall from'../assets/video/legs/RomanianDeadliftWithOneFootToTheWall.mov'
+import attachedStepsWithubber from'../assets/video/legs/attachedStepsWithubber.mov'
+import pacing from'../assets/video/legs/pacing.mov'
+import sittingLegRaises from'../assets/video/legs/sittingLegRaises.mov'
 const warmUp = [
     {
         name: 'Разминка на плечи',
@@ -235,16 +283,192 @@ const back = [
 
 const legs = [
     {
-        name: 'Американский жим',
-        src: negativePullUps,
+        name: 'Жим ногами',
+        src: legPress,
+    },
+    {
+        name: 'Тяга сумо',
+        src: sumoDeadlift
+    },
+    {
+        name: 'Болгарские приседы в TRX',
+        src: bulgarianSquatsInTrx
+    },
+    {
+        name: 'Обратные приседы',
+        src: backSquats
+    },
+    {
+        name: 'Болгарские выпады в кроссовере',
+        src: bulgarianLungesInCrossover
+    },
+    {
+        name: 'Ягодичный мост с гантелями',
+        src: gluteBridgeWithDumbbells
+    },
+    {
+        name: 'Румынская тяга',
+        src: romanianDeadlift
+    },
+    {
+        name: 'Румынсккая тяга <ласточка>',
+        src: romanianThrustSwallow
+    },
+    {
+        name: 'Разгибание ног (сидя)',
+        src: legExtensionSitting
+    },
+    {
+        name: 'Приседы в смите',
+        src: smithSquats
+    },
+    {
+        name: 'Выпады назад',
+        src: backLunges
+    },
+    {
+        name: 'Приседы сумо',
+        src: sumoSquats
+    },
+    {
+        name: 'Приседы со штангой',
+        src: barbellSquats
+    },
+    {
+        name: 'Сгибание голени',
+        src: shinFlexion
+    },
+    {
+        name: 'Румынская тяга на 1 ноге ',
+        src: romanianDeadliftOnOneLeg
+    },
+    {
+        name: 'Выпады в движении',
+        src: lungesIntoMotion
+    },
+     {
+        name: 'Румынская тяга в смите',
+        src: romanianDeadliftInSmith
+    },
+    {
+        name: 'Сведение ног сидя',
+        src: seatedLegPinch
+    },
+    {
+        name: 'Кикбеки в кроссовере',
+        src: kickbackInCrossover
+    },
+     {
+        name: 'Ягодичный мост в смите',
+        src: glutealBridgeInSmith
+    },
+    {
+        name: 'Приседы',
+        src: squats
+    },
+    {
+        name: 'Болгарские выпады',
+        src: bulgarianLunges
+    },
+    {
+        name: '"Падшая женщина"',
+        src: fallenWoman
+    },
+    {
+        name: 'Икры на возвышенности',
+        src: caviarOnAHill
+    },
+    {
+        name: 'Румынская тяга одной ногой в стену ',
+        src: RomanianDeadliftWithOneFootToTheWall
+    },
+    {
+        name:'Приставные шаги с резиной',
+        src: attachedStepsWithubber
+    },
+    {
+        name:'Зашагивания',
+        src: pacing
+    },
+    {
+        name:'Разведение ног сидя ',
+        src: sittingLegRaises
     },
 ];
 
 const press = [
     {
-        name: 'Американский жим',
-        src: negativePullUps,
+        name: 'Колено-логоть наискосок ',
+        src: kneeElbowObliquely,
     },
+    {
+        name: 'Берёзка держась за опору ',
+        src: birchTreeHoldingOntoASupport
+    },
+    {
+        name: 'Планка на босу',
+        src: strapOnBarefoot
+    },
+    {
+        name: 'Боковые наклоны в сторону',
+        src: lateralBendsToTheSide
+    },
+    {
+        name: 'Шагающая планка ',
+        src: walkingPlank
+    },
+    {
+        name: 'Пресс в висе',
+        src: absHanging
+    },
+    {
+        name: 'Cкручивание на босу',
+        src: barefootTwisting
+    },
+    {
+        name: 'Берёзка на наклонной скамье',
+        src: birchTreeOnAnInclinedBench
+    },
+    {
+        name: 'Скручивание на наклонной скамье',
+        src: inclineСrunch
+    },
+    {
+        name: 'Берёзка на полу',
+        src: bircTreeOnTheFloor
+    },
+    {
+        name: 'Скручивания с блином',
+        src: pancakeCrunches
+    },
+    {
+        name: 'Ножницы',
+        src: scissors
+    },
+    {
+        name: 'Планка <колено в бок>',
+        src: kneeToSidePlank
+    },
+    {
+        name: 'Планка "скалолаз"',
+        src: plankClimber
+    },
+    {
+        name: 'Опускание ног',
+        src: loweringTheLegs
+    },
+    {
+        name: 'Планка',
+        src: bar
+    },
+    {
+        name: 'Опускание ног попеременно',
+        src: loweringLegsAlternately
+    },
+    {
+        name: 'Тяга к носочкам',
+        src: cravingForSocks
+    },   
 ];
 
 export const exercises = [
