@@ -18,7 +18,7 @@ const App: FC = () => {
     }, [dispatch]);
 
     if (store.isLoading) {
-        return <div>Загрузка...</div>;
+        return <span className="loader"></span>;
     }
 
     if (!store.isAuth) {

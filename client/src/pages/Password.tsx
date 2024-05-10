@@ -4,8 +4,8 @@ import PasswordForm from '../components/PasswordForm';
 
 const Password: FC = () => {
     return (
-        <ContentContainer className="Password">
-            <h1 className="content__title">Password Page</h1>
+        <ContentContainer className="password">
+            <h1 className="content__title">Новый пароль</h1>
             <PasswordForm />
         </ContentContainer>
     );

@@ -17,14 +17,16 @@ const LoginForm: FC = () => {
     };
 
     return (
-        <div>
+        <div className='reset-form'>
             <input
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 type="text"
-                placeholder="Email"
+                placeholder="Введите email"
             />
-            <button onClick={handleClick}>Восстановить</button>
+            <button className="secondary" onClick={handleClick}>
+                Отправить письмо
+            </button>
         </div>
     );
 };

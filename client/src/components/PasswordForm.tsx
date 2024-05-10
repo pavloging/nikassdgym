@@ -47,16 +47,16 @@ const PasswordForm: FC = () => {
                 value={password.passwordFirst}
                 name="passwordFirst"
                 type="password"
-                placeholder="Password"
+                placeholder="Введите password"
             />
             <input
                 onChange={(e) => handlePress(e)}
                 value={password.passwordSecond}
                 name="passwordSecond"
                 type="password"
-                placeholder="Password"
+                placeholder="Введите password"
             />
-            <button disabled={isDisabled} onClick={handleClick}>
+            <button className='secondary' disabled={isDisabled} onClick={handleClick}>
                 Задать новый пароль
             </button>
         </div>

@@ -27,23 +27,29 @@ const Exercise: FC = () => {
         <ContentContainer className="exercise">
             <div className="exercise__header">
                 <h1 className="content__title">{exercise.name}</h1>
+                <div className='exercise__img-block'>
                 <input
                     type="text"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Поиск"
                 />
-            </div>
-            {filteredExercise.map((item) => (
-                <div className="exercise__card" key={item.name}>
-                    <div className="exercise__video-block">
-                        <video className="exercise__video" controls loop>
-                            <source src={item.src} type="video/mp4"></source>
-                        </video>
-                    </div>
-                    <p className="exercise__name">{item.name}</p>
+                <img className='exercise__img' src="/search.svg" alt="" />
                 </div>
-            ))}
+            </div>
+            <div className='exercise__list-card'>
+                {filteredExercise.map((item) => (
+                    <div className="exercise__card" key={item.name}>
+                        <div className="exercise__video-block">
+                            <video className="exercise__video" controls loop>
+                                <source src={item.src} type="video/mp4"></source>
+                            </video>
+                        </div>
+                        <p className="exercise__name">{item.name}</p>
+                    </div>
+                ))}
+            </div>
+            {filteredExercise.length === 0 && <p>Элементов не найдено</p>}
         </ContentContainer>
     );
 };

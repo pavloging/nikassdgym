@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
 import { exercises } from '../constants/exercises';
-import { Link } from 'react-router-dom';
 
 const ExercisesList: FC = () => {
     return (
