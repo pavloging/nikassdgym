@@ -283,9 +283,12 @@ hr {
 
 /* Rates page */
 .rates__list-cards {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    /* flex-wrap: wrap; */
     gap: 40px;
+    justify-content: center;
+
 }
 .rates__card {
     display: flex;
