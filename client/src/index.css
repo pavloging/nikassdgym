@@ -96,6 +96,9 @@ hr {
     left: calc(12% + 1px);
     width: calc(100% - 24% - 2px);
 }
+.txt-center {
+    text-align: center;
+}
 
 /* Content emelent */
 .content {
@@ -284,7 +287,7 @@ hr {
 /* Rates page */
 .rates__list-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
+    grid-template-columns: repeat(auto-fill, 300px);
     /* flex-wrap: wrap; */
     gap: 40px;
     justify-content: center;
@@ -296,7 +299,6 @@ hr {
     align-items: center;
     gap: 12px;
     padding: 20px;
-    min-width: 21.4vw;
     background-color: #ffffff1c;
     border-radius: 20px;
     border: solid 1px var(--color-white);

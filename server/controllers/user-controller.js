@@ -50,7 +50,7 @@ class UserController {
         try {
             const email = req.params.email;
             const user = await userService.reset(email);
-            return res.json(user)
+            return res.json(user);
         } catch (e) {
             next(e);
         }
@@ -61,7 +61,7 @@ class UserController {
             const userId = req.body.userId;
             const token = req.body.token;
             const password = req.body.password;
-            const userData = await userService.password({userId, token, password});
+            const userData = await userService.password({ userId, token, password });
             return res.json(userData);
         } catch (e) {
             next(e);
@@ -72,7 +72,9 @@ class UserController {
         try {
             const token = req.params.token;
             const user = await userService.passwordToken(token);
-            return res.redirect(`${process.env.CLIENT_URL}/password?userId=${user.userId}&token=${user.token}`);
+            return res.redirect(
+                `${process.env.CLIENT_URL}/password?userId=${user.userId}&token=${user.token}`
+            );
         } catch (e) {
             next(e);
         }
@@ -102,10 +104,11 @@ class UserController {
         }
     }
 
-    async getUsers(req, res, next) {
+    async activateRates(req, res, next) {
         try {
-            const users = await userService.getAllUsers();
-            return res.json(users);
+            const { userId, date } = req.body;
+            const user = await userService.activateRates({ userId, date });
+            return res.json(user);
         } catch (e) {
             next(e);
         }

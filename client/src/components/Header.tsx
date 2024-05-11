@@ -8,9 +8,21 @@ const Header = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { pathname } = useLocation();
 
-    const main = `${pathname === '/' || pathname === '/main' ? 'secondary' : 'primary header__primary'}`;
-    const exercises = `${pathname.includes('/exercises') ? 'secondary' : 'primary header__primary'}`;
+    const main = `${
+        pathname === '/' || pathname === '/main' ? 'secondary' : 'primary header__primary'
+    }`;
+    const exercises = `${
+        pathname.includes('/exercises') ? 'secondary' : 'primary header__primary'
+    }`;
     const rates = `${pathname === '/rates' ? 'secondary' : 'primary header__primary'}`;
+    // if (!store.user.activateRatesExp)
+    //     return <p className="txt-center">У вас не активна подписка</p>;
+    // if (store.user.activateRatesExp >= new Date())
+    //     return <p className="txt-center">У вас не активна подписка</p>;
+    // const activate =
+    //     store.user.activateRatesExp && store.user.activateRatesExp <= new Date()
+    //         ? 'Подписка активна'
+    //         : 'Подписка не активна';
     return (
         <>
             <div className="header">
@@ -27,7 +39,7 @@ const Header = () => {
                 </div>
                 <div className="header__payment-block">
                     <div className="header__payment">
-                        <button className="secondary">Подписка не активна</button>
+                        {store.user.isActivatedRates ? <button className="primary">Подписка активна</button> : <button className="secondary">Подписка не активна</button>}
                     </div>
                     {store.isAuth && (
                         <div className="header__logout-block">

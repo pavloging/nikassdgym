@@ -120,15 +120,25 @@ class UserService {
             resetToken: token,
             resetTokenExp: { $gt: new Date(Date.now()) },
         });
-        
+
         if (!user) throw ApiError.BadRequest('Пользователь не найден');
 
         return { userId: user._id, token };
     }
 
-    async getAllUsers() {
-        const users = await UserModel.find();
-        return users;
+    async activateRates({ userId, date }) {
+        const user = await UserModel.findOne({ _id: userId });
+        if (!user) throw ApiError.BadRequest('User not found');
+
+        if (!user.activateRatesExp) user.activateRatesExp = new Date(new Date.getTime() + date);
+        else {
+            const currentDate = new Date(user.activateRatesExp);
+            const newDate = new Date(currentDate.getTime() + date);
+            user.activateRatesExp = newDate;
+        }
+
+        await user.save();
+        return new UserDto(user);
     }
 }
 

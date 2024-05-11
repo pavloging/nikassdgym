@@ -33,7 +33,11 @@ const routes = [
     {
         path: 'rates',
         element: <Rates />
-    }
+    },
+    {
+        path: 'exercises',
+        element: <ExercisesList />
+    },
 ]
 
 export const defaultRoutes = [
@@ -53,10 +57,6 @@ export const authRoutes = [
     {
         path: 'exercises/:name',
         element: <Exercise />
-    },
-    {
-        path: 'exercises',
-        element: <ExercisesList />
     },
     {
         path: '*',
