@@ -130,7 +130,7 @@ class UserService {
         const user = await UserModel.findOne({ _id: userId });
         if (!user) throw ApiError.BadRequest('User not found');
 
-        if (!user.activateRatesExp) user.activateRatesExp = new Date(new Date.getTime() + date);
+        if (!user.activateRatesExp) user.activateRatesExp = new Date(new Date().getTime() + date);
         else {
             const currentDate = new Date(user.activateRatesExp);
             const newDate = new Date(currentDate.getTime() + date);

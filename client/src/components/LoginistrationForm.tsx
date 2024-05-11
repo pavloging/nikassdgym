@@ -68,9 +68,9 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
                         <img className='login-form__img' src="/eyes.svg" alt="" />
                     </button>
                 </div>
-                <Link className="login-form__reset" to="/reset">
+                {isLogin && <Link className="login-form__reset" to="/reset">
                     Забыли пароль?
-                </Link>
+                </Link>}
             </div>
             {isLogin ? (
                 <button className="secondary" onClick={handleLogin}>

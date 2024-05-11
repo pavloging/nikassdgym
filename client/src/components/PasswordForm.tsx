@@ -41,22 +41,34 @@ const PasswordForm: FC = () => {
     );
 
     return (
-        <div>
-            <input
-                onChange={(e) => handlePress(e)}
-                value={password.passwordFirst}
-                name="passwordFirst"
-                type="password"
-                placeholder="Введите password"
-            />
-            <input
-                onChange={(e) => handlePress(e)}
-                value={password.passwordSecond}
-                name="passwordSecond"
-                type="password"
-                placeholder="Введите password"
-            />
-            <button className='secondary' disabled={isDisabled} onClick={handleClick}>
+        <div className="login-form">
+            <div className="login-form__content">
+                <label className="login-form__label" htmlFor="passwordFirst">
+                    Password
+                </label>
+                <input
+                    className="login-form__email"
+                    onChange={(e) => handlePress(e)}
+                    value={password.passwordFirst}
+                    id="passwordFirst"
+                    name="passwordFirst"
+                    type="password"
+                    placeholder="Введите password"
+                />
+
+                <label className="login-form__label" htmlFor="passwordSecond">
+                    Password
+                </label>
+                <input
+                    onChange={(e) => handlePress(e)}
+                    value={password.passwordSecond}
+                    id="passwordSecond"
+                    name="passwordSecond"
+                    type="password"
+                    placeholder="Введите password"
+                />
+            </div>
+            <button className="secondary" disabled={isDisabled} onClick={handleClick}>
                 Задать новый пароль
             </button>
         </div>

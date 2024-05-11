@@ -146,11 +146,22 @@ hr {
 .footer {
     padding: 40px 0;
 }
+.footer__contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+.footer__contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 .footer__container {
     display: flex;
-    height: 100px;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: flex-end;
+    margin-top: 50px;
 }
 .footer__policy {
     font-size: 12px;
@@ -244,7 +255,7 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 40px 0;
+    padding: 200px 0;
 }
 .main__text-block:nth-child(2) {
     display: flex;
@@ -287,11 +298,10 @@ hr {
 /* Rates page */
 .rates__list-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
+    grid-template-columns: repeat(3, 300px);
     /* flex-wrap: wrap; */
     gap: 40px;
     justify-content: center;
-
 }
 .rates__card {
     display: flex;
@@ -336,6 +346,7 @@ hr {
 .exercises-list__card {
     cursor: pointer;
     min-height: 400px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -349,6 +360,7 @@ hr {
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     background: #222222;
     border-radius: 24px 24px 0 0;
 }
@@ -445,17 +457,86 @@ hr {
     }
 }
 
-@media all and (max-device-width: 767px) {
+.login,
+.rates,
+.reset,
+.password {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (min-width: 1441px) {
+    /* body {
+        background-color: red;
+    } */
+    h1 {
+        font-size: xxx-large;
+    }
+    h2 {
+        font-size: xx-large;
+    }
+    button, label, input, a, p {
+        font-size: x-large !important;
+    }
+    .main__title {
+        font-size: xxx-large;
+    }
+    .main__description {
+        font-size: xx-large;
+    }
+    .main__paragraph{
+        max-width: 800px;
+        font-size: xx-large;
+    }
+}
+@media all and (max-divace-width: 1440px) {
+    .rates__list-cards {
+        grid-template-columns: repeat(auto-fill, 300px);
+    }
+    .main__content {
+        padding: 40px 0;
+    }
+}
+
+@media all and (max-device-width: 768px) {
     .header {
-        justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 20px;
     }
-
+    .exercise__video-block {
+        display: flex;
+        justify-content: center;
+    }
     .rates__list-cards {
         margin-bottom: 40px;
     }
     .rates__card {
         width: 100%;
+    }
+}
+@media all and (max-device-width: 425px) {
+    .header__content {
+        align-items: center;
+    }
+    .header .header__content,
+    .header {
+        gap: 10px;
+    }
+    button {
+        font-size: x-small;
+    }
+    .exercises-list__content {
+        grid-template-columns: repeat(auto-fill, 60vw);
+    }
+    .exercise__header {
+        margin-bottom: 40px;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+@media all and (max-device-width: 374px) {
+    .header__content {
+        flex-direction: column;
     }
 }
