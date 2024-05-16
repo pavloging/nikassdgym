@@ -18,4 +18,6 @@ router.post('/activateRates', authMiddleware, userController.activateRates)
 router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
 
+router.post('/webhook', userController.webhook)
+
 module.exports = router

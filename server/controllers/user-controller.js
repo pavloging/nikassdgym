@@ -113,6 +113,27 @@ class UserController {
             next(e);
         }
     }
+
+    async webhook(req, res, next) {
+        try {
+            if (!verifySignature(req)) {
+                return res.status(400).send('Invalid signature');
+            }
+
+            const data = req.body;
+            console.log(data)
+            if (data.event === 'payment.succeeded') {
+                const paymentId = data.object.id;
+                // Делайте ваши операции, например, обновляйте статус заказа в базе данных
+                // Например:
+                // updateOrderStatus(paymentId, 'paid');
+            }
+
+            res.status(200).json({ status: 'ok' });
+        } catch (e) {
+            next(e);
+        }
+    }
 }
 
 module.exports = new UserController();
