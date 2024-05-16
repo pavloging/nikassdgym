@@ -116,10 +116,6 @@ class UserController {
 
     async webhook(req, res, next) {
         try {
-            if (!verifySignature(req)) {
-                return res.status(400).send('Invalid signature');
-            }
-
             const data = req.body;
             console.log(data)
             if (data.event === 'payment.succeeded') {
