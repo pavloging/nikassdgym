@@ -422,6 +422,10 @@ hr {
     align-items: center;
     gap: 50px;
 }
+.exercise__video-block {
+    background: black;
+    border-radius: 10px;
+}
 .exercise__video {
     min-height: 75vh;
 

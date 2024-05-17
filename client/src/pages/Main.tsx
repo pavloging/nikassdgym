@@ -72,10 +72,10 @@ const Main: FC = () => {
             <div className="main__blur" id="main__blur-bottom"></div>
 
             {/* Delete */}
-            {exercise.list.map((item) => (
+            {exercise.list.map((item, index) => (
                     <div className="exercise__card" key={item.name}>
                         <div className="exercise__video-block">
-                            <LazyLoadVideo src={item.src} type="video/mp4" />
+                            <LazyLoadVideo src={item.src} type="video/mp4" index={index} />
                         </div>
                         <p className="exercise__name">{item.name}</p>
                     </div>

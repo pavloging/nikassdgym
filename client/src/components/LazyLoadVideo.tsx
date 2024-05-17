@@ -1,53 +1,38 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 interface ILazyLoadVideo {
     src: string;
     type: string;
+    index: number;
 }
 
-const LazyLoadVideo = ({ src, type }: ILazyLoadVideo) => {
-    const [isVisible, setIsVisible] = useState(false);
-    const videoRef = useRef(null);
+const LazyLoadVideo = ({ src, type, index }: ILazyLoadVideo) => {
+
+    console.log(index)
 
     useEffect(() => {
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1,
-        };
+        const videoElement = document.getElementById('0') as HTMLVideoElement;
+        if(!videoElement) return
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, options);
+        videoElement.addEventListener('loadeddata', () => {
+            //Video should now be loaded but we can add a second check
 
-        const currentVideoRef = videoRef.current; // Capture the current value
-
-        if (currentVideoRef) {
-            observer.observe(currentVideoRef);
-        }
-
-        return () => {
-            if (currentVideoRef) {
-                // Use the captured value in the cleanup
-                observer.unobserve(currentVideoRef);
+            if (videoElement.readyState >= 3) {
+                console.log('hi')
+                //your code goes here
             }
-        };
-    }, []); // Ensure the dependency array is correct
+        });
+    }, []);
 
+    const { ref, inView } = useInView({
+        threshold: 0.5,
+        triggerOnce: true
+      });
+      
     return (
-        <div ref={videoRef}>
-            {isVisible ? (
-                <video className="exercise__video" controls autoPlay loop muted>
-                    <source src={src} type={type} />
-                </video>
-            ) : (
-                <div className="video-placeholder">Загрузка видео...</div>
-            )}
+        <div ref={ref}>
+                {inView ? <video className="exercise__video" controls><source src={src} type={type} /></video> : <div>СКЕЛЕТОН</div>}
         </div>
     );
 };
