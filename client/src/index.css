@@ -618,7 +618,7 @@ hr {
         gap: 10px;
     }
     button {
-        font-size: x-small;
+        font-size: smaller;
     }
     .exercises-list__content {
         grid-template-columns: repeat(auto-fill, 60vw);
