@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
 
-import video from "../assets/video/back/abductionOfTheArmWithAnElasticBand.mov"
+import video from "../assets/video/warm-up/warmUpOnKnees.mov"
 
 const Main: FC = () => {
     return (
