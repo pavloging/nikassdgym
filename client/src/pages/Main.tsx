@@ -1,21 +1,13 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
 import { exercises as exercisesList } from '../constants/exercises';
 
 const Main: FC = () => {
     const name = 'back'
-    const [search, setSearch] = useState('');
     const exercise = exercisesList.find((item) => item.url === name);
-    
-    if (!exercise) return <h1>Page 404</h1>;
 
-    const filteredExercise =
-    search.length !== 0
-        ? exercise.list.filter((item) =>
-              item.name.toLowerCase().includes(search.toLowerCase().trim())
-          )
-        : exercise.list;
+    if (!exercise) return <h1>Page 404</h1>;
 
     return (
         <ContentContainer className="main">
@@ -79,7 +71,7 @@ const Main: FC = () => {
             <div className="main__blur" id="main__blur-bottom"></div>
 
             {/* Delete */}
-            {filteredExercise.map((item) => (
+            {exercise.list.map((item) => (
                     <div className="exercise__card" key={item.name}>
                         <div className="exercise__video-block">
                             <video className="exercise__video" controls>
