@@ -603,13 +603,13 @@ hr {
     h2 {
         font-size: large;
     }
-    button,
+    /* button,
     label,
     input,
     a,
     p {
         font-size: small !important;
-    }
+    } */
     .header__content {
         align-items: center;
     }
