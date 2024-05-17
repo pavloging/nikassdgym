@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
 
+import video from "../assets/video/back/abductionOfTheArmWithAnElasticBand.mov"
+
 const Main: FC = () => {
     return (
         <ContentContainer className="main">
@@ -63,6 +65,17 @@ const Main: FC = () => {
 
             <div className="main__blur" id="main__blur-top"></div>
             <div className="main__blur" id="main__blur-bottom"></div>
+
+            {/* Delete */}
+            <div className="exercise__card">
+                        <div className="exercise__video-block">
+                            <video className="exercise__video" controls>
+                                <source src={video} type="video/mp4"></source>
+                            </video>
+                        </div>
+                        <p className="exercise__name">Упрежнение</p>
+                    </div>
+            {/* Delete */}
         </ContentContainer>
     );
 };

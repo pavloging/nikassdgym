@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className="footer__contact">
                         <img className="footer__img" src="/tel.svg" alt="" />
                         <a className="footer__link" href="https://wa.me/+79141636665">
-                            WhatsApp
+                            + 7 914 163 66 65
                         </a>
                     </div>
                     <div className="footer__contact">
