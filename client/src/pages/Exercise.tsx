@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import ContentContainer from '../components/ContentContainer';
 import { exercises as exercisesList } from '../constants/exercises';
 import { useNavigate, useParams } from 'react-router-dom';
+import LazyLoadVideo from '../components/LazyLoadVideo';
 
 const Exercise: FC = () => {
     const { name } = useParams();
@@ -41,9 +42,10 @@ const Exercise: FC = () => {
                 {filteredExercise.map((item) => (
                     <div className="exercise__card" key={item.name}>
                         <div className="exercise__video-block">
-                            <video className="exercise__video" controls>
+                            {/* <video className="exercise__video" controls>
                                 <source src={item.src} type="video/mp4"></source>
-                            </video>
+                            </video> */}
+                            <LazyLoadVideo src={item.src} type="video/mp4" />
                         </div>
                         <p className="exercise__name">{item.name}</p>
                     </div>
