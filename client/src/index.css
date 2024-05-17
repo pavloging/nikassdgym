@@ -423,6 +423,9 @@ hr {
     gap: 50px;
 }
 .exercise__video {
+    min-height: 75vh;
+
+
     max-height: 75vh;
     max-width: 75vw;
     border-radius: 10px;

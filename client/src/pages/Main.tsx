@@ -1,10 +1,22 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
-
-import video from "../assets/video/warm-up/warmUpOnKnees.mov"
+import { exercises as exercisesList } from '../constants/exercises';
 
 const Main: FC = () => {
+    const name = 'back'
+    const [search, setSearch] = useState('');
+    const exercise = exercisesList.find((item) => item.url === name);
+    
+    if (!exercise) return <h1>Page 404</h1>;
+
+    const filteredExercise =
+    search.length !== 0
+        ? exercise.list.filter((item) =>
+              item.name.toLowerCase().includes(search.toLowerCase().trim())
+          )
+        : exercise.list;
+
     return (
         <ContentContainer className="main">
             <div className="main__welcome">
@@ -67,14 +79,16 @@ const Main: FC = () => {
             <div className="main__blur" id="main__blur-bottom"></div>
 
             {/* Delete */}
-            <div className="exercise__card">
+            {filteredExercise.map((item) => (
+                    <div className="exercise__card" key={item.name}>
                         <div className="exercise__video-block">
                             <video className="exercise__video" controls>
-                                <source src={video} type="video/mp4"></source>
+                                <source src={item.src} type="video/mp4"></source>
                             </video>
                         </div>
-                        <p className="exercise__name">Упрежнение</p>
+                        <p className="exercise__name">{item.name}</p>
                     </div>
+                ))}
             {/* Delete */}
         </ContentContainer>
     );
