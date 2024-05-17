@@ -1,14 +1,8 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
-import { exercises as exercisesList } from '../constants/exercises';
 
 const Main: FC = () => {
-    const name = 'back'
-    const exercise = exercisesList.find((item) => item.url === name);
-
-    if (!exercise) return <h1>Page 404</h1>;
-
     return (
         <ContentContainer className="main">
             <div className="main__welcome">
@@ -69,19 +63,6 @@ const Main: FC = () => {
 
             <div className="main__blur" id="main__blur-top"></div>
             <div className="main__blur" id="main__blur-bottom"></div>
-
-            {/* Delete */}
-            {exercise.list.map((item) => (
-                    <div className="exercise__card" key={item.name}>
-                        <div className="exercise__video-block">
-                            <video className="exercise__video" controls>
-                                <source src={item.src} type="video/mp4"></source>
-                            </video>
-                        </div>
-                        <p className="exercise__name">{item.name}</p>
-                    </div>
-                ))}
-            {/* Delete */}
         </ContentContainer>
     );
 };
