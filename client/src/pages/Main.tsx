@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
 import { exercises as exercisesList } from '../constants/exercises';
+import LazyLoadVideo from '../components/LazyLoadVideo';
 
 const Main: FC = () => {
     const name = 'back'
@@ -74,9 +75,7 @@ const Main: FC = () => {
             {exercise.list.map((item) => (
                     <div className="exercise__card" key={item.name}>
                         <div className="exercise__video-block">
-                            <video className="exercise__video" controls>
-                                <source src={item.src} type="video/mp4"></source>
-                            </video>
+                            <LazyLoadVideo src={item.src} type="video/mp4" />
                         </div>
                         <p className="exercise__name">{item.name}</p>
                     </div>
