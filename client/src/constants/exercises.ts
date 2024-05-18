@@ -49,8 +49,8 @@ import negativePushUps from '../assets/video/chest-arms/negativePushUps.mov';
 import swingStaticsDynamics from '../assets/video/chest-arms/swingStaticsDynamics.mov';
 
 //warmUp
-import shoulderWarmUp from '../assets/video/warm-up/shoulderWarmUp.mov';
-import warmUpWithAStick from '../assets/video/warm-up/warmUpWithAStick.mov';
+import shoulderWarmUp from '../assets/video/warm-up/shoulderWarmUp.mp4';
+import warmUpWithAStick from '../assets/video/warm-up/warmUpWithAStick.mp4';
 import warmUpOnKnees from '../assets/video/warm-up/warmUpOnKnees.mov';
 
 //press
@@ -75,13 +75,13 @@ import cravingForSocks from '../assets/video/press/cravingForSocks.mov';
 
 //legs
 import legPress from '../assets/video/legs/legPress.mp4';
-import sumoDeadlift from '../assets/video/legs/sumoDeadlift.mov';
-import bulgarianSquatsInTrx from '../assets/video/legs/bulgarianSquatsInTrx.mov';
-import backSquats from '../assets/video/legs/backSquats.mov';
-import bulgarianLungesInCrossover from '../assets/video/legs/bulgarianLungesInCrossover.mov';
-import gluteBridgeWithDumbbells from '../assets/video/legs/gluteBridgeWithDumbbells.mov';
-import romanianDeadlift from '../assets/video/legs/romanianDeadlift.mov';
-import romanianThrustSwallow from '../assets/video/legs/romanianThrustSwallow.mov';
+import sumoDeadlift from '../assets/video/legs/sumoDeadlift.mp4';
+import bulgarianSquatsInTrx from '../assets/video/legs/bulgarianSquatsInTrx.mp4';
+import backSquats from '../assets/video/legs/backSquats.mp4';
+import bulgarianLungesInCrossover from '../assets/video/legs/bulgarianLungesInCrossover.mp4';
+import gluteBridgeWithDumbbells from '../assets/video/legs/gluteBridgeWithDumbbells.mp4';
+import romanianDeadlift from '../assets/video/legs/romanianDeadlift.mp4';
+import romanianThrustSwallow from '../assets/video/legs/romanianThrustSwallow.mp4';
 import legExtensionSitting from '../assets/video/legs/legExtensionSitting.mov';
 import smithSquats from '../assets/video/legs/smithSquats.mov';
 import backLunges from '../assets/video/legs/backLunges.mov';
