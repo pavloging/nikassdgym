@@ -9,7 +9,7 @@ import chestArmsImg from '../assets/images/chest-arms.png';
 import wideGripLatPullDown from '../assets/video/back/wideGripLatPullDown.mp4';
 import pulloverStanding from '../assets/video/back/pulloverStanding.mp4';
 import negativePullUps from '../assets/video/back/negativePullUps.mp4';
-import upperBlockPull from '../assets/video/back/upperBlockPull.mov';
+import upperBlockPull from '../assets/video/back/upperBlockPull.mp4';
 import closeGripLatPull2 from '../assets/video/back/closeGripLatPull2.mov';
 import waistlineCraving from '../assets/video/back/waistlineCraving.mov';
 import aryamnovBridge from '../assets/video/back/aryamnovBridge.mov';
@@ -195,11 +195,11 @@ const back = [
         src: pulloverStanding,
     },
     {
-        name: 'Негативные подтягивания ',
+        name: 'Негативные подтягивания',
         src: negativePullUps,
     },
     {
-        name: 'Тяга верхнего блока ',
+        name: 'Тяга верхнего блока',
         src: upperBlockPull,
     },
     {
