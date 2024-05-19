@@ -64,7 +64,7 @@ import barefootTwisting from '../assets/video/press/barefootTwisting.mov';
 import birchTreeOnAnInclinedBench from '../assets/video/press/birchTreeOnAnInclinedBench.mp4';
 import inclineСrunch from '../assets/video/press/inclineСrunch.mp4';
 import bircTreeOnTheFloor from '../assets/video/press/bircTreeOnTheFloor.mp4';
-import pancakeCrunches from '../assets/video/press/pancakeCrunches.mov';
+import pancakeCrunches from '../assets/video/press/pancakeCrunches.mp4';
 import scissors from '../assets/video/press/scissors.mp4';
 import kneeToSidePlank from '../assets/video/press/kneeToSidePlank.mp4';
 import plankClimber from '../assets/video/press/plankClimber.mp4';
