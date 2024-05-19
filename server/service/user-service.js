@@ -92,7 +92,7 @@ class UserService {
 
             await mailService.sendResetPassword(
                 user.email,
-                `${process.env.API_URL}/password/${user.resetToken}`
+                `${process.env.CLIENT_URL}/password/${user.resetToken}`
             );
         });
     }
