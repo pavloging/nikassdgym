@@ -86,7 +86,7 @@ import legExtensionSitting from '../assets/video/legs/legExtensionSitting.mp4';
 import smithSquats from '../assets/video/legs/smithSquats.mp4';
 import backLunges from '../assets/video/legs/backLunges.mp4';
 import sumoSquats from '../assets/video/legs/sumoSquats.mp4';
-import barbellSquats from '../assets/video/legs/barbellSquats.mov';
+import barbellSquats from '../assets/video/legs/barbellSquats.mp4';
 import shinFlexion from '../assets/video/legs/shinFlexion.mp4';
 import romanianDeadliftOnOneLeg from '../assets/video/legs/romanianDeadliftOnOneLeg.mp4';
 import lungesIntoMotion from '../assets/video/legs/lungesIntoMotion.mp4';
@@ -98,7 +98,7 @@ import squats from '../assets/video/legs/squats.mp4';
 import bulgarianLunges from '../assets/video/legs/bulgarianLunges.mp4';
 import fallenWoman from '../assets/video/legs/fallenWoman.mov';
 import caviarOnAHill from '../assets/video/legs/caviarOnAHill.mp4';
-import romanianDeadliftWithOneFootToTheWall from '../assets/video/legs/romanianDeadliftWithOneFootToTheWall.mov';
+import romanianDeadliftWithOneFootToTheWall from '../assets/video/legs/romanianDeadliftWithOneFootToTheWall.mp4';
 import attachedStepsWithubber from '../assets/video/legs/attachedStepsWithubber.mov';
 import pacing from '../assets/video/legs/pacing.mov';
 import sittingLegRaises from '../assets/video/legs/sittingLegRaises.mp4';
@@ -331,7 +331,7 @@ const legs = [
     },
     {
         name: 'Приседы со штангой',
-        src: barbellSquats,  //тут нет видео 
+        src: barbellSquats,  
     },
     {
         name: 'Сгибание голени',
