@@ -10,7 +10,7 @@ import wideGripLatPullDown from '../assets/video/back/wideGripLatPullDown.mp4';
 import pulloverStanding from '../assets/video/back/pulloverStanding.mp4';
 import negativePullUps from '../assets/video/back/negativePullUps.mp4';
 import upperBlockPull from '../assets/video/back/upperBlockPull.mp4';
-import closeGripLatPull2 from '../assets/video/back/closeGripLatPull2.mov';
+import closeGripLatPull2 from '../assets/video/back/closeGripLatPull2.mp4';
 import waistlineCraving from '../assets/video/back/waistlineCraving.mov';
 import aryamnovBridge from '../assets/video/back/aryamnovBridge.mov';
 import crow from '../assets/video/back/crow.mov';
