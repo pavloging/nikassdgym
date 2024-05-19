@@ -113,7 +113,7 @@ class UserController {
             return res.json(createdData.confirmation.confirmation_url);
         } catch (e) {
             next(e);
-        }x
+        }
     }
 
     async activateSubscription(req, res, next) {
