@@ -108,12 +108,12 @@ class UserController {
         try {
             const { userId, date, price, name } = req.body;
             const createdData = await userService.createLinkPay({ price, name });
+            // save in db
             console.log(createdData)
-
-            return res.json(user);
+            return res.json(createdData.confirmation.confirmation_url);
         } catch (e) {
             next(e);
-        }
+        }x
     }
 
     async activateSubscription(req, res, next) {

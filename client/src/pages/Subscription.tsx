@@ -7,6 +7,7 @@ import { AppDispatch, RootState } from '../redux/store';
 import { fetchCreateLinkPay } from '../redux/redusers/user/ActionCreateLinkPay';
 import { subscription } from '../constants/subscription';
 import { IPay } from '../types/ISubscription';
+import { handleError } from '../utils/handleError';
 
 const Subscription: FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -26,11 +27,11 @@ const Subscription: FC = () => {
             //     }, 300);
             // });
             const data = await dispatch(fetchCreateLinkPay(pay));
-
+            console.log(data)
             if (!data) throw Error('Произошла ошибка при получении данных. Попробуйте позже');
             toast.success('Деньги были отправлены. После поступления на счет - Подписка активируется')
         } catch (e) {
-            console.error(e);
+            handleError(e);
         }
     };
 

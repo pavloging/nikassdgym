@@ -2,6 +2,7 @@ const UserModel = require('../models/user-model');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const uuid = require('uuid');
+const axios = require('axios');
 const mailService = require('./mail-service');
 const tokenService = require('./token-service');
 const UserDto = require('../dtos/user-dto');
@@ -126,10 +127,12 @@ class UserService {
         return { userId: user._id, token };
     }
 
-    async createLinkPay({ price, name}) {
+    async createLinkPay({ price, name }) {
         const storeId = process.env.YOOKASSA_STORE_ID;
         const secretKey = process.env.YOOKASSA_SECRET_KEY;
         const idempotenceKey = uuid.v4();
+
+        console.log(storeId, secretKey, idempotenceKey)
 
         const data = {
             amount: {
@@ -142,25 +145,46 @@ class UserService {
             },
             description: `Оплата тарифа: ${name}`,
         };
+        console.log(data)
 
-        const response = await fetch('https://api.yookassa.ru/v3/payments', {
-            method: 'POST',
+        const link = await axios.post('https://api.yookassa.ru/v3/payments', data, {
             headers: {
                 'Content-Type': 'application/json',
                 'Idempotence-Key': idempotenceKey,
-                'Authorization': 'Basic ' + Buffer.from(`${storeId}:${secretKey}`).toString('base64')
             },
-            body: JSON.stringify(data)
+            auth: {
+                username: storeId,
+                password: secretKey,
+            },
         });
 
-        return await response.json();
+        // axios
+        //     .post('https://api.yookassa.ru/v3/payments', data, {
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             'Idempotence-Key': idempotenceKey,
+        //         },
+        //         auth: {
+        //             username: storeId,
+        //             password: secretKey,
+        //         },
+        //     })
+        //     .then((response) => {
+        //         console.log('Success:', response.data);
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error:', error.response ? error.response.data : error.message);
+        //     });
+
+        return link;
     }
 
     async activateSubscription({ userId, date }) {
         const user = await UserModel.findOne({ _id: userId });
         if (!user) throw ApiError.BadRequest('User not found');
 
-        if (!user.activateSubscriptionExp) user.activateSubscriptionExp = new Date(new Date().getTime() + date);
+        if (!user.activateSubscriptionExp)
+            user.activateSubscriptionExp = new Date(new Date().getTime() + date);
         else {
             const currentDate = new Date(user.activateSubscriptionExp);
             const newDate = new Date(currentDate.getTime() + date);
