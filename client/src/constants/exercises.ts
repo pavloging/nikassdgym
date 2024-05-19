@@ -98,7 +98,7 @@ import squats from '../assets/video/legs/squats.mp4';
 import bulgarianLunges from '../assets/video/legs/bulgarianLunges.mp4';
 import fallenWoman from '../assets/video/legs/fallenWoman.mov';
 import caviarOnAHill from '../assets/video/legs/caviarOnAHill.mp4';
-import RomanianDeadliftWithOneFootToTheWall from '../assets/video/legs/RomanianDeadliftWithOneFootToTheWall.mov';
+import romanianDeadliftWithOneFootToTheWall from '../assets/video/legs/romanianDeadliftWithOneFootToTheWall.mov';
 import attachedStepsWithubber from '../assets/video/legs/attachedStepsWithubber.mov';
 import pacing from '../assets/video/legs/pacing.mov';
 import sittingLegRaises from '../assets/video/legs/sittingLegRaises.mp4';
@@ -379,7 +379,7 @@ const legs = [
     },
     {
         name: 'Румынская тяга одной ногой в стену ',
-        src: RomanianDeadliftWithOneFootToTheWall,
+        src: romanianDeadliftWithOneFootToTheWall,
     },
     {
         name: 'Приставные шаги с резиной',
