@@ -20,7 +20,7 @@ class UserService {
         const user = await UserModel.create({ email, password: hashPassword, activationLink });
         await mailService.sendActivationMail(
             email,
-            `${process.env.CLIENT_URL}/api/activate/${activationLink}`
+            `${process.env.API_URL}/activate/${activationLink}`
         );
 
         const userDto = new UserDto(user);
@@ -92,7 +92,7 @@ class UserService {
 
             await mailService.sendResetPassword(
                 user.email,
-                `${process.env.CLIENT_URL}/password/${user.resetToken}`
+                `${process.env.API_URL}/password/${user.resetToken}`
             );
         });
     }

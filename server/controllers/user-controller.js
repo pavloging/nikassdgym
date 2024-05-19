@@ -74,7 +74,7 @@ class UserController {
             const token = req.params.token;
             const user = await userService.passwordToken(token);
             return res.redirect(
-                `${process.env.CLIENT_URL}/password?userId=${user.userId}&token=${user.token}`
+                `${process.env.API_URL}/password?userId=${user.userId}&token=${user.token}`
             );
         } catch (e) {
             next(e);
