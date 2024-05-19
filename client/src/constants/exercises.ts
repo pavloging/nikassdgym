@@ -10,43 +10,43 @@ import wideGripLatPullDown from '../assets/video/back/wideGripLatPullDown.mp4';
 import pulloverStanding from '../assets/video/back/pulloverStanding.mp4';
 import negativePullUps from '../assets/video/back/negativePullUps.mp4';
 import upperBlockPull from '../assets/video/back/upperBlockPull.mp4';
-import closeGripLatPull2 from '../assets/video/back/closeGripLatPull2.mov';
+import closeGripLatPull2 from '../assets/video/back/closeGripLatPull2.mp4';
 import waistlineCraving from '../assets/video/back/waistlineCraving.mov';
 import aryamnovBridge from '../assets/video/back/aryamnovBridge.mov';
 import crow from '../assets/video/back/crow.mov';
 import сravingForABoat from '../assets/video/back/cravingForABoat.mov';
-import closeGripLatPull1 from '../assets/video/back/closeGripLatPull1.mov';
-import pulloverLyingDown from '../assets/video/back/pulloverLyingDown.mov';
+import closeGripLatPull1 from '../assets/video/back/closeGripLatPull1.mp4';
+import pulloverLyingDown from '../assets/video/back/pulloverLyingDown.mp4';
 import circleWithArmsLyingDown from '../assets/video/back/circleWithArmsLyingDown.mov';
 import halfPullUp from '../assets/video/back/halfPullUp.mov';
 import abductionOfTheArmWithAnElasticBand from '../assets/video/back/abductionOfTheArmWithAnElasticBand.mov';
 import boat from '../assets/video/back/boat.mov';
-import trapezePullUp from '../assets/video/back/trapezePullUp.mov';
-import deadlift from '../assets/video/back/deadlift.mov';
-import extensionWithAdduction from '../assets/video/back/extensionWithAdduction.mov';
-import tractionInAHummer from '../assets/video/back/tractionInAHummer.mov';
+import trapezePullUp from '../assets/video/back/trapezePullUp.mp4';
+import deadlift from '../assets/video/back/deadlift.mp4';
+import extensionWithAdduction from '../assets/video/back/extensionWithAdduction.mp4';
+import tractionInAHummer from '../assets/video/back/tractionInAHummer.mp4';
 import swimmer from '../assets/video/back/swimmer.mov';
-import pullUpFromYogaPose from '../assets/video/back/pullUpFromYogaPose.mov';
-import hyperextension from '../assets/video/back/hyperextension.mov';
-import pullUpsInTheGravitron from '../assets/video/back/pullUpsInTheGravitron.mov';
+import pullUpFromYogaPose from '../assets/video/back/pullUpFromYogaPose.mp4';
+import hyperextension from '../assets/video/back/hyperextension.mp4';
+import pullUpsInTheGravitron from '../assets/video/back/pullUpsInTheGravitron.mp4';
 
 //chestArms
-import armyPress from '../assets/video/chest-arms/armyPress.mov';
-import swingToTheSide from '../assets/video/chest-arms/swingToTheSide.mov';
+import armyPress from '../assets/video/chest-arms/armyPress.mp4';
+import swingToTheSide from '../assets/video/chest-arms/swingToTheSide.mp4';
 import bicepsInCrossover from '../assets/video/chest-arms/bicepsInCrossover.mov';
-import smithPushUps from '../assets/video/chest-arms/smithPushUps.mov';
-import frenchChemLyingDown from '../assets/video/chest-arms/frenchChemLyingDown.mov';
-import reversePushUps from '../assets/video/chest-arms/reversePushUps.mov';
-import dipsGravitron from '../assets/video/chest-arms/dipsGravitron.mov';
+import smithPushUps from '../assets/video/chest-arms/smithPushUps.mp4';
+import frenchChemLyingDown from '../assets/video/chest-arms/frenchChemLyingDown.mp4';
+import reversePushUps from '../assets/video/chest-arms/reversePushUps.mp4';
+import dipsGravitron from '../assets/video/chest-arms/dipsGravitron.mp4';
 import bicepsStaticDynamic from '../assets/video/chest-arms/bicepsStaticDynamic.mov';
-import dumbbellBenchPress from '../assets/video/chest-arms/dumbbellBenchPress.mov';
-import platePressUp from '../assets/video/chest-arms/platePressUp.mov';
+import dumbbellBenchPress from '../assets/video/chest-arms/dumbbellBenchPress.mp4';
+import platePressUp from '../assets/video/chest-arms/platePressUp.mp4';
 import tricepsInCrossover from '../assets/video/chest-arms/tricepsInCrossover.mov';
 import frenchStandingPress from '../assets/video/chest-arms/frenchStandingPress.mov';
 import pushUpsWithAnElasticBand from '../assets/video/chest-arms/pushUpsWithAnElasticBand.mov';
-import benchPress from '../assets/video/chest-arms/benchPress.mov';
+import benchPress from '../assets/video/chest-arms/benchPress.mp4';
 import negativePushUps from '../assets/video/chest-arms/negativePushUps.mov';
-import swingStaticsDynamics from '../assets/video/chest-arms/swingStaticsDynamics.mov';
+import swingStaticsDynamics from '../assets/video/chest-arms/swingStaticsDynamics.mp4';
 
 //warmUp
 import shoulderWarmUp from '../assets/video/warm-up/shoulderWarmUp.mp4';
@@ -55,23 +55,23 @@ import warmUpOnKnees from '../assets/video/warm-up/warmUpOnKnees.mov';
 
 //press
 import kneeElbowObliquely from '../assets/video/press/kneeElbowObliquely.mov';
-import birchTreeHoldingOntoASupport from '../assets/video/press/birchTreeHoldingOntoASupport.mov';
+import birchTreeHoldingOntoASupport from '../assets/video/press/birchTreeHoldingOntoASupport.mp4';
 import strapOnBarefoot from '../assets/video/press/strapOnBarefoot.mov';
-import lateralBendsToTheSide from '../assets/video/press/lateralBendsToTheSide.mov';
+import lateralBendsToTheSide from '../assets/video/press/lateralBendsToTheSide.mp4';
 import walkingPlank from '../assets/video/press/walkingPlank.mov';
-import absHanging from '../assets/video/press/absHanging.mov';
+import absHanging from '../assets/video/press/absHanging.mp4';
 import barefootTwisting from '../assets/video/press/barefootTwisting.mov';
-import birchTreeOnAnInclinedBench from '../assets/video/press/birchTreeOnAnInclinedBench.mov';
-import inclineСrunch from '../assets/video/press/inclineСrunch.mov';
-import bircTreeOnTheFloor from '../assets/video/press/bircTreeOnTheFloor.mov';
-import pancakeCrunches from '../assets/video/press/pancakeCrunches.mov';
-import scissors from '../assets/video/press/scissors.mov';
-import kneeToSidePlank from '../assets/video/press/kneeToSidePlank.mov';
-import plankClimber from '../assets/video/press/plankClimber.mov';
-import loweringTheLegs from '../assets/video/press/loweringTheLegs.mov';
+import birchTreeOnAnInclinedBench from '../assets/video/press/birchTreeOnAnInclinedBench.mp4';
+import inclineСrunch from '../assets/video/press/inclineСrunch.mp4';
+import bircTreeOnTheFloor from '../assets/video/press/bircTreeOnTheFloor.mp4';
+import pancakeCrunches from '../assets/video/press/pancakeCrunches.mp4';
+import scissors from '../assets/video/press/scissors.mp4';
+import kneeToSidePlank from '../assets/video/press/kneeToSidePlank.mp4';
+import plankClimber from '../assets/video/press/plankClimber.mp4';
+import loweringTheLegs from '../assets/video/press/loweringTheLegs.mp4';
 import bar from '../assets/video/press/bar.mov';
 import loweringLegsAlternately from '../assets/video/press/loweringLegsAlternately.mov';
-import cravingForSocks from '../assets/video/press/cravingForSocks.mov';
+import cravingForSocks from '../assets/video/press/cravingForSocks.mp4';
 
 //legs
 import legPress from '../assets/video/legs/legPress.mp4';
@@ -82,26 +82,26 @@ import bulgarianLungesInCrossover from '../assets/video/legs/bulgarianLungesInCr
 import gluteBridgeWithDumbbells from '../assets/video/legs/gluteBridgeWithDumbbells.mp4';
 import romanianDeadlift from '../assets/video/legs/romanianDeadlift.mp4';
 import romanianThrustSwallow from '../assets/video/legs/romanianThrustSwallow.mp4';
-import legExtensionSitting from '../assets/video/legs/legExtensionSitting.mov';
-import smithSquats from '../assets/video/legs/smithSquats.mov';
-import backLunges from '../assets/video/legs/backLunges.mov';
-import sumoSquats from '../assets/video/legs/sumoSquats.mov';
-import barbellSquats from '../assets/video/legs/barbellSquats.mov';
-import shinFlexion from '../assets/video/legs/shinFlexion.mov';
-import romanianDeadliftOnOneLeg from '../assets/video/legs/romanianDeadliftOnOneLeg.mov';
-import lungesIntoMotion from '../assets/video/legs/lungesIntoMotion.mov';
-import romanianDeadliftInSmith from '../assets/video/legs/romanianDeadliftInSmith.mov';
-import seatedLegPinch from '../assets/video/legs/seatedLegPinch.mov';
-import kickbackInCrossover from '../assets/video/legs/kickbackInCrossover.mov';
-import glutealBridgeInSmith from '../assets/video/legs/glutealBridgeInSmith.mov';
-import squats from '../assets/video/legs/squats.mov';
-import bulgarianLunges from '../assets/video/legs/bulgarianLunges.mov';
+import legExtensionSitting from '../assets/video/legs/legExtensionSitting.mp4';
+import smithSquats from '../assets/video/legs/smithSquats.mp4';
+import backLunges from '../assets/video/legs/backLunges.mp4';
+import sumoSquats from '../assets/video/legs/sumoSquats.mp4';
+import barbellSquats from '../assets/video/legs/barbellSquats.mp4';
+import shinFlexion from '../assets/video/legs/shinFlexion.mp4';
+import romanianDeadliftOnOneLeg from '../assets/video/legs/romanianDeadliftOnOneLeg.mp4';
+import lungesIntoMotion from '../assets/video/legs/lungesIntoMotion.mp4';
+import romanianDeadliftInSmith from '../assets/video/legs/romanianDeadliftInSmith.mp4';
+import seatedLegPinch from '../assets/video/legs/seatedLegPinch.mp4';
+import kickbackInCrossover from '../assets/video/legs/kickbackInCrossover.mp4';
+import glutealBridgeInSmith from '../assets/video/legs/glutealBridgeInSmith.mp4';
+import squats from '../assets/video/legs/squats.mp4';
+import bulgarianLunges from '../assets/video/legs/bulgarianLunges.mp4';
 import fallenWoman from '../assets/video/legs/fallenWoman.mov';
-import caviarOnAHill from '../assets/video/legs/caviarOnAHill.mov';
-import romanianDeadliftWithOneFootToTheWall from '../assets/video/legs/romanianDeadliftWithOneFootToTheWall.mov';
+import caviarOnAHill from '../assets/video/legs/caviarOnAHill.mp4';
+import romanianDeadliftWithOneFootToTheWall from '../assets/video/legs/romanianDeadliftWithOneFootToTheWall.mp4';
 import attachedStepsWithubber from '../assets/video/legs/attachedStepsWithubber.mov';
 import pacing from '../assets/video/legs/pacing.mov';
-import sittingLegRaises from '../assets/video/legs/sittingLegRaises.mov';
+import sittingLegRaises from '../assets/video/legs/sittingLegRaises.mp4';
 
 const warmUp = [
     {
@@ -327,11 +327,11 @@ const legs = [
     },
     {
         name: 'Приседы сумо',
-        src: sumoSquats,
+        src: sumoSquats, 
     },
     {
         name: 'Приседы со штангой',
-        src: barbellSquats,
+        src: barbellSquats,  
     },
     {
         name: 'Сгибание голени',
