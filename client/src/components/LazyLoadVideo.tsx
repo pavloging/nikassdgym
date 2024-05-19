@@ -32,7 +32,7 @@ const LazyLoadVideo = ({ src, type, index }: ILazyLoadVideo) => {
       
     return (
         <div ref={ref}>
-                {inView ? <video className="exercise__video" controls><source src={src} type={type} /></video> : <div>СКЕЛЕТОН</div>}
+                {inView ? <video className="exercise__video" controls><source src={src} type={type} /></video> : <div className="exercise__video"></div>}
         </div>
     );
 };

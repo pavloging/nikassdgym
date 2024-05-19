@@ -42,9 +42,6 @@ const Exercise: FC = () => {
                 {filteredExercise.map((item, index) => (
                     <div className="exercise__card" key={item.name}>
                         <div className="exercise__video-block">
-                            {/* <video className="exercise__video" controls>
-                                <source src={item.src} type="video/mp4"></source>
-                            </video> */}
                             <LazyLoadVideo src={item.src} type="video/mp4" index={index} />
                         </div>
                         <p className="exercise__name">{item.name}</p>

@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --color-bg: #212121;
-    --color-red: #ff99a2;
+    --color-bg: #d1e9ff;
+    --color-blue: #3a57f4;
     --color-white: #fff;
+    --color-grey: #343434;
+
     --color-dark: #a1a1a1;
     --color-blur: #4a3144;
-    --color-grey: #aeaeae;
 
-    --btn-primary: #ff6161;
-    --btn-primary-hover: #fe4b4b;
+    --btn-primary: #7187ff;
+    --btn-primary-hover: #5e76ff;
 
-    --btn-secondary: #ffffff30;
+    --btn-secondary: #ffffff20;
     --btn-secondary-hover: #ffffff40;
 }
 
@@ -23,7 +24,7 @@
 body {
     font-family: 'Montserrat';
     background-color: var(--color-bg);
-    color: white;
+    color: var(--color-grey);
     border: solid 1px var(--color-bg);
 }
 body #root {
@@ -58,9 +59,8 @@ h2 {
 button {
     font-size: smaller;
     padding: 8px 20px;
-    color: var(--color-white);
     border-radius: 20px;
-    border: solid 1px var(--color-white);
+    border: solid 1px var(--color-grey);
     cursor: pointer;
     transition: 0.5s;
 }
@@ -71,6 +71,7 @@ button {
     background-color: var(--btn-secondary-hover);
 }
 .primary {
+    color: var(--color-white);
     background-color: var(--btn-primary);
 }
 .primary:hover {
@@ -82,7 +83,7 @@ button {
     border: none;
 }
 a {
-    color: var(--color-white);
+    color: var(--color-grey);
     text-decoration: none;
     transition: 0.5s;
 }
@@ -136,6 +137,7 @@ hr {
     filter: contrast(0.5);
 }
 .header__primary:hover {
+    color: var(--color-grey);
     background-color: var(--btn-secondary-hover);
 }
 .header__secondary:hover {
@@ -180,6 +182,9 @@ hr {
     justify-content: space-between;
     align-items: flex-end;
     margin-top: 40px;
+}
+.footer__img {
+    width: 24px;
 }
 .footer__policy {
     font-size: 12px;
@@ -252,21 +257,39 @@ hr {
 /* Main page */
 .main__welcome {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 20px;
     padding: 40px 20px;
+}
+.main__welcome-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .main__title {
     margin: 16px 0;
+    text-align: start;
 }
 .main__description {
     font-size: larger;
-    text-align: center;
 }
 .main__buttons {
     display: flex;
     gap: 14px;
+}
+#main__blue {
+    position: absolute;
+    width: 300px;
+    height: 550px;
+    background: #ffffff;
+    border-radius: 100px;
+    filter: blur(100px);
+    z-index: -1;
+}
+.main__img {
+    height: 500px;
+    position: relative;
+    top: 45px;
 }
 .main__content {
     display: flex;
@@ -289,28 +312,17 @@ hr {
     font-size: large;
 }
 .main__span {
-    color: var(--color-red);
+    color: var(--color-blue);
 }
 .main__blur {
     position: absolute;
     background: var(--color-blur);
     z-index: -1;
 }
-#main__blur-top {
-    width: 250px;
-    height: 450px;
-    top: 10px;
-    left: -100px;
-    transform: rotate(67deg);
-    filter: blur(135px);
-}
-#main__blur-bottom {
-    width: 200px;
-    height: 100px;
-    bottom: 0;
-    right: 0;
-    transform: rotate(0deg);
-    filter: blur(100px);
+
+/* Policy page */
+.policy p {
+    margin-left: 16px;
 }
 
 /* Rates page */
@@ -336,7 +348,7 @@ hr {
     text-align: center;
 }
 .rates__description {
-    color: var(--color-red);
+    color: var(--color-blue);
     text-align: center;
 }
 .rates__sale-block {
@@ -423,10 +435,10 @@ hr {
     gap: 50px;
 }
 .exercise__video-block {
-    background: black;
     border-radius: 10px;
 }
 .exercise__video {
+    background: var(--color-dark);
     min-height: 75vh;
 
     max-height: 75vh;
@@ -517,11 +529,11 @@ hr {
     width: 100%;
     height: 3px;
     border-radius: 10px;
-    background: #ffffffc0;
+    background: var(--color-grey);
 }
 .burger::before {
     top: 0;
-    box-shadow: 0 11px 0 #ffffffc0;
+    box-shadow: 0 11px 0 var(--color-grey);
     transition: box-shadow 0.3s 0.15s, top 0.3s 0.15s, transform 0.3s;
 }
 .burger::after {
@@ -574,6 +586,11 @@ hr {
     }
 }
 
+@media all and (max-device-width: 980px) {
+    .main__welcome-img {
+        width: 43%;
+    }
+}
 @media all and (max-device-width: 768px) {
     body #root {
         margin: 0 5%;
@@ -587,7 +604,14 @@ hr {
         margin-right: 30px;
     }
     .main__welcome {
+        flex-direction: column;
         padding: 40px 0px;
+    }
+    .main__welcome-img{
+        width: auto;
+    }
+    .main__title, .main__description {
+        text-align: center;
     }
     .main__buttons {
         justify-content: center;

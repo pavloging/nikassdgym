@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
 import { exercises as exercisesList } from '../constants/exercises';
-import LazyLoadVideo from '../components/LazyLoadVideo';
+import avatar from '../assets/images/avatar.png';
 
 const Main: FC = () => {
-    const name = 'back'
+    const name = 'back';
     const exercise = exercisesList.find((item) => item.url === name);
 
     if (!exercise) return <h1>Page 404</h1>;
@@ -13,20 +13,26 @@ const Main: FC = () => {
     return (
         <ContentContainer className="main">
             <div className="main__welcome">
-                <h1 className="content__title main__title">
-                    Добро пожаловать на платформу онлайн - тренинга Дупиной Ники
-                </h1>
-                <p className="main__description">
-                    После оплаты предоставляется доступ к видеоурокам с<br/>объяснением техники
-                    упражнений
-                </p>
-                <div className="main__buttons">
-                    <Link to="/login">
-                        <button className="secondary">Вход</button>
-                    </Link>
-                    <Link to="/registration">
-                        <button className="primary">Регистрация и оплата</button>
-                    </Link>
+                <div className='main__welcome-text'>
+                    <h1 className="content__title main__title">
+                        Добро пожаловать на платформу онлайн - тренинга Дупиной Ники
+                    </h1>
+                    <p className="main__description">
+                        После оплаты предоставляется доступ к видеоурокам<br />с
+                        объяснением техники упражнений
+                    </p>
+                    <div className="main__buttons">
+                        <Link to="/login">
+                            <button className="secondary">Вход</button>
+                        </Link>
+                        <Link to="/registration">
+                            <button className="primary">Регистрация и оплата</button>
+                        </Link>
+                    </div>
+                </div>
+                <div className='main__welcome-img'>
+                    <div id='main__blue'></div>
+                    <img className='main__img' src={avatar} alt="Avatar" />
                 </div>
             </div>
 
@@ -53,8 +59,10 @@ const Main: FC = () => {
 
                 <div className="main__text-block">
                     <p className="main__paragraph">
-                        Оплата ежемесячно, независимо от использования сайта. Рекомендую смотреть
-                        видеоуроки дома и перед тренировкой
+                        Оплата ежемесячно, независимо от использования сайта.{' '}
+                        <span className="main__span">
+                            Рекомендую смотреть видеоуроки дома и перед тренировкой
+                        </span>
                     </p>
 
                     <div className="main__buttons">
@@ -67,20 +75,6 @@ const Main: FC = () => {
                     </div>
                 </div>
             </div>
-
-            <div className="main__blur" id="main__blur-top"></div>
-            <div className="main__blur" id="main__blur-bottom"></div>
-
-            {/* Delete */}
-            {exercise.list.map((item, index) => (
-                    <div className="exercise__card" key={item.name}>
-                        <div className="exercise__video-block">
-                            <LazyLoadVideo src={item.src} type="video/mp4" index={index} />
-                        </div>
-                        <p className="exercise__name">{item.name}</p>
-                    </div>
-                ))}
-            {/* Delete */}
         </ContentContainer>
     );
 };
