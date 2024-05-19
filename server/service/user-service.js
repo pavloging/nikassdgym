@@ -158,25 +158,7 @@ class UserService {
             },
         });
 
-        // axios
-        //     .post('https://api.yookassa.ru/v3/payments', data, {
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Idempotence-Key': idempotenceKey,
-        //         },
-        //         auth: {
-        //             username: storeId,
-        //             password: secretKey,
-        //         },
-        //     })
-        //     .then((response) => {
-        //         console.log('Success:', response.data);
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error.response ? error.response.data : error.message);
-        //     });
-
-        return link;
+        return link.data;
     }
 
     async activateSubscription({ userId, date }) {
