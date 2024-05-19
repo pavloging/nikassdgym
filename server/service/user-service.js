@@ -10,6 +10,8 @@ const ApiError = require('../exceptions/api-error');
 
 class UserService {
     async registration(email, password) {
+        if (password.length < 8) throw Error('Пароль должен содержать более 8-ми символов')
+
         const candidate = await UserModel.findOne({ email });
         if (candidate) {
             throw ApiError.BadRequest(`Пользователь с почтовым адресом ${email} уже существует`);
