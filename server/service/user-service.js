@@ -126,56 +126,6 @@ class UserService {
 
         return { userId: user._id, token };
     }
-
-    async createLinkPay({ price, name }) {
-        const storeId = process.env.YOOKASSA_STORE_ID;
-        const secretKey = process.env.YOOKASSA_SECRET_KEY;
-        const idempotenceKey = uuid.v4();
-
-        console.log(storeId, secretKey, idempotenceKey)
-
-        const data = {
-            amount: {
-                value: `${price}.00`,
-                currency: 'RUB',
-            },
-            confirmation: {
-                type: 'redirect',
-                return_url: 'https://nikassdgym.ru/exercises',
-            },
-            description: `Оплата тарифа: ${name}`,
-        };
-        console.log(data)
-
-        const link = await axios.post('https://api.yookassa.ru/v3/payments', data, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Idempotence-Key': idempotenceKey,
-            },
-            auth: {
-                username: storeId,
-                password: secretKey,
-            },
-        });
-
-        return link.data;
-    }
-
-    async activateSubscription({ userId, date }) {
-        const user = await UserModel.findOne({ _id: userId });
-        if (!user) throw ApiError.BadRequest('User not found');
-
-        if (!user.activateSubscriptionExp)
-            user.activateSubscriptionExp = new Date(new Date().getTime() + date);
-        else {
-            const currentDate = new Date(user.activateSubscriptionExp);
-            const newDate = new Date(currentDate.getTime() + date);
-            user.activateSubscriptionExp = newDate;
-        }
-
-        await user.save();
-        return new UserDto(user);
-    }
 }
 
 module.exports = new UserService();

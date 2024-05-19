@@ -1,4 +1,5 @@
 const userService = require('../service/user-service');
+const paymentService = require('../service/payment-service');
 const { validationResult } = require('express-validator');
 const ApiError = require('../exceptions/api-error');
 
@@ -107,8 +108,8 @@ class UserController {
     async createLinkPay(req, res, next) {
         try {
             const { userId, date, price, name } = req.body;
-            const createdData = await userService.createLinkPay({ price, name });
-            // save in db
+            const createdData = await paymentService.createLinkPay({ price, name });
+            await paymentService.savePayment({ userId, date, price, name, order: createdData.id})
             console.log(createdData)
             return res.json(createdData.confirmation.confirmation_url);
         } catch (e) {
@@ -119,7 +120,7 @@ class UserController {
     async activateSubscription(req, res, next) {
         try {
             const { userId, date } = req.body;
-            const user = await userService.activateSubscription({ userId, date });
+            const user = await paymentService.activateSubscription({ userId, date });
             return res.json(user);
         } catch (e) {
             next(e);
@@ -130,12 +131,7 @@ class UserController {
         try {
             const data = req.body;
             console.log(data)
-            if (data.event === 'payment.succeeded') {
-                const paymentId = data.object.id;
-                // Делайте ваши операции, например, обновляйте статус заказа в базе данных
-                // Например:
-                // updateOrderStatus(paymentId, 'paid');
-            }
+            await paymentService.webhook(data.object)
 
             res.status(200).json({ status: 'ok' });
         } catch (e) {
