@@ -393,7 +393,7 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--btn-secondary);
+    background: #5469ff20;
     border-radius: 24px 24px 0 0;
 }
 .exercises-list__img {
