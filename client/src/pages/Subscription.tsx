@@ -26,12 +26,14 @@ const Subscription: FC = () => {
             //         resolve('foo');
             //     }, 300);
             // });
-            
+
             setTimeout(async () => {
                 const data = await dispatch(fetchCreateLinkPay(pay));
                 console.log(data);
                 if (!data) throw Error('Произошла ошибка при получении данных. Попробуйте позже');
-            }, 2000);
+                console.log(data.payload);
+                window.location.href = data.payload as string;
+            }, 2500);
 
             // toast.success('Деньги были отправлены. После поступления на счет - Подписка активируется')
         } catch (e) {

@@ -132,6 +132,7 @@ hr {
     margin-top: 2px;
     cursor: pointer;
     transition: 0.5s;
+    filter: invert(1);
 }
 .header__logout:hover {
     filter: contrast(0.5);
@@ -228,6 +229,7 @@ hr {
     position: absolute;
     top: 15px;
     right: 18px;
+    filter: invert(1);
 }
 .login-form__label {
     margin-bottom: 4px;

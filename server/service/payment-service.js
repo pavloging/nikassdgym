@@ -82,6 +82,9 @@ class PaymentService {
         }
 
         await user.save();
+        payment.status = 'success'
+        
+        await payment.save();
         return new UserDto(user);
     }
 }
