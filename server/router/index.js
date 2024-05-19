@@ -2,7 +2,7 @@ const Router = require('express').Router;
 const userController = require('../controllers/user-controller');
 const router = new Router();
 const authMiddleware = require('../middlewares/auth-middleware');
-import { authValidation } from './validations.js';
+const authValidation = require('../middlewares/validations.js');
 
 router.post('/registration', authValidation, userController.registration);
 router.post('/login', authValidation, userController.login);

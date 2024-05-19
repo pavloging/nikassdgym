@@ -1,8 +1,6 @@
-const UserModel = require('../models/user-model');
 const uuid = require('uuid');
 const axios = require('axios');
 const UserDto = require('../dtos/user-dto');
-const ApiError = require('../exceptions/api-error');
 const paymentModel = require('../models/payment-model');
 const userModel = require('../models/user-model');
 
@@ -83,7 +81,7 @@ class PaymentService {
 
         await user.save();
         payment.status = 'success'
-        
+
         await payment.save();
         return new UserDto(user);
     }
