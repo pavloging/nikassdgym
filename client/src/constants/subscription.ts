@@ -5,7 +5,8 @@ export const subscription: Array<ISubscription> = [
         name: '24 часа',
         description: 'Разовый доступ на 24 часа',
         date: 24 * 60 * 60 * 1000, // 24 часа
-        price: 499
+        price: 1
+        // price: 499
     },
     {
         name: '1 месяц',
