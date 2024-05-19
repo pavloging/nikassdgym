@@ -1,24 +1,20 @@
 const Router = require('express').Router;
 const userController = require('../controllers/user-controller');
 const router = new Router();
-const {body} = require('express-validator');
 const authMiddleware = require('../middlewares/auth-middleware');
+import { authValidation } from './validations.js';
 
-router.post('/registration',
-    body('email').isEmail(),
-    body('password').isLength({min: 3, max: 32}),
-    userController.registration
-);
-router.post('/login', userController.login);
+router.post('/registration', authValidation, userController.registration);
+router.post('/login', authValidation, userController.login);
 router.post('/logout', userController.logout);
 router.get('/reset/:email', userController.reset);
 router.get('/password/:token', userController.passwordToken);
 router.post('/password', userController.password);
-router.post('/createLinkPay', authMiddleware, userController.createLinkPay)
-router.post('/activateSubscription', authMiddleware, userController.activateSubscription)
+
+router.post('/createLinkPay', authMiddleware, userController.createLinkPay);
+router.post('/activateSubscription', authMiddleware, userController.activateSubscription);
 router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
+router.post('/webhook', userController.webhook);
 
-router.post('/webhook', userController.webhook)
-
-module.exports = router
+module.exports = router;

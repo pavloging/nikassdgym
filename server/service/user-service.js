@@ -10,14 +10,12 @@ const ApiError = require('../exceptions/api-error');
 
 class UserService {
     async registration(email, password) {
-        if (password.length < 8) throw Error('Пароль должен содержать более 8-ми символов')
-
         const candidate = await UserModel.findOne({ email });
         if (candidate) {
             throw ApiError.BadRequest(`Пользователь с почтовым адресом ${email} уже существует`);
         }
         const hashPassword = await bcrypt.hash(password, 3);
-        const activationLink = uuid.v4(); // v34fa-asfasf-142saf-sa-asf
+        const activationLink = uuid.v4();
 
         const user = await UserModel.create({ email, password: hashPassword, activationLink });
         await mailService.sendActivationMail(
@@ -25,7 +23,7 @@ class UserService {
             `${process.env.API_URL}/api/activate/${activationLink}`
         );
 
-        const userDto = new UserDto(user); // id, email, isActivated
+        const userDto = new UserDto(user);
         const tokens = tokenService.generateTokens({ ...userDto });
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
