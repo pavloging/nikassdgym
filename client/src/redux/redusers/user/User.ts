@@ -7,7 +7,7 @@ import { fetchLogout } from './ActionLogout';
 import { fetchRegistration } from './ActionRegistration';
 import { AuthResponse } from '../../../types/response/AuthResponse';
 import { IUser } from '../../../types/IUser';
-import { fetchActivateRates } from './ActionActivateRates';
+import { fetchCreateLinkPay } from './ActionCreateLinkPay';
 
 type RejectedAction =
     | unknown
@@ -33,7 +33,7 @@ const initialState: UserState = {
         id: '',
         email: '',
         isActivated: false,
-        isActivatedRates: false
+        isActivatedSubscription: false
     },
     isLoading: false,
     isAuth: false,
@@ -109,16 +109,16 @@ export const userSlice = createSlice({
                 state.error = action.payload as string;
             })
 
-            .addCase(fetchActivateRates.fulfilled, (state, action: PayloadAction<IUser>) => {
+            .addCase(fetchCreateLinkPay.fulfilled, (state, action: PayloadAction<IUser>) => {
                 toast.success('Вы активировали тариф');
                 state.isLoading = false;
                 state.error = '';
                 state.user = action.payload
             })
-            .addCase(fetchActivateRates.pending, (state) => {
+            .addCase(fetchCreateLinkPay.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(fetchActivateRates.rejected, (state, action: PayloadAction<RejectedAction>) => {
+            .addCase(fetchCreateLinkPay.rejected, (state, action: PayloadAction<RejectedAction>) => {
                 toast.error(action.payload as string);
                 state.isLoading = false;
                 state.error = action.payload as string;

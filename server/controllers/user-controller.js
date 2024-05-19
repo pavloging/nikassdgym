@@ -104,10 +104,22 @@ class UserController {
         }
     }
 
-    async activateRates(req, res, next) {
+    async createLinkPay(req, res, next) {
+        try {
+            const { userId, date, price, name } = req.body;
+            const createdData = await userService.createLinkPay({ price, name });
+            console.log(createdData)
+
+            return res.json(user);
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    async activateSubscription(req, res, next) {
         try {
             const { userId, date } = req.body;
-            const user = await userService.activateRates({ userId, date });
+            const user = await userService.activateSubscription({ userId, date });
             return res.json(user);
         } catch (e) {
             next(e);

@@ -7,6 +7,6 @@ module.exports = class UserDto {
         this.email = model.email;
         this.id = model._id;
         this.isActivated = model.isActivated;
-        this.isActivatedRates = model.activateRatesExp >= new Date();
+        this.isActivatedSubscription = model.activateSubscriptionExp >= new Date();
     }
 }

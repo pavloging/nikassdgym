@@ -5,7 +5,7 @@ import Password from './pages/Password';
 import Policy from './pages/Policy';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
-import Rates from './pages/Rates';
+import Subscription from './pages/Subscription';
 import ExercisesList from './pages/ExercisesList';
 import Exercise from './pages/Exercise';
 
@@ -31,8 +31,8 @@ const routes = [
         element: <Policy />
     },
     {
-        path: 'rates',
-        element: <Rates />
+        path: 'subscription',
+        element: <Subscription />
     },
     {
         path: 'exercises',

@@ -23,7 +23,7 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
         if (data.type === 'user/fetchRegistration/rejected')
             throw Error('Произошла ошибка на стороне сервера. Попробуйте позже');
 
-        navigate('/rates');
+        navigate('/subscription');
     };
 
     const handleLogin = async () => {

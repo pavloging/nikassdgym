@@ -14,7 +14,8 @@ router.post('/logout', userController.logout);
 router.get('/reset/:email', userController.reset);
 router.get('/password/:token', userController.passwordToken);
 router.post('/password', userController.password);
-router.post('/activateRates', authMiddleware, userController.activateRates)
+router.post('/createLinkPay', authMiddleware, userController.createLinkPay)
+router.post('/activateSubscription', authMiddleware, userController.activateSubscription)
 router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
 

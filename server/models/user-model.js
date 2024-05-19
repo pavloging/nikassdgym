@@ -7,7 +7,7 @@ const UserSchema = new Schema({
     activationLink: { type: String },
     resetToken: { type: String },
     resetTokenExp: { type: Date },
-    activateRatesExp: { type: Date },
+    activateSubscriptionExp: { type: Date },
 });
 
 module.exports = model('User', UserSchema);

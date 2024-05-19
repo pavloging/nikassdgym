@@ -18,15 +18,7 @@ const Header = () => {
     const exercises = `${
         pathname.includes('/exercises') ? 'secondary' : 'primary header__primary'
     }`;
-    const rates = `${pathname === '/rates' ? 'secondary' : 'primary header__primary'}`;
-    // if (!store.user.activateRatesExp)
-    //     return <p className="txt-center">У вас не активна подписка</p>;
-    // if (store.user.activateRatesExp >= new Date())
-    //     return <p className="txt-center">У вас не активна подписка</p>;
-    // const activate =
-    //     store.user.activateRatesExp && store.user.activateRatesExp <= new Date()
-    //         ? 'Подписка активна'
-    //         : 'Подписка не активна';
+    const subscription = `${pathname === '/subscription' ? 'secondary' : 'primary header__primary'}`;
 
     useEffect(() => {
         function handleResize() {
@@ -47,7 +39,7 @@ const Header = () => {
             <div className="burger__page">
                 <Link to="/">Главная</Link>
                 <Link to="/exercises">Упражнения</Link>
-                <Link to="/rates">Тарифы</Link>
+                <Link to="/subscription">Тарифы</Link>
 
                 {store.isAuth && (
                     <div className="header__logout-block">
@@ -71,8 +63,8 @@ const Header = () => {
                         <Link to="/exercises">
                             <button className={exercises}>Упражнения</button>
                         </Link>
-                        <Link to="/rates">
-                            <button className={rates}>Тарифы</button>
+                        <Link to="/subscription">
+                            <button className={subscription}>Тарифы</button>
                         </Link>
                     </div>
                 ) : (
@@ -88,7 +80,7 @@ const Header = () => {
                 )}
                 <div className="header__payment-block">
                     <div className="header__payment">
-                        {store.user.isActivatedRates ? (
+                        {store.user.isActivatedSubscription ? (
                             <button className="primary header__btn-fix">Подписка активна</button>
                         ) : (
                             <button className="secondary header__btn-fix">

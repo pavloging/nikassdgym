@@ -126,15 +126,45 @@ class UserService {
         return { userId: user._id, token };
     }
 
-    async activateRates({ userId, date }) {
+    async createLinkPay({ price, name}) {
+        const storeId = process.env.YOOKASSA_STORE_ID;
+        const secretKey = process.env.YOOKASSA_SECRET_KEY;
+        const idempotenceKey = uuid.v4();
+
+        const data = {
+            amount: {
+                value: `${price}.00`,
+                currency: 'RUB',
+            },
+            confirmation: {
+                type: 'redirect',
+                return_url: 'https://nikassdgym.ru/exercises',
+            },
+            description: `Оплата тарифа: ${name}`,
+        };
+
+        const response = await fetch('https://api.yookassa.ru/v3/payments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Idempotence-Key': idempotenceKey,
+                'Authorization': 'Basic ' + Buffer.from(`${storeId}:${secretKey}`).toString('base64')
+            },
+            body: JSON.stringify(data)
+        });
+
+        return await response.json();
+    }
+
+    async activateSubscription({ userId, date }) {
         const user = await UserModel.findOne({ _id: userId });
         if (!user) throw ApiError.BadRequest('User not found');
 
-        if (!user.activateRatesExp) user.activateRatesExp = new Date(new Date().getTime() + date);
+        if (!user.activateSubscriptionExp) user.activateSubscriptionExp = new Date(new Date().getTime() + date);
         else {
-            const currentDate = new Date(user.activateRatesExp);
+            const currentDate = new Date(user.activateSubscriptionExp);
             const newDate = new Date(currentDate.getTime() + date);
-            user.activateRatesExp = newDate;
+            user.activateSubscriptionExp = newDate;
         }
 
         await user.save();

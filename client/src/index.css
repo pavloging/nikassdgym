@@ -325,14 +325,14 @@ hr {
     margin-left: 16px;
 }
 
-/* Rates page */
-.rates__list-cards {
+/* Subscription page */
+.subscription__list-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
 }
-.rates__card {
+.subscription__card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -343,18 +343,18 @@ hr {
     border-radius: 20px;
     border: solid 1px var(--color-white);
 }
-.rates__name {
+.subscription__name {
     font-weight: 400;
     text-align: center;
 }
-.rates__description {
+.subscription__description {
     color: var(--color-blue);
     text-align: center;
 }
-.rates__sale-block {
+.subscription__sale-block {
     position: relative;
 }
-.rates__sale-price {
+.subscription__sale-price {
     text-decoration: line-through;
     font-weight: 400;
     font-size: 12px;
@@ -495,7 +495,7 @@ hr {
 }
 
 .login,
-.rates,
+.subscription,
 .reset,
 .password {
     display: flex;
@@ -620,10 +620,10 @@ hr {
         display: flex;
         justify-content: center;
     }
-    .rates__list-cards {
+    .subscription__list-cards {
         margin-bottom: 40px;
     }
-    .rates__card {
+    .subscription__card {
         width: 100%;
     }
 }

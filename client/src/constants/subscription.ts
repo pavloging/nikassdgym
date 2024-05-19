@@ -1,6 +1,6 @@
-import { IRates } from "../types/IRates";
+import { ISubscription } from "../types/ISubscription";
 
-export const rates: Array<IRates> = [
+export const subscription: Array<ISubscription> = [
     {
         name: '24 часа',
         description: 'Разовый доступ на 24 часа',

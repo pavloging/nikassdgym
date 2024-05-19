@@ -11,7 +11,7 @@ const ExercisesList: FC = () => {
     const Content = () => {
         if (!store.isAuth) return <p className='txt-center'>Авторизуйтесь в системе</p>
 
-        if (!store.user.isActivatedRates) return <p className='txt-center'>У вас не активна подписка</p>
+        if (!store.user.isActivatedSubscription) return <p className='txt-center'>У вас не активна подписка</p>
 
         return <div className="exercises-list__content">
         {exercises.map((item) => (
