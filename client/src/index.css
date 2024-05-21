@@ -554,6 +554,9 @@ hr {
     transition: bottom 0.3s, transform 0.3s 0.15s;
 }
 
+#main__img {
+    display: none;
+}
 @media screen and (min-width: 1441px) {
     /* body {
         background-color: red;
@@ -682,4 +685,95 @@ hr {
 }
 ::-webkit-scrollbar-track {
     background-color: var(--color-white);
+}
+
+/* Для мишуры */
+@media (min-width: 400px) and (max-width: 425px) {
+    /* Ваши стили внутри этого блока */
+    #main__img {
+        display: block;
+    }
+    #main__first-fitness {
+        position: absolute;
+        left: 40px;
+        top: 71vh;
+        color: var(--color-white);
+        font-size: xx-large;
+        font-weight: 600;
+        filter: blur(1px);
+    }
+    #main__second-fitness {
+        position: absolute;
+        right: 40px;
+        top: 143vh;
+        color: var(--color-white);
+        font-size: xx-large;
+        font-weight: 600;
+        filter: blur(1px);
+    }
+    #main__first-dumbbell{
+        position: absolute;
+        top: 72vh;
+        right: 0;
+        width: 150px;
+        transform: rotate(293deg);
+    }
+    #main__second-dumbbell{
+        position: absolute;
+        top: 35vh;
+        left: 0;
+        width: 120px;
+        transform: rotate(353deg);
+    }
+    #main__shaker {
+        position: absolute;
+        top: 133vh;
+        left: 0;
+        width: 150px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 399px) {
+    /* Ваши стили внутри этого блока */
+    #main__img {
+        display: block;
+    }
+    #main__first-fitness {
+        position: absolute;
+        left: 40px;
+        top: 80vh;
+        color: var(--color-white);
+        font-size: xx-large;
+        font-weight: 600;
+        filter: blur(1px);
+    }
+    #main__second-fitness {
+        position: absolute;
+        right: 40px;
+        top: 153vh;
+        color: var(--color-white);
+        font-size: xx-large;
+        font-weight: 600;
+        filter: blur(1px);
+    }
+    #main__first-dumbbell{
+        position: absolute;
+        top: 72vh;
+        right: 0;
+        width: 150px;
+        transform: rotate(293deg);
+    }
+    #main__second-dumbbell{
+        position: absolute;
+        top: 38vh;
+        left: 0;
+        width: 130px;
+        transform: rotate(353deg);
+    }
+    #main__shaker {
+        position: absolute;
+        top: 141vh;
+        left: 0;
+        width: 150px;
+    }
 }

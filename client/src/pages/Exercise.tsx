@@ -39,10 +39,10 @@ const Exercise: FC = () => {
                 </div>
             </div>
             <div className='exercise__list-card'>
-                {filteredExercise.map((item, index) => (
+                {filteredExercise.map((item) => (
                     <div className="exercise__card" key={item.name}>
                         <div className="exercise__video-block">
-                            <LazyLoadVideo src={item.src} type="video/mp4" index={index} />
+                            <LazyLoadVideo src={item.src} img={item.img} type="video/mp4" />
                         </div>
                         <p className="exercise__name">{item.name}</p>
                     </div>

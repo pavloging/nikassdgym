@@ -103,18 +103,24 @@ import attachedStepsWithubber from '../assets/video/legs/attachedStepsWithubber.
 import pacing from '../assets/video/legs/pacing.mov';
 import sittingLegRaises from '../assets/video/legs/sittingLegRaises.mp4';
 
+// img
+// import ....
+
 const warmUp = [
     {
         name: 'Разминка на плечи',
         src: shoulderWarmUp,
+        img: 'https://play-lh.googleusercontent.com/uKgHWil_5I_pDTqC2oiyzaOPqfSUOBjdzKSX6GXQVHJX9cFrK5InD5kC7UAIaY6Nkx8'
     },
     {
         name: 'Разминка с палкой',
         src: warmUpWithAStick,
+        img: ''
     },
     {
         name: 'Разминка на колени',
         src: warmUpOnKnees,
+        img: ''
     },
 ];
 
@@ -122,66 +128,82 @@ const chestArms = [
     {
         name: 'Армейский жим',
         src: armyPress,
+        img: ''
     },
     {
         name: 'Махи в сторону',
         src: swingToTheSide,
+        img: ''
     },
     {
         name: 'Бицепс в кроссовере ',
         src: bicepsInCrossover,
+        img: ''
     },
     {
         name: 'Отжимания от смита',
         src: smithPushUps,
+        img: ''
     },
     {
         name: 'Французкий жим лёжа ',
         src: frenchChemLyingDown,
+        img: ''
     },
     {
         name: 'Обратные отжимания от скамьи',
         src: reversePushUps,
+        img: ''
     },
     {
         name: 'Отжимания на брусьях(гравитрон)',
         src: dipsGravitron,
+        img: ''
     },
     {
         name: 'Бицепс <статика+динамика>',
         src: bicepsStaticDynamic,
+        img: ''
     },
     {
         name: 'Жим гантелей лёжа',
         src: dumbbellBenchPress,
+        img: ''
     },
     {
         name: 'Жим блина наверх',
         src: platePressUp,
+        img: ''
     },
     {
         name: 'Трицепс в кроссовере',
         src: tricepsInCrossover,
+        img: ''
     },
     {
         name: 'Французкий жим стоя',
         src: frenchStandingPress,
+        img: ''
     },
     {
         name: 'Отжимания в резиной',
         src: pushUpsWithAnElasticBand,
+        img: ''
     },
     {
         name: 'Жим штанги лёжа',
         src: benchPress,
+        img: ''
     },
     {
         name: 'Негативные отжимания ',
         src: negativePushUps,
+        img: ''
     },
     {
         name: 'Махи <статика+динамика>',
         src: swingStaticsDynamics,
+        img: ''
     },
 ];
 
@@ -189,94 +211,117 @@ const back = [
     {
         name: 'Тяга нижнего блока широким хватом',
         src: wideGripLatPullDown,
+        img: ''
     },
     {
         name: 'Пуловер стоя',
         src: pulloverStanding,
+        img: ''
     },
     {
         name: 'Негативные подтягивания',
         src: negativePullUps,
+        img: ''
     },
     {
         name: 'Тяга верхнего блока',
         src: upperBlockPull,
+        img: ''
     },
     {
         name: 'Тяга верхнего блока узким хватом',
         src: closeGripLatPull2,
+        img: ''
     },
     {
         name: 'Тяга к поесу',
         src: waistlineCraving,
+        img: ''
     },
     {
         name: 'Мост Арямнова',
         src: aryamnovBridge,
+        img: ''
     },
     {
         name: 'Ворона',
         src: crow,
+        img: ''
     },
     {
         name: 'Тяга к лодочке ',
         src: сravingForABoat,
+        img: ''
     },
     {
         name: 'Тяга нижнего блока узким хватом ',
         src: closeGripLatPull1,
+        img: ''
     },
     {
         name: 'Пуловер лежа',
         src: pulloverLyingDown,
+        img: ''
     },
     {
         name: 'Круг руками лёжа',
         src: circleWithArmsLyingDown,
+        img: ''
     },
     {
         name: 'Полуподтягивание',
         src: halfPullUp,
+        img: ''
     },
     {
         name: 'Отведение руки с резинкой ',
         src: abductionOfTheArmWithAnElasticBand,
+        img: ''
     },
     {
         name: 'Лодочка',
         src: boat,
+        img: ''
     },
     {
         name: 'Подтягивание на трапецию',
         src: trapezePullUp,
+        img: ''
     },
     {
         name: 'Становая тяга',
         src: deadlift,
+        img: ''
     },
     {
         name: 'Экстензия с приведением',
         src: extensionWithAdduction,
+        img: ''
     },
     {
         name: 'Тяга в Хаммере ',
         src: tractionInAHummer,
+        img: ''
     },
     {
         name: 'Пловец',
         src: swimmer,
+        img: ''
     },
     {
         name: 'Подтягивание из позы йога ',
         src: pullUpFromYogaPose,
+        img: ''
     },
     {
         name: 'Гиперэкстензия',
         src: hyperextension,
+        img: ''
     },
     {
         name: 'Подтягивания в гравитроне',
         src: pullUpsInTheGravitron,
+        img: ''
     },
 ];
 
@@ -284,114 +329,142 @@ const legs = [
     {
         name: 'Жим ногами',
         src: legPress,
+        img: ''
     },
     {
         name: 'Тяга сумо',
         src: sumoDeadlift,
+        img: ''
     },
     {
         name: 'Болгарские приседы в TRX',
         src: bulgarianSquatsInTrx,
+        img: ''
     },
     {
         name: 'Обратные приседы',
         src: backSquats,
+        img: ''
     },
     {
         name: 'Болгарские выпады в кроссовере',
         src: bulgarianLungesInCrossover,
+        img: ''
     },
     {
         name: 'Ягодичный мост с гантелями',
         src: gluteBridgeWithDumbbells,
+        img: ''
     },
     {
         name: 'Румынская тяга',
         src: romanianDeadlift,
+        img: ''
     },
     {
         name: 'Румынсккая тяга <ласточка>',
         src: romanianThrustSwallow,
+        img: ''
     },
     {
         name: 'Разгибание ног (сидя)',
         src: legExtensionSitting,
+        img: ''
     },
     {
         name: 'Приседы в смите',
         src: smithSquats,
+        img: ''
     },
     {
         name: 'Выпады назад',
         src: backLunges,
+        img: ''
     },
     {
         name: 'Приседы сумо',
         src: sumoSquats, 
+        img: ''
     },
     {
         name: 'Приседы со штангой',
         src: barbellSquats,  
+        img: ''
     },
     {
         name: 'Сгибание голени',
         src: shinFlexion,
+        img: ''
     },
     {
         name: 'Румынская тяга на 1 ноге ',
         src: romanianDeadliftOnOneLeg,
+        img: ''
     },
     {
         name: 'Выпады в движении',
         src: lungesIntoMotion,
+        img: ''
     },
     {
         name: 'Румынская тяга в смите',
         src: romanianDeadliftInSmith,
+        img: ''
     },
     {
         name: 'Сведение ног сидя',
         src: seatedLegPinch,
+        img: ''
     },
     {
         name: 'Кикбеки в кроссовере',
         src: kickbackInCrossover,
+        img: ''
     },
     {
         name: 'Ягодичный мост в смите',
         src: glutealBridgeInSmith,
+        img: ''
     },
     {
         name: 'Приседы',
         src: squats,
+        img: ''
     },
     {
         name: 'Болгарские выпады',
         src: bulgarianLunges,
+        img: ''
     },
     {
         name: '"Падшая женщина"',
         src: fallenWoman,
+        img: ''
     },
     {
         name: 'Икры на возвышенности',
         src: caviarOnAHill,
+        img: ''
     },
     {
         name: 'Румынская тяга одной ногой в стену ',
         src: romanianDeadliftWithOneFootToTheWall,
+        img: ''
     },
     {
         name: 'Приставные шаги с резиной',
         src: attachedStepsWithubber,
+        img: ''
     },
     {
         name: 'Зашагивания',
         src: pacing,
+        img: ''
     },
     {
         name: 'Разведение ног сидя ',
         src: sittingLegRaises,
+        img: ''
     },
 ];
 
@@ -399,74 +472,92 @@ const press = [
     {
         name: 'Колено-логоть наискосок ',
         src: kneeElbowObliquely,
+        img: ''
     },
     {
         name: 'Берёзка держась за опору ',
         src: birchTreeHoldingOntoASupport,
+        img: ''
     },
     {
         name: 'Планка на босу',
         src: strapOnBarefoot,
+        img: ''
     },
     {
         name: 'Боковые наклоны в сторону',
         src: lateralBendsToTheSide,
+        img: ''
     },
     {
         name: 'Шагающая планка ',
         src: walkingPlank,
+        img: ''
     },
     {
         name: 'Пресс в висе',
         src: absHanging,
+        img: ''
     },
     {
         name: 'Cкручивание на босу',
         src: barefootTwisting,
+        img: ''
     },
     {
         name: 'Берёзка на наклонной скамье',
         src: birchTreeOnAnInclinedBench,
+        img: ''
     },
     {
         name: 'Скручивание на наклонной скамье',
         src: inclineСrunch,
+        img: ''
     },
     {
         name: 'Берёзка на полу',
         src: bircTreeOnTheFloor,
+        img: ''
     },
     {
         name: 'Скручивания с блином',
         src: pancakeCrunches,
+        img: ''
     },
     {
         name: 'Ножницы',
         src: scissors,
+        img: ''
     },
     {
         name: 'Планка <колено в бок>',
         src: kneeToSidePlank,
+        img: ''
     },
     {
         name: 'Планка "скалолаз"',
         src: plankClimber,
+        img: ''
     },
     {
         name: 'Опускание ног',
         src: loweringTheLegs,
+        img: ''
     },
     {
         name: 'Планка',
         src: bar,
+        img: ''
     },
     {
         name: 'Опускание ног попеременно',
         src: loweringLegsAlternately,
+        img: ''
     },
     {
         name: 'Тяга к носочкам',
         src: cravingForSocks,
+        img: ''
     },
 ];
 

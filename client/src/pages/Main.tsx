@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
 import { exercises as exercisesList } from '../constants/exercises';
 import avatar from '../assets/images/avatar.png';
+import dumbbell from '../assets/images/dumbbell.png';
+import shaker from '../assets/images/shaker.png';
 
 const Main: FC = () => {
     const name = 'back';
@@ -74,6 +76,13 @@ const Main: FC = () => {
                         </Link>
                     </div>
                 </div>
+            </div>
+            <div id='main__img'>
+                <span id='main__first-fitness'>FITNESS</span>
+                <span id='main__second-fitness'>FITNESS</span>
+                <img id='main__first-dumbbell' src={dumbbell} alt="" />
+                <img id='main__second-dumbbell' src={dumbbell} alt="" />
+                <img id='main__shaker' src={shaker} alt="" />
             </div>
         </ContentContainer>
     );

@@ -2,11 +2,11 @@ import { useInView } from 'react-intersection-observer';
 
 interface ILazyLoadVideo {
     src: string;
+    img: string;
     type: string;
-    index: number;
 }
 
-const LazyLoadVideo = ({ src, type }: ILazyLoadVideo) => {
+const LazyLoadVideo = ({ src, img, type}: ILazyLoadVideo) => {
 
     // useEffect(() => {
     //     const videoElement = document.getElementById('0') as HTMLVideoElement;
@@ -30,7 +30,7 @@ const LazyLoadVideo = ({ src, type }: ILazyLoadVideo) => {
     return (
         <div ref={ref}>
             {inView ? (
-                <video className="exercise__video" controls>
+                <video className="exercise__video" controls poster={img}>
                     <source src={src} type={type} />
                 </video>
             ) : (

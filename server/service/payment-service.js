@@ -63,24 +63,36 @@ class PaymentService {
         const payment = await paymentModel.findOne({ order: data.id });
         if (!payment) throw Error('Заказ не найден по id');
 
-        payment.status = data.status
+        payment.status = data.status;
         await payment.save();
 
-        if (payment.status !== 'waiting_for_capture') return 'Статус заявки обновился'
+        if (payment.status !== 'waiting_for_capture') return 'Статус заявки обновился';
 
         // Активация подписки
         const user = await userModel.findOne({ _id: payment.userId });
         if (!user) throw Error('Пользователь не найден по id');
 
-        if (!user.activateSubscriptionExp) user.activateSubscriptionExp = new Date(new Date().getTime() + payment.date);
-        else {
-            const currentDate = new Date(user.activateSubscriptionExp);
-            const newDate = new Date(currentDate.getTime() + payment.date);
-            user.activateSubscriptionExp = newDate;
+        // Проверяем, есть ли у пользователя активная подписка
+        if (!user.activateSubscriptionExp) {
+            // Если нет, устанавливаем начальный срок подписки, начиная с текущей даты и времени
+            user.activateSubscriptionExp = new Date(Date.now() + payment.date);
+        } else {
+            // Если подписка уже активна
+            const now = new Date();
+            
+            // Проверка, истекла ли текущая подписка
+            const currentExpiry = new Date(user.activateSubscriptionExp);
+            const bdData = currentExpiry > now ? currentExpiry : now;
+
+            // Добавление времени к bdData для определения новой даты окончания подписки
+            const newExpiryDate = new Date(bdData.getTime() + payment.date);
+
+            // Обновляем дату окончания подписки
+            user.activateSubscriptionExp = newExpiryDate;
         }
 
         await user.save();
-        payment.status = 'success'
+        payment.status = 'success';
 
         await payment.save();
         return new UserDto(user);
