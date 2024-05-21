@@ -689,14 +689,13 @@ hr {
 
 /* Для мишуры */
 @media (min-width: 400px) and (max-width: 425px) {
-    /* Ваши стили внутри этого блока */
     #main__img {
         display: block;
     }
     #main__first-fitness {
         position: absolute;
         left: 40px;
-        top: 71vh;
+        top: 490px;
         color: var(--color-white);
         font-size: xx-large;
         font-weight: 600;
@@ -705,7 +704,7 @@ hr {
     #main__second-fitness {
         position: absolute;
         right: 40px;
-        top: 143vh;
+        top: 965px;
         color: var(--color-white);
         font-size: xx-large;
         font-weight: 600;
@@ -713,21 +712,21 @@ hr {
     }
     #main__first-dumbbell{
         position: absolute;
-        top: 72vh;
+        top: 460px;
         right: 0;
         width: 150px;
         transform: rotate(293deg);
     }
     #main__second-dumbbell{
         position: absolute;
-        top: 35vh;
+        top: 236px;
         left: 0;
         width: 120px;
         transform: rotate(353deg);
     }
     #main__shaker {
         position: absolute;
-        top: 133vh;
+        top: 890px;
         left: 0;
         width: 150px;
     }
@@ -741,7 +740,7 @@ hr {
     #main__first-fitness {
         position: absolute;
         left: 40px;
-        top: 80vh;
+        top: 540px;
         color: var(--color-white);
         font-size: xx-large;
         font-weight: 600;
@@ -750,7 +749,7 @@ hr {
     #main__second-fitness {
         position: absolute;
         right: 40px;
-        top: 153vh;
+        top: 1010px;
         color: var(--color-white);
         font-size: xx-large;
         font-weight: 600;
@@ -758,21 +757,21 @@ hr {
     }
     #main__first-dumbbell{
         position: absolute;
-        top: 72vh;
+        top: 490px;
         right: 0;
         width: 150px;
         transform: rotate(293deg);
     }
     #main__second-dumbbell{
         position: absolute;
-        top: 38vh;
+        top: 250px;
         left: 0;
         width: 130px;
         transform: rotate(353deg);
     }
     #main__shaker {
         position: absolute;
-        top: 141vh;
+        top: 945px;
         left: 0;
         width: 150px;
     }
