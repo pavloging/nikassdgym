@@ -29,9 +29,7 @@ const Subscription: FC = () => {
 
             setTimeout(async () => {
                 const data = await dispatch(fetchCreateLinkPay(pay));
-                console.log(data);
                 if (!data) throw Error('Произошла ошибка при получении данных. Попробуйте позже');
-                console.log(data.payload);
                 window.location.href = data.payload as string;
             }, 2500);
 

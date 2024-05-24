@@ -103,8 +103,6 @@ class PaymentService {
             },
         });
 
-        console.log(order.status)
-
         if (order.status !== 200) throw Error('Заказ не подтвердися сервисом YooKassa')
 
         await user.save();
