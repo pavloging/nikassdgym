@@ -63,7 +63,7 @@ class PaymentService {
         payment.status = data.status;
         await payment.save();
 
-        if (payment.status !== 'waiting_for_capture') throw Error('Статус заявки обновился');
+        if (payment.status !== 'waiting_for_capture') throw Error(`Статус у заявки ${data.id} обновился на ${payment.status}`);
 
         // Активация подписки
         const user = await userModel.findOne({ _id: payment.userId });
@@ -105,7 +105,7 @@ class PaymentService {
 
         console.log(order.status)
 
-        if (order.status !== '200') throw Error('Заказ не подтвердися сервисом YooKassa')
+        if (order.status !== 200) throw Error('Заказ не подтвердися сервисом YooKassa')
 
         await user.save();
         payment.status = 'success';
