@@ -10,8 +10,6 @@ class PaymentService {
         const secretKey = process.env.YOOKASSA_SECRET_KEY;
         const idempotenceKey = uuid.v4();
 
-        console.log(storeId, secretKey, idempotenceKey);
-
         const data = {
             amount: {
                 value: `${price}.00`,
@@ -23,7 +21,6 @@ class PaymentService {
             },
             description: `Оплата тарифа: ${name}`,
         };
-        console.log(data);
 
         const link = await axios.post('https://api.yookassa.ru/v3/payments', data, {
             headers: {
@@ -79,7 +76,7 @@ class PaymentService {
         } else {
             // Если подписка уже активна
             const now = new Date();
-            
+
             // Проверка, истекла ли текущая подписка
             const currentExpiry = new Date(user.activateSubscriptionExp);
             const bdData = currentExpiry > now ? currentExpiry : now;
@@ -90,6 +87,23 @@ class PaymentService {
             // Обновляем дату окончания подписки
             user.activateSubscriptionExp = newExpiryDate;
         }
+
+        const storeId = process.env.YOOKASSA_STORE_ID;
+        const secretKey = process.env.YOOKASSA_SECRET_KEY;
+        const idempotenceKey = uuid.v4();
+
+        const order = await axios.post(`https://api.yookassa.ru/v3/payments/${payment.order}/capture`, data, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Idempotence-Key': idempotenceKey,
+            },
+            auth: {
+                username: storeId,
+                password: secretKey,
+            },
+        });
+
+        console.log(order)
 
         await user.save();
         payment.status = 'success';
