@@ -47,7 +47,7 @@ class PaymentService {
         payment.status = data.status;
         await payment.save();
 
-        if (payment.status !== 'waiting_for_capture') throw Error(`Статус у заявки ${data.id} обновился на ${payment.status}`);
+        if (payment.status !== 'waiting_for_capture') return `Статус у заявки ${data.id} обновился на ${payment.status}`;
 
         // Активация подписки
         const user = await userModel.findOne({ _id: payment.userId });
