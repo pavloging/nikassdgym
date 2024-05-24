@@ -40,22 +40,6 @@ class PaymentService {
         await paymentModel.create({ order, userId, name, price, date });
     }
 
-    // async activateSubscription({ userId, date }) {
-    //     const user = await UserModel.findOne({ _id: userId });
-    //     if (!user) throw ApiError.BadRequest('User not found');
-
-    //     if (!user.activateSubscriptionExp)
-    //         user.activateSubscriptionExp = new Date(new Date().getTime() + date);
-    //     else {
-    //         const currentDate = new Date(user.activateSubscriptionExp);
-    //         const newDate = new Date(currentDate.getTime() + date);
-    //         user.activateSubscriptionExp = newDate;
-    //     }
-
-    //     await user.save();
-    //     return new UserDto(user);
-    // }
-
     async webhook(data) {
         const payment = await paymentModel.findOne({ order: data.id });
         if (!payment) throw Error('Заказ не найден по id');
