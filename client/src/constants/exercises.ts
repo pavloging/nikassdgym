@@ -580,7 +580,7 @@ const legs = [
     img: bulgarianLungesImg,
   },
   {
-    name: '"Падшая женщина"',
+    name: 'Падшая женщина',
     src: fallenWoman,
     img: fallenWomanImg,
   },
