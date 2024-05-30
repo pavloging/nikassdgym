@@ -471,6 +471,11 @@ const legs = [
         img: backLungesImg 
     },
     {
+        name: 'Выпады на месте',
+        src: 'Леха', 
+        img: 'Леха' 
+    },
+    {
         name: 'Приседы сумо',
         src: sumoSquats, 
         img: sumoSquatsImg 
@@ -536,7 +541,7 @@ const legs = [
         img: caviarOnAHillImg 
     },
     {
-        name: 'Румынская тяга одной ногой в стену ',
+        name: 'Румынская тяга одной ногой в стену',
         src: romanianDeadliftWithOneFootToTheWall,
         img: romanianDeadliftWithOneFootToTheWallImg 
     },
@@ -551,7 +556,7 @@ const legs = [
         img: pacingImg 
     },
     {
-        name: 'Разведение ног сидя ',
+        name: 'Разведение ног сидя',
         src: sittingLegRaises,
         img: sittingLegRaisesImg 
     },
