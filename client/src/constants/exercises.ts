@@ -590,7 +590,7 @@ const legs = [
     img: caviarOnAHillImg,
   },
   {
-    name: "Румынская тяга одной ногой в стену ",
+    name: "Румынская тяга одной ногой в стену",
     src: romanianDeadliftWithOneFootToTheWall,
     img: romanianDeadliftWithOneFootToTheWallImg,
   },
@@ -605,7 +605,7 @@ const legs = [
     img: pacingImg,
   },
   {
-    name: "Разведение ног сидя ",
+    name: "Разведение ног сидя",
     src: sittingLegRaises,
     img: sittingLegRaisesImg,
   },
@@ -618,7 +618,7 @@ const legs = [
 
 const press = [
   {
-    name: "Колено-логоть наискосок ",
+    name: "Колено-логоть наискосок",
     src: kneeElbowObliquely,
     img: kneeElbowObliquelyImg,
   },
