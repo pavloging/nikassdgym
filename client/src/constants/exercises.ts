@@ -289,7 +289,7 @@ const chestArms = [
     img: smithPushUpsImg,
   },
   {
-    name: "Французкий жим лёжа ",
+    name: "Французский жим лёжа ",
     src: frenchChemLyingDown,
     img: frenchChemLyingDownImg,
   },
@@ -324,7 +324,7 @@ const chestArms = [
     img: tricepsInCrossoverImg,
   },
   {
-    name: "Французкий жим стоя",
+    name: "Французский жим стоя",
     src: frenchStandingPress,
     img: frenchStandingPressImg,
   },
@@ -377,7 +377,7 @@ const back = [
     img: closeGripLatPull2Img,
   },
   {
-    name: "Тяга к поесу",
+    name: "Тяга к поясу",
     src: waistlineCraving,
     img: waistlineCravingImg,
   },
