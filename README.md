@@ -19,3 +19,5 @@ docker-compose --version
 Output
 docker-compose version 1.26.0, build 8a1c60f6
 
+
+- Сделать стрелочки 

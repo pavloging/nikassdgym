@@ -21,11 +21,15 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    overflow-x: hidden;
+}
 body {
     font-family: 'Montserrat';
-    background-color: var(--color-bg);
     color: var(--color-grey);
+    background-color: var(--color-bg);
     border: solid 1px var(--color-bg);
+    overflow-x: hidden;
 }
 body #root {
     margin: 0 12%;
@@ -261,12 +265,22 @@ hr {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 40px 20px;
+    padding: 0 20px;
+    padding-top: 40px;
 }
 .main__welcome-text {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+.main__welcome-img {
+    height: 60vh;
+}
+.main__name {
+    text-align: center;
+}
+.main__img {
+    height: 60vh;
 }
 .main__title {
     margin: 16px 0;
@@ -278,6 +292,7 @@ hr {
 .main__buttons {
     display: flex;
     gap: 14px;
+    z-index: 1;
 }
 #main__blue {
     position: absolute;
@@ -288,16 +303,67 @@ hr {
     filter: blur(100px);
     z-index: -1;
 }
-.main__img {
-    height: 500px;
-    position: relative;
-    top: 45px;
-}
 .main__content {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 200px 0;
+    padding-top: 80px;
+    padding-bottom: 120px;
+}
+.main__block-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.main__avatar {
+    width: 50%;
+    border-radius: 100%;
+}
+.main__banner {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.main__banner-img {
+    padding: 16px;
+    width: 60px;
+    background-color: var(--color-white);
+    transform: rotate(180deg);
+    border-radius: 100%;
+}
+.main__list-plan {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.main__plan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main__plan span {
+    text-align: center;
+}
+.main__plan-title {
+    font-weight: 700;
+}
+.main__block-number {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background-color: var(--color-white);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main__result-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
 }
 .main__text-block:nth-child(2) {
     display: flex;
@@ -320,6 +386,21 @@ hr {
     position: absolute;
     background: var(--color-blur);
     z-index: -1;
+}
+.main__login {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+.main__login-btn {
+    padding: 8px 40px;
+}
+.main__result-block {
+    display: flex;
+    justify-content: center;
+}
+.main__result-img {
+    max-height: 60vh;
 }
 
 /* Policy page */
@@ -557,37 +638,42 @@ hr {
 #main__img {
     display: none;
 }
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (min-width: 1441px) {
     /* body {
         background-color: red;
     } */
     h1 {
-        font-size: xxx-large;
+        font-size: xx-large;
     }
     h2 {
-        font-size: xx-large;
+        font-size: x-large;
     }
     button,
     label,
     input,
     a,
     p {
-        font-size: x-large !important;
+        font-size: large !important;
     }
     .main__title {
-        font-size: xxx-large;
+        font-size: xx-large;
     }
     .main__description {
-        font-size: xx-large;
+        font-size: x-large;
     }
     .main__paragraph {
         max-width: 800px;
-        font-size: xx-large;
+        font-size: x-large;
     }
 }
 @media all and (max-device-width: 1440px) {
     .main__content {
-        padding: 40px 0;
+        padding: 80px 0;
     }
 }
 
@@ -610,12 +696,12 @@ hr {
     }
     .main__welcome {
         flex-direction: column;
-        padding: 40px 0px;
     }
-    .main__welcome-img{
+    .main__welcome-img {
         width: auto;
     }
-    .main__title, .main__description {
+    .main__title,
+    .main__description {
         text-align: center;
     }
     .main__buttons {
@@ -652,6 +738,9 @@ hr {
     .header .header__content,
     .header {
         gap: 10px;
+    }
+    .main__result-img {
+        width: 100%;
     }
     button {
         font-size: smaller;
@@ -695,11 +784,12 @@ hr {
     #main__first-fitness {
         position: absolute;
         left: 40px;
-        top: 490px;
+        top: 530px;
         color: var(--color-white);
         font-size: xx-large;
         font-weight: 600;
         filter: blur(1px);
+        z-index: -1;
     }
     #main__second-fitness {
         position: absolute;
@@ -710,18 +800,18 @@ hr {
         font-weight: 600;
         filter: blur(1px);
     }
-    #main__first-dumbbell{
+    #main__first-dumbbell {
         position: absolute;
-        top: 460px;
-        right: 0;
-        width: 150px;
+        top: 300px;
+        right: 20px;
+        width: 70px;
         transform: rotate(293deg);
     }
-    #main__second-dumbbell{
+    #main__second-dumbbell {
         position: absolute;
-        top: 236px;
-        left: 0;
-        width: 120px;
+        top: 125px;
+        left: 15px;
+        width: 70px;
         transform: rotate(353deg);
     }
     #main__shaker {
@@ -739,39 +829,41 @@ hr {
     }
     #main__first-fitness {
         position: absolute;
-        left: 40px;
+        left: 30px;
         top: 540px;
         color: var(--color-white);
         font-size: xx-large;
         font-weight: 600;
         filter: blur(1px);
+        z-index: -1;
     }
     #main__second-fitness {
         position: absolute;
-        right: 40px;
-        top: 1010px;
+        right: 30px;
+        top: 920px;
         color: var(--color-white);
         font-size: xx-large;
         font-weight: 600;
         filter: blur(1px);
+        z-index: -1;
     }
-    #main__first-dumbbell{
+    #main__first-dumbbell {
         position: absolute;
-        top: 490px;
-        right: 0;
-        width: 150px;
+        top: 300px;
+        right: 20px;
+        width: 70px;
         transform: rotate(293deg);
     }
-    #main__second-dumbbell{
+    #main__second-dumbbell {
         position: absolute;
-        top: 250px;
-        left: 0;
-        width: 130px;
+        top: 140px;
+        left: 15px;
+        width: 70px;
         transform: rotate(353deg);
     }
     #main__shaker {
         position: absolute;
-        top: 945px;
+        top: 820px;
         left: 0;
         width: 150px;
     }
