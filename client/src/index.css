@@ -393,6 +393,7 @@ hr {
     margin-top: 16px;
 }
 .main__login-btn {
+    font-size: medium;
     padding: 8px 40px;
 }
 .main__result-block {
