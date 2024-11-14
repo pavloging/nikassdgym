@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+    server:
+        build: ./server
+        image: server
+        ports:
+            - 5000:5000
+        restart: always
+        logging:
+            driver: 'json-file'
+
+    client:
+        build: ./client
+        image: client
+        ports:
+            - 3000:3000
+        depends_on:
+            - server
+        restart: always
+        logging:
+            driver: 'json-file'
