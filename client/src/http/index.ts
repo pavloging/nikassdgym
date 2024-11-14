@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { AuthResponse } from '../types/response/AuthResponse';
 
-export const API_URL = `http://localhost:5000/api`;
-// export const API_URL = `https://nikassdgym.ru/api`;
+// export const API_URL = `http://localhost:5000/api`;
+export const API_URL = `https://nikassdgym.ru/api`;
 // export const API_URL = `https://31.128.36.130:5000/api`;
 
 
