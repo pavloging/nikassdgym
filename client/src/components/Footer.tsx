@@ -39,10 +39,18 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="footer__container">
+                    <div className='footer__links'>
+                            <Link to="/offerta" className="footer__policy">
+                                Оферта
+                            </Link>
+                            <Link to="/policy" className="footer__policy">
+                                Политика обработки персональных данных
+                            </Link>
+                            <Link to="/agreement" className="footer__policy">
+                                Согласие на обработку персональных данных
+                            </Link>
+                    </div>
                     <p className="footer__policy">2024</p>
-                    <Link to="/policy" className="footer__policy">
-                        Политика конфиденциальности
-                    </Link>
                 </div>
             </div>
         </>

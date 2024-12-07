@@ -14,6 +14,7 @@ import reviews2 from '../assets/images/reviews/2.jpg';
 import reviews3 from '../assets/images/reviews/3.jpg';
 
 import 'aos/dist/aos.css';
+import CookieBanner from '../components/CookieBanner';
 
 const Main: FC = () => {
     const name = 'back';
@@ -31,6 +32,7 @@ const Main: FC = () => {
 
     return (
         <ContentContainer className="main">
+            <CookieBanner />
             <div className="main__welcome">
                 <div className="main__welcome-text">
                     <h1

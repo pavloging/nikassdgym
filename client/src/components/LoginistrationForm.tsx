@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../redux/store';
 import { fetchLogin } from '../redux/redusers/user/ActionLogin';
 import { fetchRegistration } from '../redux/redusers/user/ActionRegistration';
+import CustomCheckbox from './CustomCheckbox';
 
 interface LoginistrationFormProps {
     isLogin: boolean;
@@ -16,6 +17,10 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [isShowPassword, setShowPassword] = useState<boolean>(false);
+
+    const [isCheckedOfferta, setIsCheckedOfferta] = useState(false);
+    const [isCheckedPolicy, setIsCheckedPolicy] = useState(false);
+
 
     const handleRegistration = async () => {
         const data = await dispatch(fetchRegistration({ email, password }));
@@ -35,6 +40,7 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
         navigate('/exercises');
     };
 
+    const isDisabled = !(isCheckedOfferta && isCheckedPolicy)
     return (
         <div className="login-form">
             <div className="login-form__content">
@@ -71,13 +77,21 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
                 {isLogin && <Link className="login-form__reset" to="/reset">
                     Забыли пароль?
                 </Link>}
+                <CustomCheckbox isChecked={isCheckedOfferta} setIsChecked={setIsCheckedOfferta}>
+                    Ознакомлен и согласен с <Link to={'/offerta'}>публичной офертой</Link>
+                </CustomCheckbox>
+                <CustomCheckbox isChecked={isCheckedPolicy} setIsChecked={setIsCheckedPolicy}>
+                    Даю <Link to={'/agreement'}>согласие</Link> на обработку персональных данных в соответствии с <Link to={'/policy'}>политикой обработки персональных данных</Link>
+                </CustomCheckbox>
             </div>
+
+
             {isLogin ? (
-                <button className="secondary" onClick={handleLogin}>
+                <button className="secondary" onClick={handleLogin} disabled={isDisabled}>
                     Войти
                 </button>
             ) : (
-                <button className="secondary" onClick={handleRegistration}>
+                <button className="secondary" onClick={handleRegistration} disabled={isDisabled}>
                     Зарегистрироваться
                 </button>
             )}

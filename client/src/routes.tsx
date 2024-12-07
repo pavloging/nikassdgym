@@ -8,6 +8,8 @@ import Registration from './pages/Registration';
 import Subscription from './pages/Subscription';
 import ExercisesList from './pages/ExercisesList';
 import Exercise from './pages/Exercise';
+import Agreement from './pages/Agreement';
+import Offerta from './pages/Offerta';
 
 const routes = [
     {
@@ -27,8 +29,16 @@ const routes = [
         element: <Password />
     },
     {
+        path: 'offerta',
+        element: <Offerta />
+    },
+    {
         path: 'policy',
         element: <Policy />
+    },
+    {
+        path: 'agreement',
+        element: <Agreement />
     },
     {
         path: 'subscription',

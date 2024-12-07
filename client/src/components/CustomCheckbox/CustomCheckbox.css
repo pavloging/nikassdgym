@@ -1,0 +1,54 @@
+.custom-checkbox {
+    font-size: 16px;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.custom-checkbox__input {
+    display: none; /* Скрываем стандартный чекбокс */
+}
+
+.custom-checkbox__box {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.custom-checkbox__input:checked + .custom-checkbox__box {
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+.custom-checkbox__input:checked + .custom-checkbox__box::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.custom-checkbox__text {
+    font-size: 14px;
+    color: #333;
+    word-wrap: break-word;
+}
+
+.custom-checkbox__text a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.custom-checkbox__text a:hover {
+    text-decoration: underline;
+}

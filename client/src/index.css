@@ -4,6 +4,7 @@
     --color-bg: #d1e9ff;
     --color-blue: #3a57f4;
     --color-white: #fff;
+    --color-black: #000;
     --color-grey: #343434;
 
     --color-dark: #a1a1a1;
@@ -33,7 +34,7 @@ body {
 }
 body #root {
     margin: 0 12%;
-    padding: 0 3%;
+    padding: 0 10%;
     border-left: solid 1px var(--color-white);
     border-right: solid 1px var(--color-white);
     min-height: 100vh;
@@ -53,6 +54,13 @@ input::placeholder {
 input:focus {
     border-color: var(--color-grey);
     outline: var(--color-grey);
+}
+b {
+    font-weight: 600;
+}
+li {
+    font-size: medium;
+    margin-left: 30px;
 }
 h1 {
     font-size: xx-large;
@@ -103,6 +111,18 @@ hr {
 }
 .txt-center {
     text-align: center;
+}
+
+/* For Doc */
+.offerta h3,
+.policy h3,
+.agreement h3 {
+    margin-top: 20px;
+}
+.offerta a,
+.policy a,
+.agreement a {
+    text-decoration: underline;
 }
 
 /* Content emelent */
@@ -188,6 +208,11 @@ hr {
     align-items: flex-end;
     margin-top: 40px;
 }
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
 .footer__img {
     width: 24px;
 }
@@ -198,7 +223,7 @@ hr {
     transition: 0.5s;
 }
 .footer__policy:hover {
-    color: var(--color-white);
+    color: var(--color-black);
 }
 
 /* LoginForm */
@@ -354,6 +379,7 @@ hr {
     width: 30px;
     height: 30px;
     padding: 5px;
+    margin-bottom: 10px;
     background-color: var(--color-white);
     border-radius: 100%;
     display: flex;
@@ -402,6 +428,7 @@ hr {
 }
 .main__result-img {
     max-height: 60vh;
+    border-radius: 20px;
 }
 
 /* Policy page */
@@ -441,10 +468,10 @@ hr {
 .subscription__sale-price {
     text-decoration: line-through;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     position: absolute;
-    top: -10px;
-    right: -15px;
+    top: -13px;
+    right: -17px;
     color: var(--color-grey);
     filter: blur(0.5px);
 }
@@ -654,11 +681,13 @@ hr {
     h2 {
         font-size: x-large;
     }
+    span,
     button,
     label,
     input,
     a,
-    p {
+    p,
+    li {
         font-size: large !important;
     }
     .main__title {
