@@ -20,9 +20,6 @@ const Exercise: FC = () => {
     }, [exercise, name, navigate]);
 
     if (!exercise) return <h1>Page 404</h1>;
-    
-    if (!store.isAuth) return <p className="txt-center">Авторизуйтесь в системе и активируйте подписку</p>;
-    if (!store.user.isActivatedSubscription) return <p className="txt-center">У вас не активна подписка</p>;
 
     const filteredExercise =
         search.length !== 0
@@ -45,17 +42,29 @@ const Exercise: FC = () => {
                     <img className="exercise__img" src="/search.svg" alt="" />
                 </div>
             </div>
-            <div className="exercise__list-card">
-                {filteredExercise.map((item) => (
-                    <div className="exercise__card" key={item.name}>
-                        <div className="exercise__video-block">
-                            <LazyLoadVideo src={item.src} img={item.img} type="video/mp4" />
-                        </div>
-                        <p className="exercise__name">{item.name}</p>
+
+            {!store.isAuth && (
+                <p className="txt-center">Авторизуйтесь в системе и активируйте подписку, чтобы упражнения отображались</p>
+            )}
+            {!store.user.isActivatedSubscription && (
+                <p className="txt-center"><b>У вас не активна подписка.</b> Пожалуйста, активируйте её, чтобы упражнения отображались</p>
+            )}
+
+            {store.isAuth && store.user.isActivatedSubscription && (
+                <>
+                    <div className="exercise__list-card">
+                        {filteredExercise.map((item) => (
+                            <div className="exercise__card" key={item.name}>
+                                <div className="exercise__video-block">
+                                    <LazyLoadVideo src={item.src} img={item.img} type="video/mp4" />
+                                </div>
+                                <p className="exercise__name">{item.name}</p>
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
-            {filteredExercise.length === 0 && <p>Элементов не найдено</p>}
+                    {filteredExercise.length === 0 && <p>Элементов не найдено</p>}
+                </>
+            )}
         </ContentContainer>
     );
 };
