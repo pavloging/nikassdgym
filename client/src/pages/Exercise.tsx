@@ -3,10 +3,13 @@ import ContentContainer from '../components/ContentContainer';
 import { exercises as exercisesList } from '../constants/exercises';
 import { useNavigate, useParams } from 'react-router-dom';
 import LazyLoadVideo from '../components/LazyLoadVideo';
+import { RootState } from '../redux/store';
+import { useSelector } from 'react-redux';
 
 const Exercise: FC = () => {
     const { name } = useParams();
     const navigate = useNavigate();
+    const store = useSelector((state: RootState) => state.user);
 
     const [search, setSearch] = useState('');
     const exercise = exercisesList.find((item) => item.url === name);
@@ -24,21 +27,25 @@ const Exercise: FC = () => {
                   item.name.toLowerCase().includes(search.toLowerCase().trim())
               )
             : exercise.list;
+
+    if (!store.isAuth) return <p className="txt-center">Авторизуйтесь в системе и активируйте подписку</p>;
+
+    if (!store.user.isActivatedSubscription) return <p className="txt-center">У вас не активна подписка</p>;
     return (
         <ContentContainer className="exercise">
             <div className="exercise__header">
                 <h1 className="content__title">{exercise.name}</h1>
-                <div className='exercise__img-block'>
-                <input
-                    type="text"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Поиск"
-                />
-                <img className='exercise__img' src="/search.svg" alt="" />
+                <div className="exercise__img-block">
+                    <input
+                        type="text"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        placeholder="Поиск"
+                    />
+                    <img className="exercise__img" src="/search.svg" alt="" />
                 </div>
             </div>
-            <div className='exercise__list-card'>
+            <div className="exercise__list-card">
                 {filteredExercise.map((item) => (
                     <div className="exercise__card" key={item.name}>
                         <div className="exercise__video-block">
