@@ -7,15 +7,24 @@ import { RootState } from '../redux/store';
 import { useSelector } from 'react-redux';
 
 const Exercise: FC = () => {
+
+    console.log('Отрабатываем в файле Exercise')
+
     const { name } = useParams();
     const [search, setSearch] = useState('');
     const store = useSelector((state: RootState) => state.user);
     
     const exercise = exercisesList.find((item) => item.url === name);
 
+    console.log('1')
+
     if (!store.isAuth) return <p className="txt-center">Авторизуйтесь в системе и активируйте подписку</p>;
+    console.log('2')
     if (!store.user.isActivatedSubscription) return <p className="txt-center">У вас не активна подписка</p>;
+    console.log('3')
     if (!exercise) return <h1>Страница не найдена</h1>;
+    console.log('4')
+
 
     const filteredExercise =
         search.length !== 0
