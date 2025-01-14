@@ -7,11 +7,15 @@ import { RootState } from '../redux/store';
 import { useSelector } from 'react-redux';
 
 const Exercise: FC = () => {
+    const store = useSelector((state: RootState) => state.user);
     const { name } = useParams();
     const navigate = useNavigate();
-    const store = useSelector((state: RootState) => state.user);
-
     const [search, setSearch] = useState('');
+
+    if (!store.isAuth) return <p className="txt-center">Авторизуйтесь в системе и активируйте подписку</p>;
+
+    if (!store.user.isActivatedSubscription) return <p className="txt-center">У вас не активна подписка</p>;
+
     const exercise = exercisesList.find((item) => item.url === name);
 
     // Validate Page
@@ -28,9 +32,6 @@ const Exercise: FC = () => {
               )
             : exercise.list;
 
-    if (!store.isAuth) return <p className="txt-center">Авторизуйтесь в системе и активируйте подписку</p>;
-
-    if (!store.user.isActivatedSubscription) return <p className="txt-center">У вас не активна подписка</p>;
     return (
         <ContentContainer className="exercise">
             <div className="exercise__header">
