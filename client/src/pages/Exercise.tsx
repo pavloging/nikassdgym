@@ -43,12 +43,17 @@ const Exercise: FC = () => {
                 </div>
             </div>
 
-            {!store.isAuth && (
-                <p className="txt-center">Авторизуйтесь в системе и активируйте подписку, чтобы упражнения отображались</p>
-            )}
-            {!store.user.isActivatedSubscription && (
-                <p className="txt-center"><b>У вас не активна подписка.</b> Пожалуйста, активируйте её, чтобы упражнения отображались</p>
-            )}
+            {(!store.isAuth && (
+                <p className="txt-center">
+                    Авторизуйтесь в системе и активируйте подписку, чтобы упражнения отображались
+                </p>
+            )) ??
+                (!store.user.isActivatedSubscription && (
+                    <p className="txt-center">
+                        <b>У вас не активна подписка.</b> Пожалуйста, активируйте её, чтобы
+                        упражнения отображались
+                    </p>
+                ))}
 
             {store.isAuth && store.user.isActivatedSubscription && (
                 <>
