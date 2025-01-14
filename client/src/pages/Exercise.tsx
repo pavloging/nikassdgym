@@ -1,30 +1,28 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import ContentContainer from '../components/ContentContainer';
 import { exercises as exercisesList } from '../constants/exercises';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import LazyLoadVideo from '../components/LazyLoadVideo';
 import { RootState } from '../redux/store';
 import { useSelector } from 'react-redux';
 
 const Exercise: FC = () => {
-
-    console.log('Отрабатываем в файле Exercise')
-
     const { name } = useParams();
-    const [search, setSearch] = useState('');
+    const navigate = useNavigate();
     const store = useSelector((state: RootState) => state.user);
-    
+
+    const [search, setSearch] = useState('');
     const exercise = exercisesList.find((item) => item.url === name);
 
-    console.log('1')
+    // Validate Page
+    useEffect(() => {
+        if (!exercise) navigate('/404');
+    }, [exercise, name, navigate]);
 
+    if (!exercise) return <h1>Page 404</h1>;
+    
     if (!store.isAuth) return <p className="txt-center">Авторизуйтесь в системе и активируйте подписку</p>;
-    console.log('2')
     if (!store.user.isActivatedSubscription) return <p className="txt-center">У вас не активна подписка</p>;
-    console.log('3')
-    if (!exercise) return <h1>Страница не найдена</h1>;
-    console.log('4')
-
 
     const filteredExercise =
         search.length !== 0

@@ -48,6 +48,10 @@ const routes = [
         path: 'exercises',
         element: <ExercisesList />
     },
+    {
+        path: 'exercises/:name',
+        element: <Exercise />
+    },
 ]
 
 export const defaultRoutes = [
@@ -63,10 +67,6 @@ export const authRoutes = [
     {
         path: '/',
         element: <Main />,
-    },
-    {
-        path: 'exercises/:name',
-        element: <Exercise />
     },
     {
         path: '*',
