@@ -140,7 +140,7 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0 5px;
+    padding: 30px 0;
 }
 .header .header__content,
 .header .header__payment {
@@ -731,6 +731,9 @@ hr {
     hr {
         left: calc(5% + 1px);
         width: calc(100% - 10% - 2px);
+    }
+    .header {
+        padding: 30px 5px;
     }
     .header__btn-fix {
         margin-right: 30px;
