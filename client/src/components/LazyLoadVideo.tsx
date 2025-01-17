@@ -1,27 +1,14 @@
 import { useInView } from 'react-intersection-observer';
+import { toast } from 'react-toastify';
 
 interface ILazyLoadVideo {
     src: string;
     img: string;
     type: string;
+    isControls: boolean;
 }
 
-const LazyLoadVideo = ({ src, img, type}: ILazyLoadVideo) => {
-
-    // useEffect(() => {
-    //     const videoElement = document.getElementById('0') as HTMLVideoElement;
-    //     if (!videoElement) return;
-
-    //     videoElement.addEventListener('loadeddata', () => {
-    //         //Video should now be loaded but we can add a second check
-
-    //         if (videoElement.readyState >= 3) {
-    //             console.log('hi');
-    //             //your code goes here
-    //         }
-    //     });
-    // }, []);
-
+const LazyLoadVideo = ({ src, img, type, isControls }: ILazyLoadVideo) => {
     const { ref, inView } = useInView({
         threshold: 0.5,
         triggerOnce: true,
@@ -30,8 +17,15 @@ const LazyLoadVideo = ({ src, img, type}: ILazyLoadVideo) => {
     return (
         <div ref={ref}>
             {inView ? (
-                <video className="exercise__video" controls poster={img}>
-                    <source src={src} type={type} />
+                <video
+                    className="exercise__video"
+                    controls={isControls}
+                    poster={img}
+                    onClick={() =>
+                        toast.error('У вас не активна подписка. Пожалуйста, активируйте её, чтобы упражнения отображались')
+                    }
+                >
+                    <source src={isControls ? src : ''} type={type} />
                 </video>
             ) : (
                 <div className="exercise__video"></div>

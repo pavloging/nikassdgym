@@ -21,7 +21,6 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
     const [isCheckedOfferta, setIsCheckedOfferta] = useState(false);
     const [isCheckedPolicy, setIsCheckedPolicy] = useState(false);
 
-
     const handleRegistration = async () => {
         const data = await dispatch(fetchRegistration({ email, password }));
         if (!data) throw Error('Произошла ошибка при получении данных. Попробуйте позже');
@@ -40,7 +39,7 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
         navigate('/exercises');
     };
 
-    const isDisabled = !(isCheckedOfferta && isCheckedPolicy)
+    const isDisabled = !(isCheckedOfferta && isCheckedPolicy);
     return (
         <div className="login-form">
             <div className="login-form__content">
@@ -60,7 +59,7 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
                 <label className="login-form__label" htmlFor="password">
                     Password
                 </label>
-                <div className='login-form__password-block'>
+                <div className="login-form__password-block">
                     <input
                         id="password"
                         name="password"
@@ -71,20 +70,34 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
                         placeholder="Введите пароль"
                     />
                     <button onClick={() => setShowPassword((prev) => !prev)} className="img">
-                        <img className='login-form__img' src="/eyes.svg" alt="" />
+                        <img className="login-form__img" src="/eyes.svg" alt="" />
                     </button>
                 </div>
-                {isLogin && <Link className="login-form__reset" to="/reset">
-                    Забыли пароль?
-                </Link>}
+                <div className="login-form__link-block">
+                    {isLogin ? (
+                        <Link className="login-form__link" to="/registration">
+                            Зарегистрироваться
+                        </Link>
+                    ) : (
+                        <Link className="login-form__link" to="/login">
+                            Войти
+                        </Link>
+                    )}
+                    {isLogin && (
+                        <Link className="login-form__link" to="/reset">
+                            Забыли пароль?
+                        </Link>
+                    )}
+                </div>
                 <CustomCheckbox isChecked={isCheckedOfferta} setIsChecked={setIsCheckedOfferta}>
                     Ознакомлен и согласен с <Link to={'/offerta'}>публичной офертой</Link>
                 </CustomCheckbox>
                 <CustomCheckbox isChecked={isCheckedPolicy} setIsChecked={setIsCheckedPolicy}>
-                    Даю <Link to={'/agreement'}>согласие</Link> на обработку персональных данных в соответствии с <Link to={'/policy'}>политикой обработки персональных данных</Link>
+                    Даю <Link to={'/agreement'}>согласие</Link> на обработку персональных данных в
+                    соответствии с{' '}
+                    <Link to={'/policy'}>политикой обработки персональных данных</Link>
                 </CustomCheckbox>
             </div>
-
 
             {isLogin ? (
                 <button className="secondary" onClick={handleLogin} disabled={isDisabled}>

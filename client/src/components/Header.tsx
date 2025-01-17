@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AppDispatch, RootState } from '../redux/store';
 import { fetchLogout } from '../redux/redusers/user/ActionLogout';
 import { useEffect, useState } from 'react';
@@ -11,6 +11,7 @@ const Header = () => {
     const store = useSelector((state: RootState) => state.user);
     const dispatch = useDispatch<AppDispatch>();
     const { pathname } = useLocation();
+    const navigate = useNavigate();
 
     const main = `${
         pathname === '/' || pathname === '/main' ? 'secondary' : 'primary header__primary'
@@ -32,7 +33,12 @@ const Header = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []); //
+    }, []);
+
+    const handleActivateSubscription = () => {
+        if (store.isAuth) navigate('/subscription')
+        else navigate('/registration')
+    }
 
     const Burger = () => {
         return (
@@ -83,7 +89,7 @@ const Header = () => {
                         {store.user.isActivatedSubscription ? (
                             <button className="primary header__btn-fix">Подписка активна</button>
                         ) : (
-                            <button className="secondary header__btn-fix">
+                            <button className="secondary header__btn-fix" onClick={handleActivateSubscription}>
                                 Подписка не активна
                             </button>
                         )}
