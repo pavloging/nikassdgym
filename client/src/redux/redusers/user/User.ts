@@ -33,7 +33,8 @@ const initialState: UserState = {
         id: '',
         email: '',
         isActivated: false,
-        isActivatedSubscription: false
+        isActivatedSubscription: false,
+        dateActivatedSubscription: new Date()
     },
     isLoading: false,
     isAuth: false,
