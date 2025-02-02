@@ -40,6 +40,18 @@ const Header = () => {
         else navigate('/registration')
     }
 
+    const formatDate = (isoDate: string) => {
+        // Создаем объект даты из строки ISO
+        const date = new Date(isoDate);
+    
+        // Получаем день и месяц
+        const day = String(date.getDate()).padStart(2, '0'); // Добавляем ведущий ноль
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Месяцы начинаются с 0
+    
+        // Возвращаем формат в виде 'дд.мм'
+        return `${day}.${month}`;
+    }
+
     const Burger = () => {
         return (
             <div className="burger__page">
@@ -87,7 +99,7 @@ const Header = () => {
                 <div className="header__payment-block">
                     <div className="header__payment">
                         {store.user.isActivatedSubscription ? (
-                            <button className="primary header__btn-fix">Подписка активна</button>
+                            <button className="primary header__btn-fix">Подписка активна до {formatDate(String(store.user.dateActivatedSubscription))}</button>
                         ) : (
                             <button className="secondary header__btn-fix" onClick={handleActivateSubscription}>
                                 Подписка не активна
