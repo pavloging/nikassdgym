@@ -10,8 +10,10 @@ export const fetchCreateLinkPay = createAsyncThunk(
         try {
             const response: AxiosResponse<IUser> = await UserService.createLinkPay(data);
             return response.data;
-        } catch (e: unknown) {
-            return thunkAPI.rejectWithValue('Не удалось активировать оплаченный тариф');
+        } catch (e) {
+            return thunkAPI.rejectWithValue(
+                (e as Error).message ?? 'Не удалось активировать оплаченный тариф'
+            );
         }
     }
 );
