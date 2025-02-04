@@ -11,6 +11,8 @@ interface IError {
 // Функция для обработки ошибок от Axios
 export function handleError(error: unknown) {
     if (error instanceof AxiosError) {
+        console.log('Error:', error)
+        console.log('isShow msg', error.response && error.response.data && error.response.data.errors.length !== 0)
         if (error.response && error.response.data && error.response.data.errors.length !== 0) {
             error.response.data.errors.forEach((item: IError) => {
                 toast.error(item.msg);
