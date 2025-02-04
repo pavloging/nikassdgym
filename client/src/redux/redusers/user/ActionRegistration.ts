@@ -2,6 +2,7 @@ import { AxiosResponse } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import AuthService from '../../../services/AuthService';
 import { AuthResponse } from '../../../types/response/AuthResponse';
+import { handleError } from '../../../utils/handleError';
 
 export const fetchRegistration = createAsyncThunk(
     'user/fetchRegistration',
@@ -15,12 +16,8 @@ export const fetchRegistration = createAsyncThunk(
             localStorage.setItem('token', response.data.accessToken);
             return response.data;
         } catch (e) {
-            console.log(e)
-            console.log((e as Error).message )
-
-            return thunkAPI.rejectWithValue(
-                (e as Error).message ?? 'Не удалось зарегистрироваться'
-            );
+            handleError(e)
+            return thunkAPI.rejectWithValue('Не удалось зарегистрироваться');
         }
     }
 );
