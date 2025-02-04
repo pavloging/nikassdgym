@@ -15,6 +15,9 @@ export const fetchRegistration = createAsyncThunk(
             localStorage.setItem('token', response.data.accessToken);
             return response.data;
         } catch (e) {
+            console.log(e)
+            console.log((e as Error).message )
+
             return thunkAPI.rejectWithValue(
                 (e as Error).message ?? 'Не удалось зарегистрироваться'
             );
