@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API_URL } from '../../../http';
 import { AuthResponse } from '../../../types/response/AuthResponse';
+import { handleError } from '../../../utils/handleError';
 
 export const fetchAuth = createAsyncThunk('user/fetchAuth', async (_, thunkAPI) => {
     try {
@@ -11,6 +12,7 @@ export const fetchAuth = createAsyncThunk('user/fetchAuth', async (_, thunkAPI) 
         localStorage.setItem('token', response.data.accessToken);
         return response.data;
     } catch (e) {
+        handleError(e)
         return thunkAPI.rejectWithValue((e as Error).message ?? 'Не удалось авторизоваться');
     }
 });
