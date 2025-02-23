@@ -269,7 +269,7 @@ const chestArms = [
     img: lyingDumbbellFlyesImg,
   },
   {
-    name: "Подъем штанги на бицепс",
+    name: "Подъем на бицепс",
     src: barbellCurl,
     img: barbellCurlImg,
   },
@@ -279,7 +279,7 @@ const chestArms = [
     img: biceps21Img,
   },
   {
-    name: "Махи гантелями вперед",
+    name: "Махи вперёд",
     src: swingDumbbellsForward,
     img: swingDumbbellsForwardImg,
   },
@@ -457,7 +457,7 @@ const back = [
     img: pullUpFromYogaPoseImg,
   },
   {
-    name: "Гиперэкстензия",
+    name: "Экстензия",
     src: hyperextension,
     img: hyperextensionImg,
   },
@@ -605,7 +605,7 @@ const legs = [
     img: pacingImg,
   },
   {
-    name: "Разведение ног сидя",
+    name: "Отведение бедра в тренажере",
     src: sittingLegRaises,
     img: sittingLegRaisesImg,
   },
@@ -673,7 +673,7 @@ const press = [
     img: bircTreeOnTheFloorImg,
   },
   {
-    name: "Скручивания с блином",
+    name: "Рашн твист",
     src: pancakeCrunches,
     img: pancakeCrunchesImg,
   },
