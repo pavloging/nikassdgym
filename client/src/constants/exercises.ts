@@ -1,37 +1,12 @@
 // img
-import warmUpImg from "../assets/images/warm-up.png";
-import backImg from "../assets/images/back.png";
-import legsImg from "../assets/images/legs.png";
-import pressImg from "../assets/images/press.png";
-import chestArmsImg from "../assets/images/chest-arms.png";
-import warmUpWithAStickImg from "../assets/images/warm-up/warmUpWithAStick.png";
-import shoulderWarmUpImg from "../assets/images/warm-up/shoulderWarmUp.png";
-import warmUpOnKneesImg from "../assets/images/warm-up/warmUpOnKnees.png";
-import armyPressImg from "../assets/images/chest-arms/armyPress.png";
-import swingToTheSideImg from "../assets/images/chest-arms/swingToTheSide.png";
-import bicepsInCrossoverImg from "../assets/images/chest-arms/bicepsInCrossover.png";
-import smithPushUpsImg from "../assets/images/chest-arms/smithPushUps.png";
-import frenchChemLyingDownImg from "../assets/images/chest-arms/frenchChemLyingDown.png";
-import reversePushUpsImg from "../assets/images/chest-arms/reversePushUps.png";
-import dipsGravitronImg from "../assets/images/chest-arms/dipsGravitron.png";
-import bicepsStaticDynamicImg from "../assets/images/chest-arms/bicepsStaticDynamic.png";
-import dumbbellBenchPressImg from "../assets/images/chest-arms/dumbbellBenchPress.png";
-import platePressUpImg from "../assets/images/chest-arms/platePressUp.png";
-import tricepsInCrossoverImg from "../assets/images/chest-arms/tricepsInCrossover.png";
-import frenchStandingPressImg from "../assets/images/chest-arms/frenchStandingPress.png";
-import pushUpsWithAnElasticBandImg from "../assets/images/chest-arms/pushUpsWithAnElasticBand.png";
-import benchPressImg from "../assets/images/chest-arms/benchPress.png";
-import negativePushUpsImg from "../assets/images/chest-arms/negativePushUps.png";
-import swingStaticsDynamicsImg from "../assets/images/chest-arms/swingStaticsDynamics.png";
-import alternateBicepsCurlImg from "../assets/images/chest-arms/alternateBicepsCurl.png";
-import butterflyImg from "../assets/images/chest-arms/butterfly.png";
-import tricepsFromEmphasisImg from "../assets/images/chest-arms/tricepsFromEmphasis.png";
-import lyingDumbbellFlyesImg from "../assets/images/chest-arms/lyingDumbbellFlyes.png";
-import barbellCurlImg from "../assets/images/chest-arms/barbellCurl.png";
-import biceps21Img from "../assets/images/chest-arms/biceps21.png";
-import swingDumbbellsForwardImg from "../assets/images/chest-arms/swingDumbbellsForward.png";
-
+// Back
+import reachingImg from "../assets/images/back/reaching.png";
+import scapularPushUpsImg from "../assets/images/back/scapularPushUps.png";
+import scapularPullUpsImg from "../assets/images/back/scapularPullUps.png";
+import leverTrainerTVBImg from "../assets/images/back/leverTrainerTVB.png";
+import emphasisChestTNBImg from "../assets/images/back/emphasisChestTNB.png";
 import wideGripLatPullDownImg from "../assets/images/back/wideGripLatPullDown.png";
+import backImg from "../assets/images/back.png";
 import pulloverStandingImg from "../assets/images/back/pulloverStanding.png";
 import negativePullUpsImg from "../assets/images/back/negativePullUps.png";
 import upperBlockPullImg from "../assets/images/back/upperBlockPull.png";
@@ -54,17 +29,55 @@ import swimmerImg from "../assets/images/back/swimmer.png";
 import pullUpFromYogaPoseImg from "../assets/images/back/pullUpFromYogaPose.png";
 import hyperextensionImg from "../assets/images/back/hyperextension.png";
 import pullUpsInTheGravitronImg from "../assets/images/back/pullUpsInTheGravitron.png";
+import backSquatsImg from "../assets/images/legs/backSquats.png";
+import backLungesImg from "../assets/images/legs/backLunges.png";
+
+// Warm Up
+import warmUpImg from "../assets/images/warm-up.png";
+import warmUpWithAStickImg from "../assets/images/warm-up/warmUpWithAStick.png";
+import shoulderWarmUpImg from "../assets/images/warm-up/shoulderWarmUp.png";
+import pelvisWarmUpImg from "../assets/images/warm-up/pelvisWarmUp.png";
+import warmUpOnKneesImg from "../assets/images/warm-up/warmUpOnKnees.png";
+
+// Chest Arms
+import chestArmsImg from "../assets/images/chest-arms.png";
+import armyPressImg from "../assets/images/chest-arms/armyPress.png";
+import swingToTheSideImg from "../assets/images/chest-arms/swingToTheSide.png";
+import bicepsInCrossoverImg from "../assets/images/chest-arms/bicepsInCrossover.png";
+import smithPushUpsImg from "../assets/images/chest-arms/smithPushUps.png";
+import frenchChemLyingDownImg from "../assets/images/chest-arms/frenchChemLyingDown.png";
+import reversePushUpsImg from "../assets/images/chest-arms/reversePushUps.png";
+import dipsGravitronImg from "../assets/images/chest-arms/dipsGravitron.png";
+import bicepsStaticDynamicImg from "../assets/images/chest-arms/bicepsStaticDynamic.png";
+import dumbbellBenchPressImg from "../assets/images/chest-arms/dumbbellBenchPress.png";
+import platePressUpImg from "../assets/images/chest-arms/platePressUp.png";
+import tricepsInCrossoverImg from "../assets/images/chest-arms/tricepsInCrossover.png";
+import frenchStandingPressImg from "../assets/images/chest-arms/frenchStandingPress.png";
+import pushUpsWithAnElasticBandImg from "../assets/images/chest-arms/pushUpsWithAnElasticBand.png";
+import benchPressImg from "../assets/images/chest-arms/benchPress.png";
+import negativePushUpsImg from "../assets/images/chest-arms/negativePushUps.png";
+import swingStaticsDynamicsImg from "../assets/images/chest-arms/swingStaticsDynamics.png";
+import militaryPressMachineImg from "../assets/images/chest-arms/militaryPressMachine.jpg";
+import seatedChestPressImg from "../assets/images/chest-arms/seatedChestPress.png";
+import alternateBicepsCurlImg from "../assets/images/chest-arms/alternateBicepsCurl.png";
+import butterflyImg from "../assets/images/chest-arms/butterfly.png";
+import tricepsFromEmphasisImg from "../assets/images/chest-arms/tricepsFromEmphasis.png";
+import lyingDumbbellFlyesImg from "../assets/images/chest-arms/lyingDumbbellFlyes.png";
+import barbellCurlImg from "../assets/images/chest-arms/barbellCurl.png";
+import biceps21Img from "../assets/images/chest-arms/biceps21.png";
+import swingDumbbellsForwardImg from "../assets/images/chest-arms/swingDumbbellsForward.png";
+
+// Legs
+import legsImg from "../assets/images/legs.png";
 import legPressImg from "../assets/images/legs/legPress.png";
 import sumoDeadliftImg from "../assets/images/legs/sumoDeadlift.png";
 import bulgarianSquatsInTrxImg from "../assets/images/legs/bulgarianSquatsInTrx.png";
-import backSquatsImg from "../assets/images/legs/backSquats.png";
 import bulgarianLungesInCrossoverImg from "../assets/images/legs/bulgarianLungesInCrossover.png";
 import gluteBridgeWithDumbbellsImg from "../assets/images/legs/gluteBridgeWithDumbbells.png";
 import romanianDeadliftImg from "../assets/images/legs/romanianDeadlift.png";
 import romanianThrustSwallowImg from "../assets/images/legs/romanianThrustSwallow.png";
 import legExtensionSittingImg from "../assets/images/legs/legExtensionSitting.png";
 import smithSquatsImg from "../assets/images/legs/smithSquats.png";
-import backLungesImg from "../assets/images/legs/backLunges.png";
 import sumoSquatsImg from "../assets/images/legs/sumoSquats.png";
 import barbellSquatsImg from "../assets/images/legs/barbellSquats.png";
 import shinFlexionImg from "../assets/images/legs/shinFlexion.png";
@@ -83,8 +96,13 @@ import attachedStepsWithubberImg from "../assets/images/legs/attachedStepsWithub
 import pacingImg from "../assets/images/legs/pacing.png";
 import sittingLegRaisesImg from "../assets/images/legs/sittingLegRaises.png";
 import lungesInPlaceImg from "../assets/images/legs/lungesInPlace.png";
+import lungesCMImg from "../assets/images/legs/lungesCM.png";
+import squatsCMImg from "../assets/images/legs/squatsCM.png";
 
+// Press
+import pressImg from "../assets/images/press.png";
 import kneeElbowObliquelyImg from "../assets/images/press/kneeElbowObliquely.png";
+import machineCrunchesImg from "../assets/images/press/machineCrunches.png";
 import birchTreeHoldingOntoASupportImg from "../assets/images/press/birchTreeHoldingOntoASupport.png";
 import strapOnBarefootImg from "../assets/images/press/strapOnBarefoot.png";
 import lateralBendsToTheSideImg from "../assets/images/press/lateralBendsToTheSide.png";
@@ -104,7 +122,13 @@ import loweringLegsAlternatelyImg from "../assets/images/press/loweringLegsAlter
 import cravingForSocksImg from "../assets/images/press/cravingForSocks.png";
 import bikeImg from "../assets/images/press/bike.png";
 
+// Video
 // back
+import reaching from "../assets/video/back/reaching.mp4";
+import scapularPushUps from "../assets/video/back/scapularPushUps.mp4";
+import scapularPullUps from "../assets/video/back/scapularPullUps.mp4";
+import leverTrainerTVB from "../assets/video/back/leverTrainerTVB.mp4";
+import emphasisChestTNB from "../assets/video/back/emphasisChestTNB.mp4";
 import wideGripLatPullDown from "../assets/video/back/wideGripLatPullDown.mp4";
 import pulloverStanding from "../assets/video/back/pulloverStanding.mp4";
 import negativePullUps from "../assets/video/back/negativePullUps.mp4";
@@ -129,7 +153,7 @@ import pullUpFromYogaPose from "../assets/video/back/pullUpFromYogaPose.mp4";
 import hyperextension from "../assets/video/back/hyperextension.mp4";
 import pullUpsInTheGravitron from "../assets/video/back/pullUpsInTheGravitron.mp4";
 
-//chestArms
+// Chest Arms
 import armyPress from "../assets/video/chest-arms/armyPress.mp4";
 import swingToTheSide from "../assets/video/chest-arms/swingToTheSide.mp4";
 import bicepsInCrossover from "../assets/video/chest-arms/bicepsInCrossover.mov";
@@ -146,6 +170,8 @@ import pushUpsWithAnElasticBand from "../assets/video/chest-arms/pushUpsWithAnEl
 import benchPress from "../assets/video/chest-arms/benchPress.mp4";
 import negativePushUps from "../assets/video/chest-arms/negativePushUps.mov";
 import swingStaticsDynamics from "../assets/video/chest-arms/swingStaticsDynamics.mp4";
+import militaryPressMachine from "../assets/video/chest-arms/militaryPressMachine.mp4";
+import seatedChestPress from "../assets/video/chest-arms/seatedChestPress.mp4";
 import alternateBicepsCurl from "../assets/video/chest-arms/alternateBicepsCurl.mp4";
 import butterfly from "../assets/video/chest-arms/butterfly.mp4";
 import tricepsFromEmphasis from "../assets/video/chest-arms/tricepsFromEmphasis.mp4";
@@ -154,13 +180,15 @@ import barbellCurl from "../assets/video/chest-arms/barbellCurl.mp4";
 import biceps21 from "../assets/video/chest-arms/biceps21.mp4";
 import swingDumbbellsForward from "../assets/video/chest-arms/swingDumbbellsForward.mp4";
 
-//warmUp
+// Warm Up
 import shoulderWarmUp from "../assets/video/warm-up/shoulderWarmUp.mp4";
+import pelvisWarmUp from "../assets/video/warm-up/pelvisWarmUp.mp4";
 import warmUpWithAStick from "../assets/video/warm-up/warmUpWithAStick.mp4";
 import warmUpOnKnees from "../assets/video/warm-up/warmUpOnKnees.mov";
 
-//press
+// Press
 import kneeElbowObliquely from "../assets/video/press/kneeElbowObliquely.mov";
+import machineCrunches from "../assets/video/press/machineCrunches.mp4";
 import birchTreeHoldingOntoASupport from "../assets/video/press/birchTreeHoldingOntoASupport.mp4";
 import strapOnBarefoot from "../assets/video/press/strapOnBarefoot.mov";
 import lateralBendsToTheSide from "../assets/video/press/lateralBendsToTheSide.mp4";
@@ -180,7 +208,7 @@ import loweringLegsAlternately from "../assets/video/press/loweringLegsAlternate
 import cravingForSocks from "../assets/video/press/cravingForSocks.mp4";
 import bike from "../assets/video/press/bike.mp4";
 
-//legs
+// Legs
 import legPress from "../assets/video/legs/legPress.mp4";
 import sumoDeadlift from "../assets/video/legs/sumoDeadlift.mp4";
 import bulgarianSquatsInTrx from "../assets/video/legs/bulgarianSquatsInTrx.mp4";
@@ -210,11 +238,15 @@ import attachedStepsWithubber from "../assets/video/legs/attachedStepsWithubber.
 import pacing from "../assets/video/legs/pacing.mov";
 import sittingLegRaises from "../assets/video/legs/sittingLegRaises.mp4";
 import lungesInPlace from "../assets/video/legs/lungesInPlace.mp4";
-
-// img
-// import ....
+import lungesCM from "../assets/video/legs/lungesCM.mp4";
+import squatsCM from "../assets/video/legs/squatsCM.mp4";
 
 const warmUp = [
+  {
+    name: "Разминка на таз",
+    src: pelvisWarmUp,
+    img: pelvisWarmUpImg,
+  },
   {
     name: "Разминка на плечи",
     src: shoulderWarmUp,
@@ -233,6 +265,16 @@ const warmUp = [
 ];
 
 const chestArms = [
+  {
+    name: "Армейский жим в тренажере",
+    src: militaryPressMachine,
+    img: militaryPressMachineImg,
+  },
+  {
+    name: "Жим на грудь сидя",
+    src: seatedChestPress,
+    img: seatedChestPressImg,
+  },
   {
     name: "Армейский жим",
     src: armyPress,
@@ -352,6 +394,31 @@ const chestArms = [
 
 const back = [
   {
+    name: "Дотягивания",
+    src: reaching,
+    img: reachingImg,
+  },
+  {
+    name: "Лопаточные отжимания",
+    src: scapularPushUps,
+    img: scapularPushUpsImg,
+  },
+  {
+    name: "Лопаточные подтягивания",
+    src: scapularPullUps,
+    img: scapularPullUpsImg,
+  },
+  {
+    name: "ТВБ в рычажном тренажере",
+    src: leverTrainerTVB,
+    img: leverTrainerTVBImg,
+  },
+  {
+    name: "ТНБ с упором на грудь",
+    src: emphasisChestTNB,
+    img: emphasisChestTNBImg,
+  },
+  {
     name: "Тяга нижнего блока широким хватом",
     src: wideGripLatPullDown,
     img: wideGripLatPullDownImg,
@@ -469,6 +536,16 @@ const back = [
 ];
 
 const legs = [
+  {
+    name: "Выпады в СМ",
+    src: lungesCM,
+    img: lungesCMImg,
+  },
+  {
+    name: "Приседы в СМ",
+    src: squatsCM,
+    img: squatsCMImg,
+  },
   {
     name: "Жим ногами",
     src: legPress,
@@ -617,6 +694,11 @@ const legs = [
 ];
 
 const press = [
+  {
+    name: "Скручивания в тренажере",
+    src: machineCrunches,
+    img: machineCrunchesImg,
+  },
   {
     name: "Колено-логоть наискосок",
     src: kneeElbowObliquely,
