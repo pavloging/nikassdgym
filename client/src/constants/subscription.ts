@@ -10,7 +10,7 @@ export const subscription: Array<ISubscription> = [
     {
         name: '1 месяц',
         description: 'Доступ на 30 дней',
-        date: 30 * 24 * 60 * 60 * 1000, // 30 дней
+        date: 28 * 24 * 60 * 60 * 1000, // 28 дней
         price: 9600,
         salePrice: 6999
     },
