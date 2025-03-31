@@ -1,20 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root {
-    --color-bg: #d1e9ff;
-    --color-blue: #3a57f4;
-    --color-white: #fff;
-    --color-black: #000;
-    --color-grey: #343434;
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('./assets/fonts/bebas-neue-cyrillic/bebasneuecyrillic.ttf');
+}
 
-    --color-dark: #a1a1a1;
+:root {
+    --color-bg: #f3f4ff;
+
+    --color-pink: #ad0d49;
+    --color-green: #ddff63;
+    --color-white: #fff;
+    --color-black: #040612;
+
+    --color-blue: #1e32a6;
+    --color-blue-medium: #12217b;
+    --color-blue-light: #e7f9ff;
+    --color-blue-bright: #74dfff;
+    --color-blue-dark: #061152;
+
+    --color-grey: #454545;
+    --color-grey-light: #e5e5e5;
+
+    /* --color-dark: #a1a1a1;
     --color-blur: #4a3144;
 
     --btn-primary: #7187ff;
     --btn-primary-hover: #5e76ff;
 
     --btn-secondary: #ffffff20;
-    --btn-secondary-hover: #ffffff40;
+    --btn-secondary-hover: #ffffff40; */
 }
 
 * {
@@ -33,10 +48,8 @@ body {
     overflow-x: hidden;
 }
 body #root {
-    margin: 0 12%;
-    padding: 0 10%;
-    border-left: solid 1px var(--color-white);
-    border-right: solid 1px var(--color-white);
+    /* margin: 0 8%; */
+    /* padding: 0 2%; */
     min-height: 100vh;
 }
 input {
@@ -71,10 +84,11 @@ h2 {
 button {
     font-size: smaller;
     padding: 8px 20px;
+    background: none;
     border-radius: 20px;
     border: solid 1px var(--color-grey);
-    cursor: pointer;
     transition: 0.5s;
+    cursor: pointer;
 }
 .secondary {
     background-color: var(--btn-secondary);
@@ -101,13 +115,6 @@ a {
 }
 a:hover {
     filter: contrast(0.9);
-}
-hr {
-    position: absolute;
-    border-top: solid 1px var(--color-white);
-    border-bottom: 0px;
-    left: calc(12% + 1px);
-    width: calc(100% - 24% - 2px);
 }
 .txt-center {
     text-align: center;
@@ -136,14 +143,22 @@ hr {
 }
 
 /* Header emelent */
-.header {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 0;
+    background-color: var(--color-white);
 }
-.header .header__content,
-.header .header__payment {
+.header__title {
+    font-family: 'Bebas Neue';
+
+}
+.header__btn {
+    font-family: 'Bebas Neue';
+}
+header .header__content,
+header .header__payment {
     display: flex;
     gap: 25px;
 }
@@ -188,7 +203,7 @@ hr {
 }
 
 /* Footer emelent */
-.footer {
+footer {
     padding: 40px 0;
 }
 .footer__contact-block {
@@ -309,9 +324,9 @@ hr {
 .main__name {
     text-align: center;
 }
-.main__img {
+/* .main__img {
     height: 60vh;
-}
+} */
 .main__title {
     margin: 16px 0;
     text-align: start;
@@ -674,9 +689,9 @@ hr {
     transition: bottom 0.3s, transform 0.3s 0.15s;
 }
 
-#main__img {
+/* #main__img {
     display: none;
-}
+} */
 .swiper-wrapper {
     display: flex;
     align-items: center;
@@ -726,16 +741,12 @@ hr {
 @media all and (max-device-width: 768px) {
     body #root {
         margin: 0 5%;
-        padding: 0 5%;
+        padding: 0 2%;
     }
-    hr {
-        left: calc(5% + 1px);
-        width: calc(100% - 10% - 2px);
-    }
-    .header {
+    header {
         padding: 30px 5px;
     }
-    .header__btn-fix {
+    .header__btn {
         margin-right: 30px;
     }
     .main__welcome {
@@ -779,8 +790,8 @@ hr {
     .header__content {
         align-items: center;
     }
-    .header .header__content,
-    .header {
+    header .header__content,
+    header {
         gap: 10px;
     }
     .main__result-img {
@@ -822,10 +833,10 @@ hr {
 
 /* Для мишуры */
 @media (min-width: 400px) and (max-width: 425px) {
-    #main__img {
+    /* #main__img {
         display: block;
-    }
-    #main__first-fitness {
+    } */
+    /* #main__first-fitness {
         position: absolute;
         left: 40px;
         top: 530px;
@@ -863,15 +874,15 @@ hr {
         top: 890px;
         left: 0;
         width: 150px;
-    }
+    } */
 }
 
 @media (min-width: 320px) and (max-width: 399px) {
     /* Ваши стили внутри этого блока */
-    #main__img {
+    /* #main__img {
         display: block;
-    }
-    #main__first-fitness {
+    } */
+    /* #main__first-fitness {
         position: absolute;
         left: 30px;
         top: 540px;
@@ -910,5 +921,5 @@ hr {
         top: 820px;
         left: 0;
         width: 150px;
-    }
+    } */
 }

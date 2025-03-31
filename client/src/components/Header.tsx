@@ -14,12 +14,14 @@ const Header = () => {
     const navigate = useNavigate();
 
     const main = `${
-        pathname === '/' || pathname === '/main' ? 'secondary' : 'primary header__primary'
+        pathname === '/' || pathname === '/main' ? 'header__btn' : 'header__btn header__btn-fill'
     }`;
     const exercises = `${
-        pathname.includes('/exercises') ? 'secondary' : 'primary header__primary'
+        pathname.includes('/exercises') ? 'header__btn' : 'header__btn header__btn-fill'
     }`;
-    const subscription = `${pathname === '/subscription' ? 'secondary' : 'primary header__primary'}`;
+    const subscription = `${
+        pathname === '/subscription' ? 'header__btn' : 'header__btn header__btn-fill'
+    }`;
 
     useEffect(() => {
         function handleResize() {
@@ -36,21 +38,21 @@ const Header = () => {
     }, []);
 
     const handleActivateSubscription = () => {
-        if (store.isAuth) navigate('/subscription')
-        else navigate('/registration')
-    }
+        if (store.isAuth) navigate('/subscription');
+        else navigate('/registration');
+    };
 
     const formatDate = (isoDate: string) => {
         // Создаем объект даты из строки ISO
         const date = new Date(isoDate);
-    
+
         // Получаем день и месяц
         const day = String(date.getDate()).padStart(2, '0'); // Добавляем ведущий ноль
         const month = String(date.getMonth() + 1).padStart(2, '0'); // Месяцы начинаются с 0
-    
+
         // Возвращаем формат в виде 'дд.мм'
         return `${day}.${month}`;
-    }
+    };
 
     const Burger = () => {
         return (
@@ -72,7 +74,8 @@ const Header = () => {
 
     return (
         <>
-            <div className="header">
+            <header>
+                <span className='header__title'>Ника Дупина</span>
                 {!isBurger ? (
                     <div className="header__content">
                         <Link to="/">
@@ -99,9 +102,15 @@ const Header = () => {
                 <div className="header__payment-block">
                     <div className="header__payment">
                         {store.user.isActivatedSubscription ? (
-                            <button className="primary header__btn-fix">Подписка активна до {formatDate(String(store.user.dateActivatedSubscription))}</button>
+                            <button className="header__btn">
+                                Подписка активна до{' '}
+                                {formatDate(String(store.user.dateActivatedSubscription))}
+                            </button>
                         ) : (
-                            <button className="secondary header__btn-fix" onClick={handleActivateSubscription}>
+                            <button
+                                className="header__btn"
+                                onClick={handleActivateSubscription}
+                            >
                                 Подписка не активна
                             </button>
                         )}
@@ -115,9 +124,8 @@ const Header = () => {
                     )}
                 </div>
                 {isBurger && <div></div>}
-            </div>
+            </header>
             {isOpenBurger && <Burger />}
-            <hr />
         </>
     );
 };

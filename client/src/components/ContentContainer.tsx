@@ -10,7 +10,7 @@ const ContentContainer: React.FC<ContentContainerProps> = ({ className, children
     return (
         <>
             <Header />
-            <div className={`${className} content`}>{children}</div>
+            <main className={`${className} content`}>{children}</main>
             <Footer />
         </>
     );
