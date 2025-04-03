@@ -7,7 +7,9 @@ import { BrowserRouter } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import './index.css';
+import './style/index.css';
+import './style/ui.css';
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <BrowserRouter>

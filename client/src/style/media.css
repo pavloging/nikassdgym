@@ -1,0 +1,212 @@
+
+@media screen and (min-width: 1441px) {
+    /* body {
+        background-color: red;
+    } */
+    h1 {
+        font-size: xx-large;
+    }
+    /* span,
+    button,
+    label,
+    input,
+    a,
+    p,
+    li {
+        font-size: large !important;
+    } */
+    .main__title {
+        font-size: xx-large;
+    }
+    .main__description {
+        font-size: x-large;
+    }
+    .main__paragraph {
+        max-width: 800px;
+        font-size: x-large;
+    }
+}
+@media all and (max-device-width: 1440px) {
+    .main__content {
+        padding: 80px 0;
+    }
+}
+
+@media all and (max-device-width: 980px) {
+    .main__welcome-img {
+        width: 43%;
+    }
+}
+@media all and (max-device-width: 768px) {
+    body #root {
+        margin: 0 5%;
+        padding: 0 2%;
+    }
+    header {
+        padding: 30px 5px;
+    }
+    .header__btn {
+        margin-right: 30px;
+    }
+    .main__welcome {
+        flex-direction: column;
+    }
+    .main__welcome-img {
+        width: auto;
+    }
+    .main__title,
+    .main__description {
+        text-align: center;
+    }
+    .main__buttons {
+        justify-content: center;
+    }
+    .exercise__video-block {
+        display: flex;
+        justify-content: center;
+    }
+    .subscription__list-cards {
+        margin-bottom: 40px;
+    }
+    .subscription__card {
+        width: 100%;
+    }
+}
+@media all and (max-device-width: 425px) {
+    h1 {
+        font-size: x-large;
+    }
+    h2 {
+        font-size: large;
+    }
+    /* button,
+    label,
+    input,
+    a,
+    p {
+        font-size: small !important;
+    } */
+    .header__content {
+        align-items: center;
+    }
+    header .header__content,
+    header {
+        gap: 10px;
+    }
+    .main__result-img {
+        width: 100%;
+    }
+    button {
+        font-size: smaller;
+        padding: 8px 14px;
+    }
+    .exercises-list__content {
+        grid-template-columns: repeat(auto-fill, 60vw);
+    }
+    .exercises-list__img {
+        width: 60vw;
+    }
+    .exercise__header {
+        margin-bottom: 40px;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+@media all and (max-device-width: 374px) {
+    .header__content {
+        flex-direction: column;
+    }
+}
+
+/* Для мишуры */
+@media (min-width: 400px) and (max-width: 425px) {
+    /* #main__img {
+        display: block;
+    } */
+    /* #main__first-fitness {
+        position: absolute;
+        left: 40px;
+        top: 530px;
+        color: var(--color-white);
+        font-size: xx-large;
+        font-weight: 600;
+        filter: blur(1px);
+        z-index: -1;
+    }
+    #main__second-fitness {
+        position: absolute;
+        right: 40px;
+        top: 965px;
+        color: var(--color-white);
+        font-size: xx-large;
+        font-weight: 600;
+        filter: blur(1px);
+    }
+    #main__first-dumbbell {
+        position: absolute;
+        top: 300px;
+        right: 20px;
+        width: 70px;
+        transform: rotate(293deg);
+    }
+    #main__second-dumbbell {
+        position: absolute;
+        top: 125px;
+        left: 15px;
+        width: 70px;
+        transform: rotate(353deg);
+    }
+    #main__shaker {
+        position: absolute;
+        top: 890px;
+        left: 0;
+        width: 150px;
+    } */
+}
+
+@media (min-width: 320px) and (max-width: 399px) {
+    /* Ваши стили внутри этого блока */
+    /* #main__img {
+        display: block;
+    } */
+    /* #main__first-fitness {
+        position: absolute;
+        left: 30px;
+        top: 540px;
+        color: var(--color-white);
+        font-size: xx-large;
+        font-weight: 600;
+        filter: blur(1px);
+        z-index: -1;
+    }
+    #main__second-fitness {
+        position: absolute;
+        right: 30px;
+        top: 920px;
+        color: var(--color-white);
+        font-size: xx-large;
+        font-weight: 600;
+        filter: blur(1px);
+        z-index: -1;
+    }
+    #main__first-dumbbell {
+        position: absolute;
+        top: 300px;
+        right: 20px;
+        width: 70px;
+        transform: rotate(293deg);
+    }
+    #main__second-dumbbell {
+        position: absolute;
+        top: 140px;
+        left: 15px;
+        width: 70px;
+        transform: rotate(353deg);
+    }
+    #main__shaker {
+        position: absolute;
+        top: 820px;
+        left: 0;
+        width: 150px;
+    } */
+}

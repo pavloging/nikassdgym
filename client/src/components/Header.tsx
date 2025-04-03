@@ -114,6 +114,9 @@ const Header = () => {
                                 Подписка не активна
                             </button>
                         )}
+                        <div className='header__icon'>
+                            <img src="/icons/dumbbell.svg" alt="" />
+                        </div>
                     </div>
                     {store.isAuth && !isBurger && (
                         <div className="header__logout-block">

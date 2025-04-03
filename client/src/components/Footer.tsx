@@ -3,52 +3,54 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <footer>
-            <h2 className="footer__title">Мои контакты</h2>
-            <div className="footer__contact-block">
-                <div className="footer__contact">
-                    <img className="footer__img" src="/tel.svg" alt="" />
-                    <a className="footer__link" href="https://wa.me/+79141636665">
-                        + 7 914 163 66 65
-                    </a>
-                </div>
-                <div className="footer__contact">
-                    <img className="footer__img" src="/instagram.svg" alt="" />
-                    <a
-                        className="footer__link"
-                        href="https://www.instagram.com/nikass.d?igsh=MTRkODdydmZhNWlsYQ=="
-                    >
-                        Instagram
-                    </a>
-                </div>
-                <div className="footer__contact">
-                    <img className="footer__img" src="/youtube.svg" alt="" />
-                    <a
-                        className="footer__link"
-                        href="https://youtube.com/@nikass.d?si=805QKxSV-zpTlBJk"
-                    >
-                        YouTube
-                    </a>
-                </div>
+            <div className='footer__name-link'>
                 <div>
-                    <span>
-                        <b>Дупина Ника Николаевна</b>
-                    </span>
-                    <p style={{ marginTop: '10px' }}>ИНН 270396986640</p>
+                    <span className="footer__title">Ника Дупина</span>
+                    <br />
+                    <span className="footer__subtitle">Онлайн тренер</span>
+                </div>
+                <div className='footer__social-media'>
+                    <a href="https://t.me/nikaklubnika27" target="_blank">
+                        <img className='footer__social-media_img' src="/icons/telegram.svg" alt="" />
+                    </a>
+                    <a href="https://wa.me/+79141636665" target="_blank">
+                        <img className='footer__social-media_img' src="/icons/whatsapp.svg" alt="" />
+                    </a>
+                    <a href="https://t.me/nikaklubnika27" target="_blank">
+                        <img className='footer__social-media_img' src="/icons/instagram.svg" alt="" />
+                    </a>
                 </div>
             </div>
-            <div className="footer__container">
-                <div className="footer__links">
-                    <Link to="/offerta" className="footer__policy">
-                        Оферта
-                    </Link>
-                    <Link to="/policy" className="footer__policy">
-                        Политика обработки персональных данных
-                    </Link>
-                    <Link to="/agreement" className="footer__policy">
-                        Согласие на обработку персональных данных
-                    </Link>
-                </div>
-                <p className="footer__policy">2024</p>
+
+            <div className="footer__block-navigation">
+                <span className="footer__navigation_title">
+                    <b>Навигация</b>
+                </span>
+                <span className="footer__navigation_option">Обо мне</span>
+                <span className="footer__navigation_option">Преймущества</span>
+                <span className="footer__navigation_option">Кому подходят онлайн тренеровки</span>
+                <span className="footer__navigation_option">Результаты подопечных</span>
+                <span className="footer__navigation_option">Этапы работы</span>
+                <span className="footer__navigation_option">Тарифы</span>
+                <span className="footer__navigation_option">Питание</span>
+            </div>
+
+            <div className="footer__block-data">
+                <span className="footer__data_title">
+                    <b>Дупина Ника Николаевна</b>
+                </span>
+                <span className="footer__data_option">ИНН 270396986640</span>
+            </div>
+            <div className="footer__block-link">
+                <Link className="footer__link_option" to="/offerta">
+                    Оферта
+                </Link>
+                <Link className="footer__link_option" to="/policy">
+                    Политика обработки персональных данных
+                </Link>
+                <Link className="footer__link_option" to="/agreement">
+                    Согласие на обработку персональных данных
+                </Link>
             </div>
         </footer>
     );

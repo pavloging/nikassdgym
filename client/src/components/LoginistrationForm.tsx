@@ -100,11 +100,11 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
             </div>
 
             {isLogin ? (
-                <button className="secondary" onClick={handleLogin} disabled={isDisabled}>
+                <button className="login__btn" onClick={handleLogin} disabled={isDisabled}>
                     Войти
                 </button>
             ) : (
-                <button className="secondary" onClick={handleRegistration} disabled={isDisabled}>
+                <button className="login__btn" onClick={handleRegistration} disabled={isDisabled}>
                     Зарегистрироваться
                 </button>
             )}

@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import reviews1 from '../assets/images/reviews/1.jpg';
 import reviews2 from '../assets/images/reviews/2.jpg';
 import reviews3 from '../assets/images/reviews/3.jpg';
+import { Link } from 'react-router-dom';
 
 const Main: FC = () => {
     const name = 'back';
@@ -29,77 +30,96 @@ const Main: FC = () => {
             <CookieBanner />
 
             <div className="main__welcome">
-                <span>Твой виртуальный</span>
-                <span>Тренер</span>
+                <h2 className="main__welcome_title">Твой виртуальный</h2>
+                <br />
+                <h1 className="main__welcome_subtitle">Тренер</h1>
 
-                <div>
-                    <div>
+                <div className="main__welcome_block-message">
+                    <div className="main__welcome_block-connect">
                         <span>на</span>
-                        <span>24/7</span>
+                        <span className="main__welcome_connect">24/7</span>
                         <span>связи</span>
                     </div>
-                    <div>
+                    <div className="main__welcome_block-strength">
                         <span>
                             С каждым подходом <br />
                             ты становишься сильнее
                         </span>
                     </div>
                 </div>
-                <button>Начать тренировки</button>
+                <div className="main__welcome_btn">
+                    <span>Начать тренировки</span>
+                    <Link to={'/exercises'}>
+                        <img src="/icons/arrow-right-top-black.svg" alt="" />
+                    </Link>
+                </div>
+                <img className="main__welcome_avatar" src="/avatar.png" alt="" />
             </div>
             <div className="main__about-me">
-                <h2>Обо мне</h2>
-                <p>Чем я отличаюсь от конкурентов?</p>
-                <div>
-                    <div>
-                        <div>
-                            <img src="" alt="" />
+                <h2 style={{ marginBottom: 32 }}>Обо мне</h2>
+                <h3 style={{ marginBottom: 80 }}>Чем я отличаюсь от конкурентов?</h3>
+                <div className="main__about-me_block-card">
+                    <div className="main__about-me_card">
+                        <div className="main__about-me_card_block-img">
+                            <img src="/icons/star.svg" alt="" />
                         </div>
-                        <h4>Высшее образование</h4>
-                        <span>Диплом с отличием спортивного ВУЗа.</span>
+                        <div>
+                            <h3>Высшее образование</h3>
+                            <span>Диплом с отличием спортивного ВУЗа.</span>
+                        </div>
                     </div>
-                    <div>
-                        <div>
-                            <img src="" alt="" />
+                    <div className="main__about-me_card">
+                        <div className="main__about-me_card_block-img">
+                            <img src="/icons/lamp.svg" alt="" />
                         </div>
-                        <h4>Повышение квалификации</h4>
-                        <span>Более 8 обучений по повышению квалификации.</span>
+                        <div>
+                            <h3>Индивидуальный подход</h3>
+                            <span>
+                                Мной будет услышан любой запрос: от исправления осанки и устранения
+                                болей, до набора мышечной массы.
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <div>
-                            <img src="" alt="" />
+                    <div className="main__about-me_card">
+                        <div className="main__about-me_card_block-img">
+                            <img src="/icons/rocket.svg" alt="" />
                         </div>
-                        <h4>Успех клиентов</h4>
-                        <span>Мои клиенты суммарно скинули 1,5т жира.</span>
+                        <div>
+                            <h3>Повышение квалификации</h3>
+                            <span>Более 8 обучений по повышению квалификации.</span>
+                        </div>
                     </div>
-                    <div>
-                        <div>
-                            <img src="" alt="" />
+                    <div className="main__about-me_card">
+                        <div className="main__about-me_card_block-img">
+                            <img src="/icons/to-do-work.svg" alt="" />
                         </div>
-                        <h4>Индивидуальный подход</h4>
-                        <span>
-                            Мной будет услышан любой запрос: от исправления осанки и устранения
-                            болей, до набора мышечной массы.
-                        </span>
+                        <div>
+                            <h3>Комплексная работа</h3>
+                            <span>
+                                Подхожу к вопросу работы с телом комплексно, включая сопровождение
+                                по питанию.
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <div>
-                            <img src="" alt="" />
+                    <div className="main__about-me_card">
+                        <div className="main__about-me_card_block-img">
+                            <img src="/icons/mass.svg" alt="" />
                         </div>
-                        <h4>Комплексная работа</h4>
-                        <span>
-                            Подхожу к вопросу работы с телом комплексно, включая сопровождение по
-                            питанию.
-                        </span>
+                        <div>
+                            <h3>Успех клиентов</h3>
+                            <span>Мои клиенты суммарно скинули 1,5т жира.</span>
+                        </div>
                     </div>
                 </div>
-                <span>
-                    Тренируясь со мной, подопечный получает кропотливую
-                    <br />
-                    работу с телом, учитывая индивидуальные особенности.
-                </span>
+                <div style={{ marginTop: 60 }}>
+                    <span>
+                        Тренируясь со мной, подопечный получает кропотливую
+                        <br />
+                        работу с телом, учитывая индивидуальные особенности.
+                    </span>
+                </div>
             </div>
-            <div className="main__benefits-me">
+            {/* <div className="main__benefits-me">
                 <h2>
                     Преимущества
                     <br />
@@ -116,21 +136,43 @@ const Main: FC = () => {
                     </div>
                     <div>Swagger</div>
                 </div>
-            </div>
+            </div> */}
             <div className="main__whom">
-                <h2>
+                <h2 style={{ marginBottom: 80 }}>
                     Кому подходят
                     <br />
                     онлайн тренировки
                 </h2>
                 <div className="main__whom_block-card">
                     <div className="main__whom_card-list">
-                        <div className="main__whom_card"></div>
-                        <div className="main__whom_card"></div>
-                        <div className="main__whom_card"></div>
-                        <div className="main__whom_card"></div>
+                        <div className="main__whom_card">
+                            <img src="/icons/anchor.svg" alt="" />
+                            <span>
+                                У кого нет возможности подстраиваться под тренера из-за графика
+                                работы.
+                            </span>
+                        </div>
+                        <div className="main__whom_card">
+                            <img src="/icons/arrow-right-down.svg" alt="" />
+                            <span>Кто тренируется месяцами, но так и не видит результата.</span>
+                        </div>
+                        <div className="main__whom_card">
+                            <img src="/icons/battery.svg" alt="" />
+                            <span>
+                                Кто не может позволить финансово платить персональному тренеру.
+                            </span>
+                        </div>
+                        <div className="main__whom_card">
+                            <img src="/icons/close.svg" alt="" />
+                            <span>
+                                Кто не нашел своем в зале высококвалифицированного специалиста.
+                            </span>
+                        </div>
                     </div>
-                    <div className="main__whom_card"></div>
+                    <div className="main__whom_card bg-green">
+                        <img src="/icons/fire.svg" alt="" />
+                        <span>Кто дисциплинирован и исполнителен.</span>
+                    </div>
                 </div>
             </div>
             <div className="main__result">
@@ -166,16 +208,55 @@ const Main: FC = () => {
                 </div>
             </div>
             <div className="main__stage">
-                <h2>Этап работы</h2>
+                <h2 style={{ marginBottom: 80 }}>Этап работы</h2>
+                <div className="main__stage_block-card">
+                    <div className="main__stage_card">
+                        <span className="main__stage_card_index">01</span>
+                        <h3 style={{ marginBottom: 16 }}>Первичная консультация</h3>
+                        <span>
+                            В самом начале я узнаю ваш тренировочный опыт, ограничения по здоровью и
+                            другие важные факты. У меня только профессиональный подход.
+                        </span>
+                    </div>
+                    <div className="main__stage_card">
+                        <span className="main__stage_card_index">02</span>
+                        <h3 style={{ marginBottom: 16 }}>План тренировок</h3>
+                        <span>
+                            Тренировочный протокол формируется исходя из ваших целей. Каждую неделю
+                            корректирую нагрузку в зависимости от успешного выполнения задач.
+                        </span>
+                    </div>
+                    <div className="main__stage_card">
+                        <span className="main__stage_card_index">03</span>
+                        <h3 style={{ marginBottom: 16 }}>Регистрация на сайте и оплат</h3>
+                        <span>
+                            Выполнение упражнений по подробным видео урокам на платформе с обратной
+                            связью от меня. Мне важен ваш качественный результат!
+                        </span>
+                    </div>
+                    <div className="main__stage_card bg-blue">
+                        <img src="/icons/i.svg" alt="" />
+                        <h3 style={{ marginBottom: 16 }} className="while">
+                            Посмотреть все упражнения сейчас
+                        </h3>
+                        <span className="while">
+                            Перед принятием окончательного решения вы можете познакомиться со всем
+                            списком упражнений, которые доступны на платформе.
+                        </span>
+                        <Link to={'/exercises'} className="main__stage_block-arrow">
+                            <img src="/icons/arrow-right-top.svg" alt="" />
+                        </Link>
+                    </div>
+                </div>
             </div>
-            <div className="main__tariff">
+            {/* <div className="main__tariff">
                 <h2>Тарифы</h2>
-            </div>
+            </div> */}
             <div className="main__nutritionist"></div>
-            <div className="main__dreams">
+            {/* <div className="main__dreams">
                 <span>Ваша тело мечты начинается с вас</span>
                 <button>Начать тренеровки</button>
-            </div>
+            </div> */}
 
             {/* <div className="main__welcome">
                 <div className="main__welcome-text">

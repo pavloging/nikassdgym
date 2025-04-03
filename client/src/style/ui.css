@@ -1,0 +1,20 @@
+.bg-green {
+    background-color: var(--color-green);
+}
+.green {
+    color: var(--color-green);
+}
+
+.bg-blue{
+    background-color: var(--color-blue);
+}
+.blue {
+    color: var(--color-blue);
+}
+
+.bg-while {
+    color: var(--color-white);
+}
+.while {
+    color: var(--color-white);
+}

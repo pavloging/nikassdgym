@@ -56,7 +56,7 @@ const Subscription: FC = () => {
                             <h2 className="subscription__price">{item.price}p</h2>
                         )}
                         <button
-                            className="subscription__btn primary"
+                            className="subscription__btn"
                             onClick={() =>
                                 handlePay({
                                     price: item.salePrice ? item.salePrice : item.price,
