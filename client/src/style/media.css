@@ -117,11 +117,11 @@
         overflow: hidden;
     }
     .main__welcome_title {
-        font-size: 90px;
+        font-size: 15vw;
         padding: 24px 0 0 0;
     }
     .main__welcome_subtitle {
-        font-size: 150px;
+        font-size: 20vw;
         padding: 0;
     }
     .main__welcome_avatar {
@@ -178,10 +178,10 @@
 /* Между планшетом и телефоном */
 @media (min-width: 480px) and (max-width: 540px) {
     .main__welcome_title {
-        font-size: 75px;
+        /* font-size: 75px; */
     }
     .main__welcome_subtitle {
-        font-size: 120px;
+        /* font-size: 120px; */
     }
     .main__welcome_avatar {
         max-width: 430px;
@@ -219,13 +219,13 @@
 
     .main__welcome {
         margin: 16px;
-        min-height: calc(85vh - 140px);
+        min-height: 640px;
     }
     .main__welcome_title {
-        font-size: 55px;
+        /* font-size: 55px; */
     }
     .main__welcome_subtitle {
-        font-size: 20vw;
+        /* font-size: 20vw; */
     }
     .main__welcome_avatar {
         max-width: 370px;
