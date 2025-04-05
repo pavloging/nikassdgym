@@ -219,7 +219,7 @@
 
     .main__welcome {
         margin: 16px;
-        min-height: 640px;
+        min-height: 580px;
     }
     .main__welcome_title {
         /* font-size: 55px; */
