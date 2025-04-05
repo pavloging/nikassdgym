@@ -75,7 +75,6 @@ const Header = () => {
     return (
         <>
             <header>
-                <span className='header__title'>Ника Дупина</span>
                 {!isBurger ? (
                     <div className="header__content">
                         <Link to="/">
@@ -99,6 +98,8 @@ const Header = () => {
                         <label className="burger" htmlFor="burger-checkbox"></label>
                     </div>
                 )}
+
+                <span className='header__title'>Ника Дупина</span>
                 <div className="header__payment-block">
                     <div className="header__payment">
                         {store.user.isActivatedSubscription ? (
@@ -126,7 +127,7 @@ const Header = () => {
                         </div>
                     )}
                 </div>
-                {isBurger && <div></div>}
+                {/* {isBurger && <div></div>} */}
             </header>
             {isOpenBurger && <Burger />}
         </>

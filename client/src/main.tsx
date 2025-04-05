@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import './style/index.css';
 import './style/ui.css';
+import './style/media.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

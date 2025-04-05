@@ -1,20 +1,8 @@
-
+/* 
 @media screen and (min-width: 1441px) {
-    /* body {
-        background-color: red;
-    } */
     h1 {
         font-size: xx-large;
     }
-    /* span,
-    button,
-    label,
-    input,
-    a,
-    p,
-    li {
-        font-size: large !important;
-    } */
     .main__title {
         font-size: xx-large;
     }
@@ -79,13 +67,6 @@
     h2 {
         font-size: large;
     }
-    /* button,
-    label,
-    input,
-    a,
-    p {
-        font-size: small !important;
-    } */
     .header__content {
         align-items: center;
     }
@@ -111,102 +92,175 @@
         flex-direction: column;
         gap: 0;
     }
-}
-@media all and (max-device-width: 374px) {
-    .header__content {
-        flex-direction: column;
-    }
-}
+} */
 
-/* Для мишуры */
-@media (min-width: 400px) and (max-width: 425px) {
-    /* #main__img {
-        display: block;
-    } */
-    /* #main__first-fitness {
-        position: absolute;
-        left: 40px;
-        top: 530px;
-        color: var(--color-white);
-        font-size: xx-large;
-        font-weight: 600;
-        filter: blur(1px);
-        z-index: -1;
+/* Now */
+@media all and (max-device-width: 768px) {
+    h2 {
+        font-size: 48px;
     }
-    #main__second-fitness {
-        position: absolute;
-        right: 40px;
-        top: 965px;
-        color: var(--color-white);
-        font-size: xx-large;
-        font-weight: 600;
-        filter: blur(1px);
+    header {
+        padding: 16px 40px;
     }
-    #main__first-dumbbell {
-        position: absolute;
-        top: 300px;
-        right: 20px;
-        width: 70px;
-        transform: rotate(293deg);
+    .main__about-me,
+    .main__whom,
+    .main__result,
+    .main__stage,
+    .main__tariff {
+        padding: 0 40px;
+        margin-top: 130px;
     }
-    #main__second-dumbbell {
-        position: absolute;
-        top: 125px;
-        left: 15px;
-        width: 70px;
-        transform: rotate(353deg);
-    }
-    #main__shaker {
-        position: absolute;
-        top: 890px;
-        left: 0;
-        width: 150px;
-    } */
-}
 
-@media (min-width: 320px) and (max-width: 399px) {
-    /* Ваши стили внутри этого блока */
-    /* #main__img {
-        display: block;
-    } */
-    /* #main__first-fitness {
-        position: absolute;
-        left: 30px;
-        top: 540px;
-        color: var(--color-white);
-        font-size: xx-large;
-        font-weight: 600;
-        filter: blur(1px);
-        z-index: -1;
+    .main__welcome {
+        margin: 24px 20px;
+        min-height: calc(85vh - 140px);
+        overflow: hidden;
     }
-    #main__second-fitness {
-        position: absolute;
-        right: 30px;
-        top: 920px;
-        color: var(--color-white);
-        font-size: xx-large;
-        font-weight: 600;
-        filter: blur(1px);
-        z-index: -1;
+    .main__welcome_title {
+        font-size: 90px;
+        padding: 24px 0 0 0;
     }
-    #main__first-dumbbell {
-        position: absolute;
-        top: 300px;
-        right: 20px;
-        width: 70px;
-        transform: rotate(293deg);
+    .main__welcome_subtitle {
+        font-size: 150px;
+        padding: 0;
     }
-    #main__second-dumbbell {
-        position: absolute;
-        top: 140px;
-        left: 15px;
-        width: 70px;
-        transform: rotate(353deg);
+    .main__welcome_avatar {
+        max-width: 490px;
+        right: -75px;
     }
-    #main__shaker {
+    .main__welcome_block-message {
         position: absolute;
-        top: 820px;
-        left: 0;
-        width: 150px;
-    } */
+        bottom: 100px;
+        align-items: flex-start;
+    }
+    .main__welcome_block-strength {
+        width: 60vw;
+        margin-left: 5%;
+    }
+    .main__welcome_block-connect {
+        margin-right: 75%;
+    }
+    .main__welcome_btn {
+        position: absolute;
+        bottom: 20px;
+        padding: 12px 22px;
+        width: calc(100% - 48px);
+    }
+
+    .main__about-me_title {
+        margin-bottom: 16px;
+    }
+    .main__about-me_subtitle {
+        margin-bottom: 48px;
+    }
+    .main__about-me_block-card {
+        grid-template-columns: 1fr;
+    }
+
+    .main__whom_title {
+        margin-bottom: 48px;
+    }
+    .main__whom_card-list {
+        grid-template-columns: 1fr;
+    }
+
+    .main__result_title {
+        margin-bottom: 48px;
+    }
+
+    .main__stage__title {
+        margin-bottom: 48px;
+    }
+    .main__stage_block-card {
+        grid-template-columns: 1fr;
+    }
+}
+/* Между планшетом и телефоном */
+@media (min-width: 480px) and (max-width: 540px) {
+    .main__welcome_title {
+        font-size: 75px;
+    }
+    .main__welcome_subtitle {
+        font-size: 120px;
+    }
+    .main__welcome_avatar {
+        max-width: 430px;
+        right: -115px;
+    }
+}
+@media all and (max-device-width: 480px) {
+    h2 {
+        font-size: 36px;
+    }
+    h3 {
+        font-size: 20px;
+    }
+    .header__title {
+        display: none;
+    }
+    .main__about-me,
+    .main__whom,
+    .main__result,
+    .main__stage,
+    .main__tariff {
+        min-height: 75vh;
+        padding: 0 16px;
+    }
+
+    .main__welcome {
+        margin: 16px;
+        min-height: calc(80vh - 140px);
+    }
+    .main__welcome_title {
+        font-size: 55px;
+    }
+    .main__welcome_subtitle {
+        font-size: 20vw;
+    }
+    .main__welcome_avatar {
+        max-width: 420px;
+        left: 15vw;
+    }
+    .main__welcome_block-message {
+        position: absolute;
+        bottom: 100px;
+    }
+    .main__welcome_block-strength {
+        width: 265px;
+        margin-left: 10%;
+    }
+    .main__welcome_btn {
+        position: absolute;
+        bottom: 20px;
+        padding: 12px 22px;
+    }
+
+    .main__about-me_card_block-img {
+        min-width: 60px;
+        min-height: 60px;
+    }
+
+    .main__result-img {
+        max-height: auto;
+        max-width: 100%;
+    }
+}
+@media all and (max-device-width: 375px) {
+    header .header__payment {
+        gap: 10px;
+    }
+
+    .main__about-me, .main__whom, .main__result, .main__stage, .main__tariff {
+        min-height: 60vh;
+    }
+
+    .main__about-me_card_block-img {
+        min-width: 50px;
+        min-height: 50px;
+    }
+    .main__about-me_card_block-img img {
+        width: 35px;
+        height: 35px;
+    }
+    
 }

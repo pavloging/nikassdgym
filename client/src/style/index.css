@@ -373,6 +373,7 @@ footer {
     background: linear-gradient(to bottom, #ffd5eb84, #0022ff7e);
     border-radius: 30px;
     min-height: calc(100vh - 140px);
+    z-index: 1;
 }
 .main__welcome_title {
     font-family: 'Bebas Neue';
@@ -438,8 +439,15 @@ footer {
     position: absolute;
     right: 0;
     bottom: 0;
+    z-index: -1;
 }
 
+.main__about-me_title{
+    margin-bottom: 32px;
+}
+.main__about-me_subtitle{
+    margin-bottom: 80px;
+}
 .main__about-me_block-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -476,6 +484,9 @@ footer {
     background-color: var(--color-white);
 }
 
+.main__stage__title {
+    margin-bottom: 80px;
+}
 .main__stage_block-card {
     display: grid;
     grid-template-columns: 1fr 1fr;

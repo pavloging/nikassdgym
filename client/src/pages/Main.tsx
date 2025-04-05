@@ -56,8 +56,8 @@ const Main: FC = () => {
                 <img className="main__welcome_avatar" src="/avatar.png" alt="" />
             </div>
             <div className="main__about-me">
-                <h2 style={{ marginBottom: 32 }}>Обо мне</h2>
-                <h3 style={{ marginBottom: 80 }}>Чем я отличаюсь от конкурентов?</h3>
+                <h2 className="main__about-me_title">Обо мне</h2>
+                <h3 className="main__about-me_subtitle">Чем я отличаюсь от конкурентов?</h3>
                 <div className="main__about-me_block-card">
                     <div className="main__about-me_card">
                         <div className="main__about-me_card_block-img">
@@ -138,7 +138,7 @@ const Main: FC = () => {
                 </div>
             </div> */}
             <div className="main__whom">
-                <h2 style={{ marginBottom: 80 }}>
+                <h2 className="main__whom_title">
                     Кому подходят
                     <br />
                     онлайн тренировки
@@ -176,7 +176,7 @@ const Main: FC = () => {
                 </div>
             </div>
             <div className="main__result">
-                <h2>Результаты подопечных</h2>
+                <h2 className="main__result_title">Результаты подопечных</h2>
                 <div>
                     <Swiper
                         slidesPerView={1}
@@ -208,7 +208,7 @@ const Main: FC = () => {
                 </div>
             </div>
             <div className="main__stage">
-                <h2 style={{ marginBottom: 80 }}>Этап работы</h2>
+                <h2 className='main__stage__title'>Этап работы</h2>
                 <div className="main__stage_block-card">
                     <div className="main__stage_card">
                         <span className="main__stage_card_index">01</span>
