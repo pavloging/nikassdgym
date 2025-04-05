@@ -213,10 +213,13 @@ header .header__payment {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 10px;
     margin-bottom: 18px;
     animation: show 1s linear;
 }
 .burger__page a {
+    font-family: 'Bebas Neue';
+    text-decoration: underline;
     z-index: 999;
 }
 @keyframes show {

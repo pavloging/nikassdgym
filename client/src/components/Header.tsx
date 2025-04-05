@@ -72,9 +72,13 @@ const Header = () => {
         );
     };
 
+    const isDesktop = window.innerWidth >= 768;
+
     return (
         <>
             <header>
+                {isDesktop && <span className="header__title">Ника Дупина</span>}
+
                 {!isBurger ? (
                     <div className="header__content">
                         <Link to="/">
@@ -99,23 +103,21 @@ const Header = () => {
                     </div>
                 )}
 
-                <span className='header__title'>Ника Дупина</span>
+                {!isDesktop && <span className="header__title">Ника Дупина</span>}
+
+                {store.user.isActivatedSubscription ? (
+                    <button className="header__btn">
+                        Подписка активна до{' '}
+                        {formatDate(String(store.user.dateActivatedSubscription))}
+                    </button>
+                ) : (
+                    <button className="header__btn" onClick={handleActivateSubscription}>
+                        Подписка не активна
+                    </button>
+                )}
                 <div className="header__payment-block">
                     <div className="header__payment">
-                        {store.user.isActivatedSubscription ? (
-                            <button className="header__btn">
-                                Подписка активна до{' '}
-                                {formatDate(String(store.user.dateActivatedSubscription))}
-                            </button>
-                        ) : (
-                            <button
-                                className="header__btn"
-                                onClick={handleActivateSubscription}
-                            >
-                                Подписка не активна
-                            </button>
-                        )}
-                        <div className='header__icon'>
+                        <div className="header__icon">
                             <img src="/icons/dumbbell.svg" alt="" />
                         </div>
                     </div>

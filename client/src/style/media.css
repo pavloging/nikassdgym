@@ -198,6 +198,16 @@
     .header__title {
         display: none;
     }
+    .exercises-list__content{
+        grid-template-columns: 1fr;
+        padding: 0 30%;
+    }
+    .exercises-list__img-block{
+        min-height: 35vh;
+    }
+    .exercises-list__img{
+        width: 60vw;
+    }
     .main__about-me,
     .main__whom,
     .main__result,

@@ -20,16 +20,18 @@ const Exercise: FC = () => {
         if (!exercise) navigate('/404');
     }, [exercise, name, navigate]);
 
+    useEffect(() => {
+        if (!isControls) {
+            setTimeout(() => {
+                if (store.isAuth && !store.user.isActivatedSubscription) toast.error('У вас не активна подписка. Пожалуйста, активируйте её, чтобы упражнения отображались');
+                else toast.error('Авторизуйтесь в системе и активируйте подписку, чтобы упражнения отображались');
+            }, 2000);
+        }
+    }, [])
+    
     if (!exercise) return <h1>Page 404</h1>;
 
     const isControls = store.isAuth && store.user.isActivatedSubscription
-
-    if (!isControls) {
-        setTimeout(() => {
-            if (store.isAuth && !store.user.isActivatedSubscription) toast.error('У вас не активна подписка. Пожалуйста, активируйте её, чтобы упражнения отображались');
-            else toast.error('Авторизуйтесь в системе и активируйте подписку, чтобы упражнения отображались');
-        }, 2000);
-    }
 
     const filteredExercise =
         search.length !== 0

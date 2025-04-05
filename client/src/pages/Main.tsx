@@ -31,7 +31,7 @@ const Main: FC = () => {
 
             <div className="main__welcome">
                 <h2 className="main__welcome_title">Твой виртуальный</h2>
-                <br />
+                {/* <br /> */}
                 <h1 className="main__welcome_subtitle">Тренер</h1>
 
                 <div className="main__welcome_block-message">
