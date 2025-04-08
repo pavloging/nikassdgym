@@ -8,16 +8,16 @@ export const subscription: Array<ISubscription> = [
         price: 799
     },
     {
-        name: '1 месяц',
+        name: '4 недели',
         description: 'Доступ на 28 дней',
         date: 28 * 24 * 60 * 60 * 1000, // 28 дней
         price: 9600,
         salePrice: 6999
     },
     {
-        name: '3 месяца',
-        description: 'Доступ на 90 дней',
-        date: 90 * 24 * 60 * 60 * 1000, // 90 дней
+        name: '12 недель',
+        description: 'Доступ на 84 дня',
+        date: 84 * 24 * 60 * 60 * 1000, // 84 дней
         price: 21000,
         salePrice: 18900
     }

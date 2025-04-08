@@ -1,100 +1,3 @@
-/* 
-@media screen and (min-width: 1441px) {
-    h1 {
-        font-size: xx-large;
-    }
-    .main__title {
-        font-size: xx-large;
-    }
-    .main__description {
-        font-size: x-large;
-    }
-    .main__paragraph {
-        max-width: 800px;
-        font-size: x-large;
-    }
-}
-@media all and (max-device-width: 1440px) {
-    .main__content {
-        padding: 80px 0;
-    }
-}
-
-@media all and (max-device-width: 980px) {
-    .main__welcome-img {
-        width: 43%;
-    }
-}
-@media all and (max-device-width: 768px) {
-    body #root {
-        margin: 0 5%;
-        padding: 0 2%;
-    }
-    header {
-        padding: 30px 5px;
-    }
-    .header__btn {
-        margin-right: 30px;
-    }
-    .main__welcome {
-        flex-direction: column;
-    }
-    .main__welcome-img {
-        width: auto;
-    }
-    .main__title,
-    .main__description {
-        text-align: center;
-    }
-    .main__buttons {
-        justify-content: center;
-    }
-    .exercise__video-block {
-        display: flex;
-        justify-content: center;
-    }
-    .subscription__list-cards {
-        margin-bottom: 40px;
-    }
-    .subscription__card {
-        width: 100%;
-    }
-}
-@media all and (max-device-width: 425px) {
-    h1 {
-        font-size: x-large;
-    }
-    h2 {
-        font-size: large;
-    }
-    .header__content {
-        align-items: center;
-    }
-    header .header__content,
-    header {
-        gap: 10px;
-    }
-    .main__result-img {
-        width: 100%;
-    }
-    button {
-        font-size: smaller;
-        padding: 8px 14px;
-    }
-    .exercises-list__content {
-        grid-template-columns: repeat(auto-fill, 60vw);
-    }
-    .exercises-list__img {
-        width: 60vw;
-    }
-    .exercise__header {
-        margin-bottom: 40px;
-        flex-direction: column;
-        gap: 0;
-    }
-} */
-
-/* Now */
 @media all and (max-device-width: 768px) {
     h2 {
         font-size: 48px;
@@ -102,13 +5,21 @@
     header {
         padding: 16px 40px;
     }
-    .main__about-me,
-    .main__whom,
-    .main__result,
-    .main__stage,
-    .main__tariff {
+    .block {
         padding: 0 40px;
         margin-top: 130px;
+    }
+
+    .main__whom_title,
+    .main__result_title,
+    .main__stage__title,
+    .main__tariff_title,
+    .main__diet_title,
+    .main__whom-food_title,
+    .main__calories_title,
+    .main__whom-calories_title,
+    .main__analyzes_title {
+        margin-bottom: 48px;
     }
 
     .main__welcome {
@@ -160,7 +71,7 @@
     .main__whom_title {
         margin-bottom: 48px;
     }
-    .main__whom_card-list {
+    .main__card-list {
         grid-template-columns: 1fr;
     }
 
@@ -173,6 +84,13 @@
     }
     .main__stage_block-card {
         grid-template-columns: 1fr;
+    }
+
+    .main__link_btn {
+        width: 55%;
+    }
+    .main__tariff_block-info {
+        width: 100%;
     }
 }
 /* Между планшетом и телефоном */
@@ -198,23 +116,26 @@
     .header__title {
         display: none;
     }
-    .exercises-list__content{
+    .burger {
+        margin: 10px auto;
+    }
+    .block {
+        min-height: 75vh;
+        padding: 0 16px;
+    }
+    .main__link_btn {
+        width: 100%;
+    }
+
+    .exercises-list__content {
         grid-template-columns: 1fr;
         padding: 0 30%;
     }
-    .exercises-list__img-block{
+    .exercises-list__img-block {
         min-height: 35vh;
     }
-    .exercises-list__img{
+    .exercises-list__img {
         width: 60vw;
-    }
-    .main__about-me,
-    .main__whom,
-    .main__result,
-    .main__stage,
-    .main__tariff {
-        min-height: 75vh;
-        padding: 0 16px;
     }
 
     .main__welcome {
@@ -254,13 +175,17 @@
         max-height: auto;
         max-width: 100%;
     }
+
+    .main__analyzes_details{
+        min-width: 100%;
+    }
 }
 @media all and (max-device-width: 375px) {
     header .header__payment {
         gap: 10px;
     }
 
-    .main__about-me, .main__whom, .main__result, .main__stage, .main__tariff {
+    .block {
         min-height: 60vh;
     }
 
@@ -272,5 +197,4 @@
         width: 35px;
         height: 35px;
     }
-    
 }

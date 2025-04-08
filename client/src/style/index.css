@@ -83,7 +83,7 @@ h1 {
     font-size: xx-large;
 }
 h2 {
-    font-size: 96px;
+    font-size: 82px;
     font-weight: 700;
     color: var(--color-black);
 }
@@ -246,7 +246,7 @@ footer {
     display: flex;
     gap: 5px;
 }
-.footer__social-media_img:hover{
+.footer__social-media_img:hover {
     filter: sepia(1);
     transition: 0.3s;
 }
@@ -344,7 +344,7 @@ footer {
     justify-content: space-between;
     margin-bottom: 10px;
 }
-.login__btn{
+.login__btn {
     font-family: 'Bebas Neue';
     padding: 8px 20px 6px 20px;
     color: var(--color-black);
@@ -358,17 +358,26 @@ footer {
     gap: 20px;
 }
 
-.main__welcome,
-.main__about-me,
-.main__whom,
-.main__result,
-.main__stage,
-.main__tariff {
-    min-height: 100vh;
+/* Main page */
+/* Page */
+.block {
+    margin-top: 120px;
     padding: 0 120px;
+    min-height: 90vh;
+}
+/* Title */
+.main__whom_title,
+.main__result_title,
+.main__stage__title,
+.main__tariff_title,
+.main__diet_title,
+.main__whom-food_title,
+.main__calories_title,
+.main__whom-calories_title,
+.main__analyzes_title {
+    margin-bottom: 80px;
 }
 
-/* Main page */
 .main__welcome {
     padding: 0 0 24px 24px;
     margin: 40px 120px;
@@ -445,10 +454,10 @@ footer {
     z-index: -1;
 }
 
-.main__about-me_title{
+.main__about-me_title {
     margin-bottom: 32px;
 }
-.main__about-me_subtitle{
+.main__about-me_subtitle {
     margin-bottom: 80px;
 }
 .main__about-me_block-card {
@@ -471,20 +480,34 @@ footer {
     justify-content: center;
 }
 
-.main__whom_card-list {
+.main__card-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
     margin-bottom: 16px;
 }
-.main__whom_card {
+.main__card {
     display: flex;
-    gap: 5px;
+    gap: 8px;
     flex-direction: column;
     align-items: baseline;
-    padding: 16px;
+    padding: 18px;
     border-radius: 15px;
     background-color: var(--color-white);
+}
+
+.main__result-block {
+    display: flex;
+    justify-content: center;
+}
+.main__result-img {
+    max-height: 60vh;
+    border-radius: 20px;
+}
+.main__result-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
 }
 
 .main__stage__title {
@@ -507,6 +530,9 @@ footer {
     color: #1e32a6bf;
     margin-bottom: 20px;
 }
+.main__stage_card_title {
+    margin-top: 16px;
+}
 .main__stage_block-arrow {
     position: absolute;
     top: 24px;
@@ -520,151 +546,149 @@ footer {
     border-radius: 100%;
     cursor: pointer;
 }
-.main__result-block {
-    display: flex;
-    justify-content: center;
-}
-.main__result-img {
-    max-height: 60vh;
-    border-radius: 20px;
-}
-.main__result-title {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 16px;
-}
-/* .main__welcome {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0 20px;
-    padding-top: 40px;
-}
-.main__welcome-text {
+
+.main__tariff {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    margin-top: 120px;
 }
-.main__welcome-img {
-    height: 60vh;
-}
-.main__name {
-    text-align: center;
-} */
-/* .main__img {
-    height: 60vh;
-} */
-/* .main__title {
-    margin: 16px 0;
+.main__tariff_title {
     text-align: start;
+    width: 100%;
 }
-.main__description {
-    font-size: larger;
-}
-.main__buttons {
+.main__tariff_block-plan {
     display: flex;
-    gap: 14px;
-    z-index: 1;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 52px;
+    width: 100%;
 }
-#main__blue {
+.main__tariff_plan {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 8px;
+}
+.main__tariff_input {
+    accent-color: var(--color-blue);
+    min-width: auto;
+}
+.main__tariff_input::after {
+    content: '';
     position: absolute;
-    width: 300px;
-    height: 550px;
-    background: #ffffff;
-    border-radius: 100px;
-    filter: blur(100px);
-    z-index: -1;
+    width: 0px;
+    height: 0px;
+    font-size: 30px;
+    background-image: url('/icons/fire.svg');
+    background-repeat: no-repeat;
+    transition: 500ms;
 }
-.main__content {
+.main__tariff_block-info {
     display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding-top: 80px;
-    padding-bottom: 120px;
-}
-.main__block-avatar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-.main__avatar {
-    width: 50%;
-    border-radius: 100%;
-}
-.main__banner {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-}
-.main__banner-img {
-    padding: 16px;
-    width: 60px;
+    justify-content: space-between;
+    padding: 24px;
+    width: 100%;
     background-color: var(--color-white);
-    transform: rotate(180deg);
-    border-radius: 100%;
+    border-radius: 15px;
 }
-.main__list-plan {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.selected .main__tariff_block-info {
+    background-color: var(--color-blue);
 }
-.main__plan {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.selected .main__tariff_info_title,
+.selected .main__tariff_info_description,
+.selected .main__tariff_info_price {
+    color: var(--color-white);
 }
-.main__plan span {
-    text-align: center;
+.main__tariff_info_title,
+.main__tariff_info_description,
+.main__tariff_info_price {
+    color: var(--color-black);
 }
-.main__plan-title {
-    font-weight: 700;
-}
-.main__block-number {
-    width: 30px;
-    height: 30px;
-    padding: 5px;
-    margin-bottom: 10px;
-    background-color: var(--color-white);
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.main__text-block:nth-child(2) {
-    display: flex;
-    justify-content: flex-end;
-    text-align: end;
-}
-.main__text-block:last-child {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-.main__paragraph {
-    max-width: 500px;
-    font-size: large;
-}
-.main__span {
-    color: var(--color-blue);
-}
-.main__blur {
-    position: absolute;
-    background: var(--color-blur);
-    z-index: -1;
-}
-.main__login {
+.main__block-link_btn {
     display: flex;
     justify-content: center;
+    width: 100%;
     margin-top: 16px;
 }
-.main__login-btn {
-    font-size: medium;
-    padding: 8px 40px;
+.main__link_btn {
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    width: 30%;
+    border-radius: 15px;
+    border: solid;
+    cursor: pointer;
 }
- */
+
+/* main__nutritionist */
+.main__nutritionist {
+    padding-bottom: 100px;
+    background: linear-gradient(
+        to bottom,
+        #ffe998 0%,
+        #ffd5eb 6%,
+        #d5f96e 41%,
+        #d2f870 73%,
+        #ffdb59 90%,
+        #ffd5eb 100%
+    );
+    border-radius: 30px;
+}
+
+.main__analyzes_subtitle {
+    color: var(--color-white);
+}
+.main__analyzes_sale {
+    color: var(--color-green);
+}
+.main__analyzes_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px;
+    background-color: var(--color-pink);
+    border-radius: 15px;
+}
+.main__analyzes_card_icon {
+    width: fit-content;
+}
+.main__analyzes_span {
+    color: var(--color-white);
+}
+.main__analyzes_block-details {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.main__analyzes_details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+    min-width: 30%;
+    margin-top: 130px;
+    background-image: url(/case.jpg);
+    background-size: cover;
+    border-radius: 15px;
+}
+.main__analyzes_details_title {
+    color: var(--color-white);
+    max-width: 215px;
+    text-align: center;
+}
+.main__analyzes_btn .main__link_btn {
+    width: auto;
+}
+.main__analyzes_btn span {
+    color: var(--color-pink);
+    font-weight: 600;
+}
 
 /* Policy page */
 .policy p {
