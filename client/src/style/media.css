@@ -86,6 +86,12 @@
         grid-template-columns: 1fr;
     }
 
+    .main__nutrition {
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+    }
+
     .main__link_btn {
         width: 55%;
     }

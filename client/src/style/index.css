@@ -638,6 +638,46 @@ footer {
     );
     border-radius: 30px;
 }
+.main__nutrition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+}
+.main__nutrition_block-text {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.main__nutrition_text_title {
+    font-size: 4vw;
+}
+.main__nutrition_text_description {
+    color: var(--color-grey);
+}
+.main__nutrition_block-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 16px 16px 16px;
+    height: 500px;
+    max-width: 680px;
+    background-image: url(/nutrition.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+}
+.main__nutrition_block-img .main__link_btn {
+    width: 100%;
+}
+.main__nutrition_block-img .main__link_btn span {
+    color: var(--color-pink);
+}
+.main__nutrition_img_title {
+    font-family: 'Bebas Neue';
+    font-size: 4vw;
+    color: var(--color-white);
+}
 
 .main__analyzes_subtitle {
     color: var(--color-white);
@@ -675,6 +715,7 @@ footer {
     margin-top: 130px;
     background-image: url(/case.jpg);
     background-size: cover;
+    background-position: center;
     border-radius: 15px;
 }
 .main__analyzes_details_title {

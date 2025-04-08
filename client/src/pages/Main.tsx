@@ -269,7 +269,33 @@ const Main: FC = () => {
                 </div>
             </div>
             <div className="main__nutritionist">
-                <div className="main__nutrition block"></div>
+                <div className="main__nutrition block">
+                    <div className="main__nutrition_block-text">
+                        <h3 className="main__nutrition_text_title">
+                            Сопровождение
+                            <br />
+                            по питанию
+                        </h3>
+                        <span className="main__nutrition_text_description">
+                            У меня существует два варианта
+                            <br />
+                            сопровождения по питанию:
+                            <br />
+                            рацион и подсчет калорий.
+                        </span>
+                    </div>
+                    <div className="main__nutrition_block-img">
+                        <h3 className="main__nutrition_img_title">
+                            Питание — 80% успеха в построении фигуры мечты!
+                        </h3>
+                        <div className="main__block-link_btn">
+                            <a className="main__link_btn">
+                                <span>Записаться на консультацию</span>
+                                <img src="/icons/arrow-right-top-red.svg" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div className="main__diet block">
                     <h2 className="main__diet_title">Рацион</h2>
                     <Cards data={cards.diet} />
