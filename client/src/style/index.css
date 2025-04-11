@@ -290,6 +290,12 @@ footer {
 .footer__link_option {
     text-decoration: underline;
 }
+.footer__block-creator {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
 .footer__creator {
     color: var(--color-green);
 }

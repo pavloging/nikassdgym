@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import ContentContainer from '../components/ContentContainer';
 
 import { useSelector } from 'react-redux';
@@ -9,6 +9,10 @@ import { usePay } from '../hooks/usePay';
 const Subscription: FC = () => {
     const store = useSelector((state: RootState) => state.user);
     const { handlePay } = usePay();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <ContentContainer className="subscription">
