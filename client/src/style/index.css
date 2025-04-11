@@ -290,6 +290,14 @@ footer {
 .footer__link_option {
     text-decoration: underline;
 }
+.footer__creator {
+    color: var(--color-green);
+}
+.footer__creator_link {
+    color: var(--color-green);
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 /* LoginForm */
 .login-form {

@@ -3,21 +3,33 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <footer>
-            <div className='footer__name-link'>
+            <div className="footer__name-link">
                 <div>
                     <span className="footer__title">Ника Дупина</span>
                     <br />
                     <span className="footer__subtitle">Онлайн тренер</span>
                 </div>
-                <div className='footer__social-media'>
+                <div className="footer__social-media">
                     <a href="https://t.me/nikaklubnika27" target="_blank">
-                        <img className='footer__social-media_img' src="/icons/telegram.svg" alt="" />
+                        <img
+                            className="footer__social-media_img"
+                            src="/icons/telegram.svg"
+                            alt=""
+                        />
                     </a>
                     <a href="https://wa.me/+79141636665" target="_blank">
-                        <img className='footer__social-media_img' src="/icons/whatsapp.svg" alt="" />
+                        <img
+                            className="footer__social-media_img"
+                            src="/icons/whatsapp.svg"
+                            alt=""
+                        />
                     </a>
                     <a href="https://t.me/nikaklubnika27" target="_blank">
-                        <img className='footer__social-media_img' src="/icons/instagram.svg" alt="" />
+                        <img
+                            className="footer__social-media_img"
+                            src="/icons/instagram.svg"
+                            alt=""
+                        />
                     </a>
                 </div>
             </div>
@@ -51,6 +63,23 @@ const Footer = () => {
                 <Link className="footer__link_option" to="/agreement">
                     Согласие на обработку персональных данных
                 </Link>
+
+                <br />
+                <br />
+                <div className="footer__block-creator">
+                    <span className="footer__creator">
+                        Дизайн разработан{' '}
+                        <a className="footer__creator_link" href="https://t.me/diupin">
+                            @diupin
+                        </a>
+                    </span>
+                    <span className="footer__creator">
+                        Сайт разработан{' '}
+                        <a className="footer__creator_link" href="https://t.me/pavloging">
+                            @pavloging
+                        </a>
+                    </span>
+                </div>
             </div>
         </footer>
     );

@@ -1,3 +1,55 @@
+@media (min-width: 1440px) and (max-width: 4000px) {
+    span {
+        font-size: 26px;
+    }
+    button {
+        font-size: larger;
+    }
+    h4 {
+        font-size: x-large;
+    }
+
+    .header__title {
+        font-size: xx-large;
+    }
+
+    .footer__title {
+        font-size: xxx-large;
+    }
+    .footer__subtitle {
+        font-size: x-large;
+    }
+    .footer__navigation_title,
+    .footer__data_title {
+        font-size: xx-large;
+    }
+    .footer__navigation_option,
+    .footer__data_option,
+    .footer__link_option {
+        font-size: larger;
+        color: var(--color-white);
+    }
+
+    .main__welcome_title {
+        font-size: 10vw;
+    }
+    .main__welcome_subtitle {
+        font-size: 20vw;
+    }
+    .main__welcome_block-connect {
+        margin-right: 14%;
+        width: 120px;
+        height: 120px;
+    }
+    .main__welcome_avatar {
+        height: 35vw;
+    }
+
+    .main__nutrition_block-img {
+        height: 35vw;
+        max-width: 35vw;
+    }
+}
 @media all and (max-device-width: 768px) {
     h2 {
         font-size: 48px;
@@ -196,6 +248,10 @@
         max-height: auto;
         max-width: 100%;
     }
+    .main__result_switch-left,
+    .main__result_switch-right {
+        padding: 20px;
+    }
 
     .main__nutrition {
         display: flex;
@@ -204,7 +260,7 @@
     .main__nutrition_text_title {
         font-size: 11vw;
     }
-    .main__nutrition_img_title{
+    .main__nutrition_img_title {
         font-size: 10vw;
     }
 
@@ -225,7 +281,7 @@
     }
 
     .block {
-        min-height: 60vh;
+        min-height: 68vh;
     }
 
     .main__about-me_card_block-img {
