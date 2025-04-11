@@ -1,9 +1,12 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import ContentContainer from '../components/ContentContainer';
 
 const Agreement: FC = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
     return (
-        <ContentContainer className="agreement">
+        <ContentContainer className="agreement block">
             <h1 className="content__title">Согласие на обработку персональных данных</h1>
 
             <p>Настоящим, оставляя свои персональные данные на сайте <a href="https://nikassdgym.ru/">https://nikassdgym.ru/</a> (далее - Сайт), действуя свободно, своей волей и в своем интересе, а также подтверждая свою дееспособность, даю свое согласие Дупиной Нике Николаевне (ИНН 270396986640, электронная почта: <a href="mailto:nikadupina74@gmail.com">nikadupina74@gmail.com</a>, далее - Оператор), на обработку своих персональных данных в соответствии с Политикой обработки персональных данных, размещенных в сети Интернет по адресу <a href="https://nikassdgym.ru/">https://nikassdgym.ru/</a> со следующими условиями:</p>

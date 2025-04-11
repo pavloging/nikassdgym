@@ -6,7 +6,8 @@
         padding: 16px 40px;
     }
     .block {
-        padding: 0 40px;
+        padding-left: 40px;
+        padding-right: 40px;
         margin-top: 130px;
     }
 
@@ -76,7 +77,16 @@
     }
 
     .main__result_title {
+        padding-top: 48px;
         margin-bottom: 48px;
+    }
+    .main__result_block-a,
+    .main__result_block-b {
+        grid-column: span 3;
+    }
+    .main__result_block-img {
+        grid-column: span 3;
+        grid-row: auto;
     }
 
     .main__stage__title {
@@ -127,7 +137,8 @@
     }
     .block {
         min-height: 75vh;
-        padding: 0 16px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
     .main__link_btn {
         width: 100%;
@@ -177,13 +188,35 @@
         min-height: 60px;
     }
 
+    .main__result_img {
+        min-height: 20vh;
+        max-height: 21vh;
+    }
     .main__result-img {
         max-height: auto;
         max-width: 100%;
     }
 
-    .main__analyzes_details{
+    .main__nutrition {
+        display: flex;
+        align-items: center;
+    }
+    .main__nutrition_text_title {
+        font-size: 11vw;
+    }
+    .main__nutrition_img_title{
+        font-size: 10vw;
+    }
+
+    .case__block_details {
+        margin-bottom: 20px;
         min-width: 100%;
+    }
+
+    .main__dreams_block-title,
+    .main__dreams_title {
+        font-size: 13vw;
+        width: 100%;
     }
 }
 @media all and (max-device-width: 375px) {

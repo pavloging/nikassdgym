@@ -6,9 +6,6 @@ import 'aos/dist/aos.css';
 import CookieBanner from '../components/CookieBanner';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import reviews1 from '../assets/images/reviews/1.jpg';
-import reviews2 from '../assets/images/reviews/2.jpg';
-import reviews3 from '../assets/images/reviews/3.jpg';
 import { Link } from 'react-router-dom';
 import { subscription } from '../constants/subscription';
 import { useSelector } from 'react-redux';
@@ -18,10 +15,20 @@ import { toast } from 'react-toastify';
 import Cards from '../components/Cards';
 import { cards } from '../constants/cards';
 
+import benefitsNotRobot from '../assets/images/benefit/not-robot.svg';
+import benefitsSystem from '../assets/images/benefit/system.svg';
+import benefitsConnect from '../assets/images/benefit/connect.svg';
+import benefitsResult from '../assets/images/benefit/result.svg';
+import benefitsForYou from '../assets/images/benefit/for-you.svg';
+import benefitsEscort from '../assets/images/benefit/escort.svg';
+import { result } from '../constants/result';
+
 const Main: FC = () => {
     const store = useSelector((state: RootState) => state.user);
     const { handlePay } = usePay();
     const [selectedPlan, setSelectedPlan] = useState('4 недели');
+    const [activeSlide, setActiveSlide] = useState(0);
+    const [activeSlideResult, setActiveSlideResult] = useState(0);
 
     const handlePayTariff = () => {
         const tariff = subscription.find((item) => item.name === selectedPlan);
@@ -131,24 +138,151 @@ const Main: FC = () => {
                     </span>
                 </div>
             </div>
-            {/* <div className="main__benefits-me">
-                <h2>
+            <div className="main__benefits-me block">
+                <h2 className="main__benefits-me_title">
                     Преимущества
                     <br />
                     онлайн тренера
                 </h2>
-                <div>
-                    <div>
-                        <button>Онлайн тренер — живой человек</button>
-                        <button>Профессиональная система тренировок</button>
-                        <button>Тренер всегда на связи</button>
-                        <button>Гарантия результата</button>
-                        <button>Программа тренировок собирается под вас</button>
-                        <button>Сопровождение и обратная связь</button>
+                <div className="main__benefits-me_block-card">
+                    <div className="main__benefits-me_card">
+                        <div className="main__benefits-me_btns">
+                            <button
+                                className="main__benefits-me_btn"
+                                style={
+                                    activeSlide === 0
+                                        ? { backgroundColor: 'var(--color-green)' }
+                                        : { backgroundColor: 'var(--color-white)' }
+                                }
+                            >
+                                Онлайн тренер — живой человек
+                            </button>
+                            <button
+                                className="main__benefits-me_btn"
+                                style={
+                                    activeSlide === 1
+                                        ? { backgroundColor: 'var(--color-green)' }
+                                        : { backgroundColor: 'var(--color-white)' }
+                                }
+                            >
+                                Профессиональная система тренировок
+                            </button>
+                            <button
+                                className="main__benefits-me_btn"
+                                style={
+                                    activeSlide === 2
+                                        ? { backgroundColor: 'var(--color-green)' }
+                                        : { backgroundColor: 'var(--color-white)' }
+                                }
+                            >
+                                Тренер всегда на связи
+                            </button>
+                            <button
+                                className="main__benefits-me_btn"
+                                style={
+                                    activeSlide === 3
+                                        ? { backgroundColor: 'var(--color-green)' }
+                                        : { backgroundColor: 'var(--color-white)' }
+                                }
+                            >
+                                Гарантия результата
+                            </button>
+                            <button
+                                className="main__benefits-me_btn"
+                                style={
+                                    activeSlide === 4
+                                        ? { backgroundColor: 'var(--color-green)' }
+                                        : { backgroundColor: 'var(--color-white)' }
+                                }
+                            >
+                                Программа тренировок собирается под вас
+                            </button>
+                            <button
+                                className="main__benefits-me_btn"
+                                style={
+                                    activeSlide === 5
+                                        ? { backgroundColor: 'var(--color-green)' }
+                                        : { backgroundColor: 'var(--color-white)' }
+                                }
+                            >
+                                Сопровождение и обратная связь
+                            </button>
+                        </div>
                     </div>
-                    <div>Swagger</div>
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={30}
+                        loop={true}
+                        pagination={{ clickable: true }}
+                        navigation={true}
+                        modules={[Pagination, Navigation]}
+                        className="mySwiper"
+                        initialSlide={activeSlide}
+                        onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)} // Обновляем индекс при свайпе
+                    >
+                        <SwiperSlide>
+                            <div className="main__result-block">
+                                <img
+                                    className="main__result-img"
+                                    loading="lazy"
+                                    src={benefitsNotRobot}
+                                    alt=""
+                                />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="main__result-block">
+                                <img
+                                    className="main__result-img"
+                                    loading="lazy"
+                                    src={benefitsSystem}
+                                    alt=""
+                                />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="main__result-block">
+                                <img
+                                    className="main__result-img"
+                                    loading="lazy"
+                                    src={benefitsConnect}
+                                    alt=""
+                                />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="main__result-block">
+                                <img
+                                    className="main__result-img"
+                                    loading="lazy"
+                                    src={benefitsResult}
+                                    alt=""
+                                />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="main__result-block">
+                                <img
+                                    className="main__result-img"
+                                    loading="lazy"
+                                    src={benefitsForYou}
+                                    alt=""
+                                />
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="main__result-block">
+                                <img
+                                    className="main__result-img"
+                                    loading="lazy"
+                                    src={benefitsEscort}
+                                    alt=""
+                                />
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
-            </div> */}
+            </div>
             <div className="main__whom block">
                 <h2 className="main__whom_title">
                     Кому подходят
@@ -159,34 +293,84 @@ const Main: FC = () => {
             </div>
             <div className="main__result block">
                 <h2 className="main__result_title">Результаты подопечных</h2>
-                <div>
-                    <Swiper
-                        slidesPerView={1}
-                        spaceBetween={30}
-                        loop={true}
-                        pagination={{
-                            clickable: true,
-                        }}
-                        navigation={true}
-                        modules={[Pagination, Navigation]}
-                        className="mySwiper"
+
+                <div className="main__result_slider">
+                    <div className="main__result_block-person">
+                        <div className="main__result_person">
+                            <img
+                                className="main__result_person_img"
+                                src={result[activeSlideResult].person.pathIcon}
+                                alt=""
+                            />
+                            <div className='main__result_person_info'>
+                                <h4 className="main__result_person_name">
+                                    {result[activeSlideResult].person.name}
+                                </h4>
+                                <span className="main__result_person_years">
+                                    {result[activeSlideResult].person.years}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="main__result_block-a">
+                        <img className="main__result_a_img" src="/icons/flag-blue.svg" alt="" />
+                        <h3 className="main__result_a_title">Точка А</h3>
+                        <span className="main__result_a_text">{result[activeSlideResult].a}</span>
+                    </div>
+                    <div className="main__result_block-b">
+                        <img className="main__result_b_img" src="/icons/flag-green.svg" alt="" />
+                        <h3 className="main__result_b_title">Точка Б</h3>
+                        <span className="main__result_b_text">{result[activeSlideResult].b}</span>
+                    </div>
+                    <div className="main__result_block-img">
+                        <img
+                            className="main__result_img"
+                            src={result[activeSlideResult].img}
+                            alt=""
+                        />
+                        <div className="main__result_img_block-desc">
+                            <h3 className="main__result_img_desc">До</h3>
+                            <h3 className="main__result_img_desc">После</h3>
+                        </div>
+                    </div>
+                </div>
+                <div className="main__result_block-switch">
+                    <div
+                        className="main__result_switch-left"
+                        onClick={() =>
+                            setActiveSlideResult((prev) => {
+                                if (prev + 1 >= result.length) return 0;
+                                return prev + 1;
+                            })
+                        }
                     >
-                        <SwiperSlide>
-                            <div className="main__result-block">
-                                <img className="main__result-img" src={reviews1} alt="" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="main__result-block">
-                                <img className="main__result-img" src={reviews2} alt="" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="main__result-block">
-                                <img className="main__result-img" src={reviews3} alt="" />
-                            </div>
-                        </SwiperSlide>
-                    </Swiper>
+                        <img src="/icons/arrow-left.svg" alt="" />
+                    </div>
+                    <div
+                        className="main__result_switch-right"
+                        onClick={() =>
+                            setActiveSlideResult((prev) => {
+                                if (prev - 1 <= -1) return result.length - 1;
+                                return prev - 1;
+                            })
+                        }
+                    >
+                        <img src="/icons/arrow-right.svg" alt="" />
+                    </div>
+                </div>
+                <div className="case__block_block-details">
+                    <div className="case__block_details">
+                        <img src="/icon.png" alt="" />
+                        <h4 className="case__block_details_title">
+                            Ещё больше кейсов смотрите в моем Инстаграме
+                        </h4>
+                        <div className="case__block_btn main__block-link_btn">
+                            <a className="main__link_btn">
+                                <span>Смотреть кейсы</span>
+                                <img src="/icons/arrow-right-top-blue.svg" alt="" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="main__stage block">
@@ -349,13 +533,13 @@ const Main: FC = () => {
                             <img src="/icons/arrow-right-top-black.svg" alt="" />
                         </a>
                     </div>
-                    <div className="main__analyzes_block-details">
-                        <div className="main__analyzes_details">
+                    <div className="case__block_block-details">
+                        <div className="case__block_details">
                             <img src="/icon.png" alt="" />
-                            <h4 className="main__analyzes_details_title">
+                            <h4 className="case__block_details_title">
                                 Подробнее о моей работе нутрициологом
                             </h4>
-                            <div className="main__analyzes_btn main__block-link_btn">
+                            <div className="case__block_btn main__block-link_btn">
                                 <a className="main__link_btn">
                                     <span>Смотреть кейсы</span>
                                     <img src="/icons/arrow-right-top-red.svg" alt="" />
@@ -365,10 +549,21 @@ const Main: FC = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className="main__dreams">
-                <span>Ваша тело мечты начинается с вас</span>
-                <button>Начать тренеровки</button>
-            </div> */}
+            <div className="main__dreams block">
+                <div className="main__dreams_block-title">
+                    <h3 className="main__dreams_title">
+                        Ваша тело мечты
+                        <br />
+                        начинается с вас
+                    </h3>
+                </div>
+                <div className="main__block-link_btn">
+                    <Link to="/subscription" className="main__link_btn">
+                        <span>Начать тренеровки</span>
+                        <img src="/icons/arrow-right-top-green.svg" alt="" />
+                    </Link>
+                </div>
+            </div>
         </ContentContainer>
     );
 };

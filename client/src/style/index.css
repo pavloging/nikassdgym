@@ -155,8 +155,10 @@ a:hover {
     margin-bottom: 50px;
 }
 .content__title {
-    text-align: center;
+    font-family: 'Bebas Neue';
+    color: var(--color-black);
     margin: 40px 0;
+    text-align: center;
 }
 
 /* Header emelent */
@@ -359,6 +361,45 @@ footer {
 }
 
 /* Main page */
+/* Case link */
+.case__block_block-details {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.case__block_details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+    min-width: 30%;
+    margin-top: 130px;
+    background-image: url(/case.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+}
+.case__block_details_title {
+    color: var(--color-white);
+    max-width: 215px;
+    text-align: center;
+}
+.case__block_btn .main__link_btn {
+    width: auto;
+}
+.case__block_btn span {
+    color: var(--color-pink);
+    font-weight: 600;
+}
+
+.main__result .case__block_details {
+    background-image: url(/bg-benefit.jpg);
+}
+.main__result .case__block_btn span {
+    color: var(--color-blue);
+    font-weight: 600;
+}
 /* Page */
 .block {
     margin-top: 120px;
@@ -480,6 +521,30 @@ footer {
     justify-content: center;
 }
 
+.main__benefits-me {
+    padding: 52px 0;
+    background-image: url('/bg-benefit.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+}
+.main__benefits-me_title {
+    color: var(--color-white);
+    text-align: center;
+}
+.main__benefits-me_card {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+.main__benefits-me_btns {
+    width: 50vw;
+    text-align: center;
+}
+.main__benefits-me_btn {
+    cursor: auto;
+}
+
 .main__card-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -496,6 +561,16 @@ footer {
     background-color: var(--color-white);
 }
 
+.main__result {
+    padding-top: 52px;
+    padding-bottom: 52px;
+    background-color: var(--color-blue-dark);
+    border-radius: 30px;
+}
+.main__result_title {
+    color: var(--color-white);
+    text-align: center;
+}
 .main__result-block {
     display: flex;
     justify-content: center;
@@ -508,6 +583,93 @@ footer {
     display: flex;
     justify-content: center;
     margin-bottom: 16px;
+}
+.main__result_slider {
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-rows: 0.5fr 1fr 1fr;
+    gap: 16px;
+    min-height: 55vh;
+}
+.main__result_block-person {
+    grid-column: span 3;
+    background-color: var(--color-blue);
+    border-radius: 15px;
+}
+.main__result_person {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+}
+.main__result_person_img {
+}
+.main__result_person_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+.main__result_person_name {
+    color: var(--color-white);
+}
+.main__result_person_years {
+    color: var(--color-white);
+}
+.main__result_block-a,
+.main__result_block-b {
+    grid-column: span 2;
+    padding: 16px;
+    background-color: var(--color-blue-medium);
+    border-radius: 15px;
+}
+.main__result_a_img,
+.main__result_b_img {
+}
+.main__result_a_title,
+.main__result_b_title {
+    color: var(--color-white);
+}
+.main__result_a_text,
+.main__result_b_text {
+    color: var(--color-white);
+}
+.main__result_block-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-row: 2 / 4;
+    grid-column: 3;
+    padding: 16px;
+    background-color: var(--color-blue-medium);
+    border-radius: 15px;
+}
+.main__result_img {
+    width: 100%;
+    border-radius: 8px;
+}
+.main__result_img_block-desc {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 4px 0 4px;
+}
+.main__result_img_desc {
+    color: var(--color-white);
+}
+.main__result_block-switch {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 60px;
+}
+.main__result_switch-left,
+.main__result_switch-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background-color: var(--color-white);
+    border-radius: 100px;
+    cursor: pointer;
 }
 
 .main__stage__title {
@@ -651,6 +813,7 @@ footer {
 }
 .main__nutrition_text_title {
     font-size: 4vw;
+    padding-top: 52px;
 }
 .main__nutrition_text_description {
     color: var(--color-grey);
@@ -700,35 +863,32 @@ footer {
 .main__analyzes_span {
     color: var(--color-white);
 }
-.main__analyzes_block-details {
+
+.main__dreams {
     display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.main__analyzes_details {
-    display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 16px;
-    padding: 32px;
-    min-width: 30%;
-    margin-top: 130px;
-    background-image: url(/case.jpg);
-    background-size: cover;
-    background-position: center;
-    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
 }
-.main__analyzes_details_title {
-    color: var(--color-white);
-    max-width: 215px;
+.main__dreams_title {
+    font-family: 'Bebas Neue';
+    font-size: 8vw;
+    color: var(--color-blue);
     text-align: center;
+    text-transform: uppercase;
+    font-weight: 100;
+    width: 54vw;
+    min-width: fit-content;
+    background-color: var(--color-white);
+    padding: 20px 10px 10px 10px;
+    border-radius: 20px;
 }
-.main__analyzes_btn .main__link_btn {
-    width: auto;
+.main__dreams .main__link_btn {
+    background-color: var(--color-blue);
 }
-.main__analyzes_btn span {
-    color: var(--color-pink);
-    font-weight: 600;
+.main__dreams .main__link_btn span {
+    color: var(--color-green);
 }
 
 /* Policy page */

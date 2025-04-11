@@ -1,9 +1,14 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import ContentContainer from '../components/ContentContainer';
 
 const Offerta: FC = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
-        <ContentContainer className="offerta">
+        <ContentContainer className="offerta block">
             <h1 className="content__title">Публичная оферта</h1>
             <h3>1. Общие положения и основные термины</h3>
             <p><b>1.1. Исполнитель</b> – Дупина Ника Николаевна, являющаяся плательщиком налога на профессиональный доход (ИНН 270396986640, электронная почта: <a href="mailto:nikadupina74@gmail.com">nikadupina74@gmail.com</a>, телефон: +7 914 163 66 65).</p>
