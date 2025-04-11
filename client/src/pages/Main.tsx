@@ -74,7 +74,7 @@ const Main: FC = () => {
                 </Link>
                 <img className="main__welcome_avatar" src="/avatar.png" alt="" />
             </div>
-            <div className="main__about-me block">
+            <div className="main__about-me block" id='about-me'>
                 <h2 className="main__about-me_title">Обо мне</h2>
                 <h3 className="main__about-me_subtitle">Чем я отличаюсь от конкурентов?</h3>
                 <div className="main__about-me_block-card">
@@ -138,7 +138,7 @@ const Main: FC = () => {
                     </span>
                 </div>
             </div>
-            <div className="main__benefits-me block">
+            <div className="main__benefits-me block" id='benefits-me'>
                 <h2 className="main__benefits-me_title">
                     Преимущества
                     <br />
@@ -283,7 +283,7 @@ const Main: FC = () => {
                     </Swiper>
                 </div>
             </div>
-            <div className="main__whom block">
+            <div className="main__whom block" id='whom'>
                 <h2 className="main__whom_title">
                     Кому подходят
                     <br />
@@ -291,7 +291,7 @@ const Main: FC = () => {
                 </h2>
                 <Cards data={cards.whomWorkout} />
             </div>
-            <div className="main__result block">
+            <div className="main__result block" id='result'>
                 <h2 className="main__result_title">Результаты подопечных</h2>
 
                 <div className="main__result_slider">
@@ -373,7 +373,7 @@ const Main: FC = () => {
                     </div>
                 </div>
             </div>
-            <div className="main__stage block">
+            <div className="main__stage block" id='stage'>
                 <h2 className="main__stage__title">Этап работы</h2>
                 <div className="main__stage_block-card">
                     <div className="main__stage_card">
@@ -415,7 +415,7 @@ const Main: FC = () => {
                     </div>
                 </div>
             </div>
-            <div className="main__tariff block">
+            <div className="main__tariff block" id='tariff'>
                 <h2 className="main__tariff_title">Тарифы</h2>
                 <div className="main__tariff_block-plan">
                     {subscription.map((item) => (
@@ -452,7 +452,7 @@ const Main: FC = () => {
                     </div>
                 </div>
             </div>
-            <div className="main__nutritionist">
+            <div className="main__nutritionist" id='nutritionist'>
                 <div className="main__nutrition block">
                     <div className="main__nutrition_block-text">
                         <h3 className="main__nutrition_text_title">

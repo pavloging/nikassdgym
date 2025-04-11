@@ -38,13 +38,13 @@ const Footer = () => {
                 <span className="footer__navigation_title">
                     <b>Навигация</b>
                 </span>
-                <span className="footer__navigation_option">Обо мне</span>
-                <span className="footer__navigation_option">Преймущества</span>
-                <span className="footer__navigation_option">Кому подходят онлайн тренеровки</span>
-                <span className="footer__navigation_option">Результаты подопечных</span>
-                <span className="footer__navigation_option">Этапы работы</span>
-                <span className="footer__navigation_option">Тарифы</span>
-                <span className="footer__navigation_option">Питание</span>
+                <a href='#about-me' className="footer__navigation_option">Обо мне</a>
+                <a href='#benefits-me' className="footer__navigation_option">Преймущества</a>
+                <a href='#whom' className="footer__navigation_option">Кому подходят онлайн тренеровки</a>
+                <a href='#result' className="footer__navigation_option">Результаты подопечных</a>
+                <a href='#stage' className="footer__navigation_option">Этапы работы</a>
+                <a href='#tariff' className="footer__navigation_option">Тарифы</a>
+                <a href='#nutritionist' className="footer__navigation_option">Питание</a>
             </div>
 
             <div className="footer__block-data">
