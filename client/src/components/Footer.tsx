@@ -38,13 +38,27 @@ const Footer = () => {
                 <span className="footer__navigation_title">
                     <b>Навигация</b>
                 </span>
-                <a href='#about-me' className="footer__navigation_option">Обо мне</a>
-                <a href='#benefits-me' className="footer__navigation_option">Преймущества</a>
-                <a href='#whom' className="footer__navigation_option">Кому подходят онлайн тренеровки</a>
-                <a href='#result' className="footer__navigation_option">Результаты подопечных</a>
-                <a href='#stage' className="footer__navigation_option">Этапы работы</a>
-                <a href='#tariff' className="footer__navigation_option">Тарифы</a>
-                <a href='#nutritionist' className="footer__navigation_option">Питание</a>
+                <a href="#about-me" className="footer__navigation_option">
+                    Обо мне
+                </a>
+                <a href="#benefits-me" className="footer__navigation_option">
+                    Преймущества
+                </a>
+                <a href="#whom" className="footer__navigation_option">
+                    Кому подходят онлайн тренеровки
+                </a>
+                <a href="#result" className="footer__navigation_option">
+                    Результаты подопечных
+                </a>
+                <a href="#stage" className="footer__navigation_option">
+                    Этапы работы
+                </a>
+                <a href="#tariff" className="footer__navigation_option">
+                    Тарифы
+                </a>
+                <a href="#nutritionist" className="footer__navigation_option">
+                    Питание
+                </a>
             </div>
 
             <div className="footer__block-data">
@@ -67,18 +81,12 @@ const Footer = () => {
                 <br />
                 <br />
                 <div className="footer__block-creator">
-                    <p className="footer__creator">
-                        Дизайн разработан{' '}
-                        <a className="footer__creator_link" href="https://t.me/diupin" target='_blank'>
-                            @diupin
-                        </a>
-                    </p>
-                    <p className="footer__creator">
-                        Сайт разработан{' '}
-                        <a className="footer__creator_link" href="https://t.me/pavloging" target='_blank'>
-                            @pavloging
-                        </a>
-                    </p>
+                    <a href="https://t.me/diupin" target="_blank" className="footer__creator">
+                        Дизайн разработан <span className="footer__creator_link">@diupin</span>
+                    </a>
+                    <a href="https://t.me/pavloging" target="_blank" className="footer__creator">
+                        Сайт разработан <span className="footer__creator_link">@pavloging</span>
+                    </a>
                 </div>
             </div>
         </footer>
