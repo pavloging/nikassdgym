@@ -1,9 +1,12 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
 import { exercises } from '../constants/exercises';
 
 const ExercisesList: FC = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
     const ItemList = () => {
         return (
             <div className="exercises-list__content">

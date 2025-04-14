@@ -67,18 +67,18 @@ const Footer = () => {
                 <br />
                 <br />
                 <div className="footer__block-creator">
-                    <span className="footer__creator">
+                    <p className="footer__creator">
                         Дизайн разработан{' '}
-                        <a className="footer__creator_link" href="https://t.me/diupin">
+                        <a className="footer__creator_link" href="https://t.me/diupin" target='_blank'>
                             @diupin
                         </a>
-                    </span>
-                    <span className="footer__creator">
+                    </p>
+                    <p className="footer__creator">
                         Сайт разработан{' '}
-                        <a className="footer__creator_link" href="https://t.me/pavloging">
+                        <a className="footer__creator_link" href="https://t.me/pavloging" target='_blank'>
                             @pavloging
                         </a>
-                    </span>
+                    </p>
                 </div>
             </div>
         </footer>

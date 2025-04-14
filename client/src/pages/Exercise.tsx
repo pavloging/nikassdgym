@@ -17,6 +17,10 @@ const Exercise: FC = () => {
 
     // Validate Page
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+    
+    useEffect(() => {
         if (!exercise) navigate('/404');
     }, [exercise, name, navigate]);
 

@@ -297,12 +297,16 @@ footer {
     gap: 6px;
 }
 .footer__creator {
+    font-size: larger;
     color: var(--color-green);
 }
 .footer__creator_link {
+    font-size: larger;
     color: var(--color-green);
     text-decoration: underline;
     cursor: pointer;
+    z-index: 999;
+    padding: 2px;
 }
 
 /* LoginForm */
