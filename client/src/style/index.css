@@ -302,7 +302,6 @@ footer {
     padding: 2px;
 }
 .footer__creator_link {
-    font-size: larger;
     color: var(--color-green);
     text-decoration: underline;
     cursor: pointer;

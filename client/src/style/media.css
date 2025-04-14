@@ -291,6 +291,13 @@
         gap: 10px;
     }
 
+    .footer__creator {
+        font-size: smaller;
+    }
+    .footer__creator_link {
+        font-size: larger;
+    }
+
     .block {
         min-height: 68vh;
     }
