@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper as SwiperType } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ContentContainer from '../components/ContentContainer';
 import { exercises as exercisesList } from '../constants/exercises';
@@ -19,8 +20,19 @@ const Main: FC = () => {
     const store = useSelector((state: RootState) => state.user);
     const { handlePay } = usePay();
     const [selectedPlan, setSelectedPlan] = useState('1 месяц');
-    const [activeSlide, setActiveSlide] = useState(0);
     const [activeSlideResult, setActiveSlideResult] = useState(0);
+
+    // Benefits
+    const [activeSlide, setActiveSlide] = useState(0);
+    const swiperRef = useRef<SwiperType | null>(null);
+
+    // Обработчик клика по кнопке
+    const handleButtonClick = (index: number) => {
+        setActiveSlide(index);
+        if (swiperRef.current) {
+            swiperRef.current.slideTo(index); // Переключаем на нужный слайд
+        }
+    };
 
     const handlePayTariff = () => {
         const tariff = subscription.find((item) => item.name === selectedPlan);
@@ -141,7 +153,9 @@ const Main: FC = () => {
                         <div className="main__benefits-me_btns">
                             {benefits.map((item, index) => (
                                 <button
+                                    key={item.name}
                                     className="main__benefits-me_btn"
+                                    onClick={() => handleButtonClick(index)}
                                     style={
                                         activeSlide === index
                                             ? { backgroundColor: 'var(--color-green)' }
@@ -161,13 +175,17 @@ const Main: FC = () => {
                         navigation={true}
                         modules={[Pagination, Navigation]}
                         className="mySwiper"
-                        initialSlide={activeSlide}
-                        onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)} // Обновляем индекс при свайпе
+                        onSwiper={(swiper) => (swiperRef.current = swiper)} // Сохраняем ссылку на Swiper
+                        onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)} // Обновляем активный слай
                     >
                         {benefits.map((item) => (
-                            <SwiperSlide>
+                            <SwiperSlide key={item.name}>
                                 <div className="main__result-block">
-                                    <img className="main__result-img" src={item.urlImg} alt={item.name} />
+                                    <img
+                                        className="main__result-img"
+                                        src={item.urlImg}
+                                        alt={item.name}
+                                    />
                                 </div>
                             </SwiperSlide>
                         ))}
