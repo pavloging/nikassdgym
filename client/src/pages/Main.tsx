@@ -247,10 +247,7 @@ const Main: FC = () => {
                     <div
                         className="main__result_switch-left"
                         onClick={() =>
-                            setActiveSlideResult((prev) => {
-                                if (prev + 1 >= result.length) return 0;
-                                return prev + 1;
-                            })
+                            setActiveSlideResult((prev) => (result[prev + 1] ? prev + 1 : 0))
                         }
                     >
                         <img src="/icons/arrow-left.svg" alt="" />
@@ -258,10 +255,9 @@ const Main: FC = () => {
                     <div
                         className="main__result_switch-right"
                         onClick={() =>
-                            setActiveSlideResult((prev) => {
-                                if (prev - 1 <= -1) return result.length - 1;
-                                return prev - 1;
-                            })
+                            setActiveSlideResult((prev) =>
+                                result[prev - 1] ? prev - 1 : result.length - 1
+                            )
                         }
                     >
                         <img src="/icons/arrow-right.svg" alt="" />
