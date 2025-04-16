@@ -1,32 +1,24 @@
+import { useSelector } from 'react-redux';
 import { FC, useState } from 'react';
-import ContentContainer from '../components/ContentContainer';
-import { exercises as exercisesList } from '../constants/exercises';
-
-import 'aos/dist/aos.css';
-import CookieBanner from '../components/CookieBanner';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Link } from 'react-router-dom';
+import ContentContainer from '../components/ContentContainer';
+import { exercises as exercisesList } from '../constants/exercises';
+import CookieBanner from '../components/CookieBanner';
 import { subscription } from '../constants/subscription';
-import { useSelector } from 'react-redux';
+import Cards from '../components/Cards';
 import { usePay } from '../hooks/usePay';
 import { RootState } from '../redux/store';
-import { toast } from 'react-toastify';
-import Cards from '../components/Cards';
 import { cards } from '../constants/cards';
-
-import benefitsNotRobot from '../assets/images/benefit/not-robot.svg';
-import benefitsSystem from '../assets/images/benefit/system.svg';
-import benefitsConnect from '../assets/images/benefit/connect.svg';
-import benefitsResult from '../assets/images/benefit/result.svg';
-import benefitsForYou from '../assets/images/benefit/for-you.svg';
-import benefitsEscort from '../assets/images/benefit/escort.svg';
 import { result } from '../constants/result';
+import { benefits } from '../constants/benefits';
 
 const Main: FC = () => {
     const store = useSelector((state: RootState) => state.user);
     const { handlePay } = usePay();
-    const [selectedPlan, setSelectedPlan] = useState('4 недели');
+    const [selectedPlan, setSelectedPlan] = useState('1 месяц');
     const [activeSlide, setActiveSlide] = useState(0);
     const [activeSlideResult, setActiveSlideResult] = useState(0);
 
@@ -147,66 +139,18 @@ const Main: FC = () => {
                 <div className="main__benefits-me_block-card">
                     <div className="main__benefits-me_card">
                         <div className="main__benefits-me_btns">
-                            <button
-                                className="main__benefits-me_btn"
-                                style={
-                                    activeSlide === 0
-                                        ? { backgroundColor: 'var(--color-green)' }
-                                        : { backgroundColor: 'var(--color-white)' }
-                                }
-                            >
-                                Онлайн тренер — живой человек
-                            </button>
-                            <button
-                                className="main__benefits-me_btn"
-                                style={
-                                    activeSlide === 1
-                                        ? { backgroundColor: 'var(--color-green)' }
-                                        : { backgroundColor: 'var(--color-white)' }
-                                }
-                            >
-                                Профессиональная система тренировок
-                            </button>
-                            <button
-                                className="main__benefits-me_btn"
-                                style={
-                                    activeSlide === 2
-                                        ? { backgroundColor: 'var(--color-green)' }
-                                        : { backgroundColor: 'var(--color-white)' }
-                                }
-                            >
-                                Тренер всегда на связи
-                            </button>
-                            <button
-                                className="main__benefits-me_btn"
-                                style={
-                                    activeSlide === 3
-                                        ? { backgroundColor: 'var(--color-green)' }
-                                        : { backgroundColor: 'var(--color-white)' }
-                                }
-                            >
-                                Гарантия результата
-                            </button>
-                            <button
-                                className="main__benefits-me_btn"
-                                style={
-                                    activeSlide === 4
-                                        ? { backgroundColor: 'var(--color-green)' }
-                                        : { backgroundColor: 'var(--color-white)' }
-                                }
-                            >
-                                Программа тренировок собирается под вас
-                            </button>
-                            <button
-                                className="main__benefits-me_btn"
-                                style={
-                                    activeSlide === 5
-                                        ? { backgroundColor: 'var(--color-green)' }
-                                        : { backgroundColor: 'var(--color-white)' }
-                                }
-                            >
-                                Сопровождение и обратная связь
-                            </button>
+                            {benefits.map((item, index) => (
+                                <button
+                                    className="main__benefits-me_btn"
+                                    style={
+                                        activeSlide === index
+                                            ? { backgroundColor: 'var(--color-green)' }
+                                            : { backgroundColor: 'var(--color-white)' }
+                                    }
+                                >
+                                    {item.name}
+                                </button>
+                            ))}
                         </div>
                     </div>
                     <Swiper
@@ -220,36 +164,13 @@ const Main: FC = () => {
                         initialSlide={activeSlide}
                         onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)} // Обновляем индекс при свайпе
                     >
-                        <SwiperSlide>
-                            <div className="main__result-block">
-                                <img className="main__result-img" src={benefitsNotRobot} alt="" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="main__result-block">
-                                <img className="main__result-img" src={benefitsSystem} alt="" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="main__result-block">
-                                <img className="main__result-img" src={benefitsConnect} alt="" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="main__result-block">
-                                <img className="main__result-img" src={benefitsResult} alt="" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="main__result-block">
-                                <img className="main__result-img" src={benefitsForYou} alt="" />
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="main__result-block">
-                                <img className="main__result-img" src={benefitsEscort} alt="" />
-                            </div>
-                        </SwiperSlide>
+                        {benefits.map((item) => (
+                            <SwiperSlide>
+                                <div className="main__result-block">
+                                    <img className="main__result-img" src={item.urlImg} alt={item.name} />
+                                </div>
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                 </div>
             </div>

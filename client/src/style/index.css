@@ -559,9 +559,9 @@ footer {
     width: 50vw;
     text-align: center;
 }
-.main__benefits-me_btn {
+/* .main__benefits-me_btn {
     cursor: auto;
-}
+} */
 
 .main__card-list {
     display: grid;
