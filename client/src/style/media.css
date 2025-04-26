@@ -251,10 +251,10 @@
         min-height: 60px;
     }
 
-    .main__result_img {
+    /* .main__result_img {
         min-height: 20vh;
         max-height: 21vh;
-    }
+    } */
     .main__result-img {
         max-height: auto;
         max-width: 100%;
