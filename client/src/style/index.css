@@ -348,6 +348,7 @@ footer {
 }
 .login-form__link {
     margin-top: 4px;
+    font-size: smaller !important;
     font-weight: 700;
     font-style: unset;
     text-decoration: underline;
