@@ -488,7 +488,7 @@ const Main: FC = () => {
                 </div>
                 <div className="main__block-link_btn">
                     <Link to="/subscription" className="main__link_btn">
-                        <span>Начать тренеровки</span>
+                        <span>Начать тренировки</span>
                         <img src="/icons/arrow-right-top-green.svg" alt="" />
                     </Link>
                 </div>
