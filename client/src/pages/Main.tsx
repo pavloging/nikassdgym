@@ -323,6 +323,16 @@ const Main: FC = () => {
                         </Link>
                     </div>
                 </div>
+                <div className="main__block-link_btn">
+                    <a
+                        href="https://wa.me/79141636665?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C+%D0%BF%D0%B8%D1%88%D1%83+%D0%B2%D0%B0%D0%BC+%D1%81+%D1%81%D0%B0%D0%B9%D1%82%D0%B0%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BD%D0%B8%D0%BC%D0%B0%D1%82%D1%8C%D1%81%D1%8F+%D0%BF%D0%BE%D0%B4+%D0%B2%D0%B0%D1%88%D0%B8%D0%BC+%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%D0%BC.+%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%2C+%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0+%D0%B5%D1%81%D1%82%D1%8C+%D0%B1%D0%BB%D0%B8%D0%B6%D0%B0%D0%B9%D1%88%D0%B5%D0%B5+%D0%B2%D1%80%D0%B5%D0%BC%D1%8F+%D0%BD%D0%B0+%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E+%D0%BF%D0%BE+%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%D0%BC+%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%3F&type=phone_number&app_absent=0"
+                        target="_blank"
+                        className="main__link_btn"
+                    >
+                        <span>Записаться на консультацию</span>
+                        <img src="/icons/arrow-right-top-black.svg" alt="" />
+                    </a>
+                </div>
             </div>
             <div className="main__tariff block" id="tariff">
                 <h2 className="main__tariff_title">Тарифы</h2>
