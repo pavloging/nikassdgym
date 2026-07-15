@@ -12,13 +12,13 @@ export const subscription: Array<ISubscription> = [
         description: 'Доступ на 4 недели',
         date: 28 * 24 * 60 * 60 * 1000, // 28 дней
         price: 10000,
-        salePrice: 7999
+        salePrice: 8999
     },
     {
         name: '3 месяца',
         description: 'Доступ на 12 недель',
         date: 84 * 24 * 60 * 60 * 1000, // 84 дней
         price: 28000,
-        salePrice: 19999
+        salePrice: 20999
     }
 ];
