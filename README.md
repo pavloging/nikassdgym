@@ -1,54 +1,88 @@
-# nikassdgym
+# CLAUDE.md — nikassdgym
 
-Сайт онлайн-тренинга Ники Дупиной: лендинг, личный кабинет, видео-упражнения
-и оплата подписки через ЮKassa.
+## Что это
+
+Заказной сайт онлайн-тренинга Ники Дупиной. Егор писал его несколько лет назад,
+сейчас поддерживает по обращениям заказчицы. К менторству отношения не имеет.
 
 Прод: https://nikassdgym.ru
+Репозиторий: `github.com/pavloging/nikassdgym`
+Код вне iCloud: `~/dev/nikassdgym` (симлинк `code/nikassdgym`).
 
-## Состав
+## Устройство
 
-- `client/` — SPA на React 18 + TypeScript, сборка Vite.
-- `server/` — REST API на Express + MongoDB (Mongoose), JWT-авторизация
-  с подтверждением почты и сбросом пароля.
-- `docker-compose.yml` — оба сервиса; наружу их проксирует nginx хоста
-  (`/` → клиент :3000, `/api` → сервер :5000).
+- `client/` — SPA, React 18 + TypeScript, сборка Vite, состояние на Redux Toolkit.
+- `server/` — Express + MongoDB (Mongoose 5), JWT access/refresh, письма через
+  nodemailer, оплата через ЮKassa (создание платежа + вебхук на активацию подписки).
+- `docker-compose.yml` — два контейнера: `client` (`vite preview` на :3000)
+  и `server` (:5000). Наружу их проксирует nginx хоста.
 
-## Локальный запуск
+Клиент берёт адрес API от текущего домена (`window.location.origin + '/api'`),
+хардкода домена в коде нет.
 
-```bash
-# сервер
-cd server && cp .env.example .env   # заполнить DB_URL, SMTP_*, JWT_*, YOOKASSA_*
-npm install && npm run dev
+## Сервер заказчицы
 
-# клиент
-cd client && npm install && npm run dev
-```
-
-Переменные окружения сервера:
-
-| Переменная | Зачем |
-| --- | --- |
-| `PORT` | порт API, по умолчанию 5000 |
-| `DB_URL` | строка подключения к MongoDB |
-| `CLIENT_URL` | адрес фронта, используется в CORS и в письмах |
-| `API_URL` | публичный адрес API, используется в ссылках из писем |
-| `JWT_ACCESS_SECRET`, `JWT_REFRESH_SECRET` | подпись токенов |
-| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD` | отправка писем |
-| `YOOKASSA_STORE_ID`, `YOOKASSA_SECRET_KEY` | приём платежей |
-| `COOKIE_SECURE` | `false` только для локальной разработки по http |
-
-Адрес API на клиенте не настраивается: он берётся от текущего домена
-(`window.location.origin + '/api'`), поэтому при смене домена править код не нужно.
-
-## Деплой
-
-На сервере проект лежит в `/root/nikassdgym`:
+`root@31.128.36.130` (Ubuntu 22.04, Beget). Проект — `/root/nikassdgym`,
+это обычный git-клон, деплой идёт через него.
 
 ```bash
 git -C /root/nikassdgym pull
-docker compose -f /root/nikassdgym/docker-compose.yml up -d --build
+cd /root/nikassdgym && docker compose up -d --build
 ```
 
-Сборка клиента тянет за собой видео из `client/src/assets`, образ получается
-около 4 ГБ — перед деплоем стоит проверить свободное место (`df -h /`)
-и подчистить старое (`docker image prune -f`).
+Грабли сервера:
+- **Диск 20 ГБ и он тесный.** Образ клиента ~4 ГБ, потому что все видео
+  упражнений лежат в `client/src/assets` и попадают в бандл. Перед сборкой
+  всегда `df -h /`, при нехватке — `docker image prune -f`, `docker builder prune -f`.
+  Перед прунингом пометить текущие образы (`docker tag client:latest client:before-fix`),
+  иначе не останется куда откатываться.
+- nginx: один конфиг `/etc/nginx/sites-enabled/default`, сертификат от certbot
+  (таймер `certbot.timer` активен, обновляется сам).
+- Логи контейнеров без ротации, `driver: json-file` без лимитов.
+
+## Домен
+
+`nikassdgym.ru` у BEGET-RU, оплачен до 2027-05-07, но в whois стоит
+`state: REGISTERED, DELEGATED, UNVERIFIED`. Непройденная верификация владельца
+у .RU со временем приводит к снятию делегирования — сайт просто перестанет
+открываться. Заказчице нужно пройти верификацию в панели Beget.
+
+## Тесты
+
+`cd client && npm test` (vitest + jsdom + Testing Library) и
+`cd server && npm test` (vitest + supertest). Оба набора идут без сети и без базы.
+
+- Клиент: 256 тестов, покрытие по логике 99%+. Заглушки данных — `src/test/mocks.ts`,
+  рендер с провайдерами — `src/test/utils.tsx`, глобальные заглушки jsdom
+  (IntersectionObserver, scrollTo) — `src/test/setup.ts`.
+- Сервер: 147 тестов, покрытие 100%. Проект на CommonJS, и `vi.mock` тут не
+  перехватывает `require` — модули подменяются через `tests/helpers/mock-module.js`
+  (запись в `require.cache` до первого требования модуля).
+- Запросы к ЮKassa и SMTP в тестах перехватываются. Если тест вдруг ушёл в сеть —
+  значит, заглушка не встала, это надо чинить, а не игнорировать.
+- CI: `.github/workflows/tests.yml`, на push в `main` и на каждый pull request.
+
+## Что важно помнить по коду
+
+- Доступ к `localStorage` только через `client/src/utils/storage.ts`.
+  Прямой вызов в приватном режиме Safari выбрасывает исключение и убивает рендер —
+  именно так получался белый экран у части посетителей.
+- Ошибки показывает **только редьюсер** (`User.ts`, `failWithToast`).
+  Thunk-и не тостят, а отклоняются через `rejectWithValue(getErrorMessage(e))`.
+  Если добавить тост и в thunk, снова получим два уведомления на одну ошибку.
+- `fetchAuth` при загрузке страницы намеренно молчит: истёкшая сессия — норма.
+- Подписку активирует только вебхук ЮKassa, клиент лишь получает ссылку на оплату.
+
+## Известные хвосты (не сделано)
+
+- Видео и картинки лежат в git, поэтому клон репозитория весит около 4 ГБ
+  (из них ~2,6 ГБ история). Перед клонированием проверять место на диске.
+
+- Один refresh-токен на пользователя (`token-service.saveToken` перезаписывает
+  запись): вход со второго устройства разлогинивает первое. Чинится ротацией
+  токенов, но трогает живую авторизацию — отдельной задачей.
+- `vite preview` как прод-сервер: годится, но правильнее отдавать `dist`
+  напрямую через nginx хоста и убрать контейнер клиента.
+- Видео в git и в бандле. Правильное место — отдельное хранилище/CDN,
+  сейчас из-за них репозиторий ~3.7 ГБ, а образ ~4 ГБ.
+- `server/` на node:16 (EOL), mongoose 5.

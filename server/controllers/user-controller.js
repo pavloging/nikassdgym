@@ -4,13 +4,19 @@ const { validationResult } = require('express-validator');
 const ApiError = require('../exceptions/api-error');
 const { refreshCookieOptions } = require('../config/cookie');
 
+// Общая проверка для маршрутов с валидацией: возвращает ошибку, если данные не прошли.
+function validationError(req) {
+    const errors = validationResult(req);
+    if (errors.isEmpty()) return null;
+    return ApiError.BadRequest('Ошибка при валидации', errors.array());
+}
+
 class UserController {
     async registration(req, res, next) {
         try {
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                return next(ApiError.BadRequest('Ошибка при валидации', errors.array()));
-            }
+            const invalid = validationError(req);
+            if (invalid) return next(invalid);
+
             const { email, password } = req.body;
             const userData = await userService.registration(email, password);
             res.cookie('refreshToken', userData.refreshToken, refreshCookieOptions);
@@ -22,6 +28,11 @@ class UserController {
 
     async login(req, res, next) {
         try {
+            // Без этой проверки подключённая к маршруту валидация ничего не делала
+            // и мусорный запрос доходил до базы, отвечая непредвиденной ошибкой.
+            const invalid = validationError(req);
+            if (invalid) return next(invalid);
+
             const { email, password } = req.body;
             const userData = await userService.login(email, password);
             res.cookie('refreshToken', userData.refreshToken, refreshCookieOptions);
@@ -107,16 +118,6 @@ class UserController {
             const createdData = await paymentService.createLinkPay({ price, name });
             await paymentService.savePayment({ userId, date, price, name, order: createdData.id})
             return res.json(createdData.confirmation.confirmation_url);
-        } catch (e) {
-            next(e);
-        }
-    }
-
-    async activateSubscription(req, res, next) {
-        try {
-            const { userId, date } = req.body;
-            const user = await paymentService.activateSubscription({ userId, date });
-            return res.json(user);
         } catch (e) {
             next(e);
         }

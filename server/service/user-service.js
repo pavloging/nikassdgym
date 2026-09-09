@@ -2,7 +2,6 @@ const UserModel = require('../models/user-model');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const uuid = require('uuid');
-const axios = require('axios');
 const mailService = require('./mail-service');
 const tokenService = require('./token-service');
 const UserDto = require('../dtos/user-dto');
@@ -77,24 +76,21 @@ class UserService {
         return { ...tokens, user: userDto };
     }
 
+    // Раньше тело метода жило в колбэке crypto.randomBytes, объявленном как async:
+    // ответ клиенту уходил раньше отправки письма, а любая ошибка внутри
+    // превращалась в необработанный промис и валила процесс сервера.
     async reset(email) {
         const user = await UserModel.findOne({ email });
         if (!user) throw ApiError.BadRequest('Email не найден');
 
-        crypto.randomBytes(32, async (err, buffer) => {
-            if (err) throw ApiError.BadRequest('Что-то пошло не так. Повторите попытку позднее!');
-            const token = buffer.toString('hex');
-            // const user = await UserModel.findOne({email})
-            user.resetToken = token;
-            user.resetTokenExp = Date.now() + 60 * 60 * 1000;
+        user.resetToken = crypto.randomBytes(32).toString('hex');
+        user.resetTokenExp = Date.now() + 60 * 60 * 1000;
+        await user.save();
 
-            await user.save();
-
-            await mailService.sendResetPassword(
-                user.email,
-                `${process.env.API_URL}/password/${user.resetToken}`
-            );
-        });
+        await mailService.sendResetPassword(
+            user.email,
+            `${process.env.API_URL}/password/${user.resetToken}`
+        );
     }
 
     async password({ userId, token, password }) {

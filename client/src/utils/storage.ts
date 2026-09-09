@@ -11,10 +11,14 @@ const memory = new Map<string, string>();
 export const storage = {
     get(key: string): string | null {
         try {
-            return window.localStorage.getItem(key);
+            const value = window.localStorage.getItem(key);
+            if (value !== null) return value;
         } catch {
-            return memory.get(key) ?? null;
+            // хранилище недоступно — ниже отвечаем из памяти
         }
+        // В приватном режиме Safari чтение работает, а запись запрещена:
+        // значение есть только в памяти вкладки, и вернуть надо именно его.
+        return memory.get(key) ?? null;
     },
 
     set(key: string, value: string): void {
