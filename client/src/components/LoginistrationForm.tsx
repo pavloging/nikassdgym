@@ -21,20 +21,18 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
     const [isCheckedOfferta, setIsCheckedOfferta] = useState(false);
     const [isCheckedPolicy, setIsCheckedPolicy] = useState(false);
 
+    // Текст ошибки показывает редьюсер, здесь остаётся только не уводить
+    // пользователя со страницы, если вход не удался.
     const handleRegistration = async () => {
-        const data = await dispatch(fetchRegistration({ email, password }));
-        if (!data) throw Error('Произошла ошибка при получении данных. Попробуйте позже');
-        if (data.type === 'user/fetchRegistration/rejected')
-            throw Error('Произошла ошибка на стороне сервера. Попробуйте позже');
+        const result = await dispatch(fetchRegistration({ email, password }));
+        if (fetchRegistration.rejected.match(result)) return;
 
         navigate('/subscription');
     };
 
     const handleLogin = async () => {
-        const data = await dispatch(fetchLogin({ email, password }));
-        if (!data) throw Error('Произошла ошибка при получении данных. Попробуйте позже');
-        if (data.type === 'user/fetchLogin/rejected')
-            throw Error('Произошла ошибка на стороне сервера. Попробуйте позже');
+        const result = await dispatch(fetchLogin({ email, password }));
+        if (fetchLogin.rejected.match(result)) return;
 
         navigate('/exercises');
     };
