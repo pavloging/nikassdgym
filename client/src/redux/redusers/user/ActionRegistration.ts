@@ -1,23 +1,25 @@
-import { AxiosResponse } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import AuthService from '../../../services/AuthService';
 import { AuthResponse } from '../../../types/response/AuthResponse';
-import { handleError } from '../../../utils/handleError';
+import { getErrorMessage } from '../../../utils/handleError';
+import { storage, TOKEN_KEY } from '../../../utils/storage';
 
-export const fetchRegistration = createAsyncThunk(
-    'user/fetchRegistration',
-    async ({ email, password }: { email: string; password: string }, thunkAPI) => {
-        try {
-            const response: AxiosResponse<AuthResponse> = await AuthService.registration(
-                email,
-                password
-            );
-            if (!response.data.accessToken) throw Error('Неверный accessToken');
-            localStorage.setItem('token', response.data.accessToken);
-            return response.data;
-        } catch (e) {
-            handleError(e)
-            return thunkAPI.rejectWithValue('Не удалось зарегистрироваться');
-        }
+interface Credentials {
+    email: string;
+    password: string;
+}
+
+export const fetchRegistration = createAsyncThunk<
+    AuthResponse,
+    Credentials,
+    { rejectValue: string }
+>('user/fetchRegistration', async ({ email, password }, thunkAPI) => {
+    try {
+        const response = await AuthService.registration(email, password);
+        if (!response.data.accessToken) throw new Error('Сервер не вернул токен доступа');
+        storage.set(TOKEN_KEY, response.data.accessToken);
+        return response.data;
+    } catch (e) {
+        return thunkAPI.rejectWithValue(getErrorMessage(e));
     }
-);
+});

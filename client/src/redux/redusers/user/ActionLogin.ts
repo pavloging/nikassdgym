@@ -1,19 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AxiosResponse } from 'axios';
 import AuthService from '../../../services/AuthService';
 import { AuthResponse } from '../../../types/response/AuthResponse';
-import { handleError } from '../../../utils/handleError';
+import { getErrorMessage } from '../../../utils/handleError';
+import { storage, TOKEN_KEY } from '../../../utils/storage';
 
-export const fetchLogin = createAsyncThunk(
+interface Credentials {
+    email: string;
+    password: string;
+}
+
+export const fetchLogin = createAsyncThunk<AuthResponse, Credentials, { rejectValue: string }>(
     'user/fetchLogin',
-    async ({ email, password }: { email: string; password: string }, thunkAPI) => {
+    async ({ email, password }, thunkAPI) => {
         try {
-            const response: AxiosResponse<AuthResponse> = await AuthService.login(email, password);
-            localStorage.setItem('token', response.data.accessToken);
+            const response = await AuthService.login(email, password);
+            storage.set(TOKEN_KEY, response.data.accessToken);
             return response.data;
         } catch (e) {
-            handleError(e)
-            return thunkAPI.rejectWithValue((e as Error).message ?? 'Не удалось авторизоваться');
+            return thunkAPI.rejectWithValue(getErrorMessage(e));
         }
     }
 );

@@ -1,21 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AxiosResponse } from 'axios';
 import UserService from '../../../services/UserService';
-import { IUser } from '../../../types/IUser';
 import { IPay } from '../../../types/ISubscription';
-import { handleError } from '../../../utils/handleError';
+import { getErrorMessage } from '../../../utils/handleError';
 
-export const fetchCreateLinkPay = createAsyncThunk(
+// Сервер отдаёт ссылку на оплату в ЮKassa, по ней и уходит редирект.
+export const fetchCreateLinkPay = createAsyncThunk<string, IPay, { rejectValue: string }>(
     'user/fetchCreateLinkPay',
-    async (data: IPay, thunkAPI) => {
+    async (data, thunkAPI) => {
         try {
-            const response: AxiosResponse<IUser> = await UserService.createLinkPay(data);
+            const response = await UserService.createLinkPay(data);
             return response.data;
         } catch (e) {
-            handleError(e)
-            return thunkAPI.rejectWithValue(
-                (e as Error).message ?? 'Не удалось активировать оплаченный тариф'
-            );
+            return thunkAPI.rejectWithValue(getErrorMessage(e));
         }
     }
 );

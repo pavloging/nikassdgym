@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import { storage } from '../../utils/storage';
 import './CookieBanner.css';
 
+const COOKIE_BANNER_KEY = 'setCookieBanner';
+
 const CookieBanner = () => {
-    const [isVisible, setIsVisible] = useState(localStorage.getItem('setCookieBanner') ? false : true);
+    const [isVisible, setIsVisible] = useState(() => !storage.get(COOKIE_BANNER_KEY));
     const [isHiding, setIsHiding] = useState(false);
 
     const handleAccept = () => {
         setIsHiding(true); // Запускаем анимацию скрытия
         setTimeout(() => setIsVisible(false), 300); // Удаляем элемент после анимации
-        localStorage.setItem('setCookieBanner', 'true')
+        storage.set(COOKIE_BANNER_KEY, 'true');
     };
 
     if (!isVisible) {

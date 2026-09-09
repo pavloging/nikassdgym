@@ -1,23 +1,54 @@
-# Данный шаблон для JWT авторизации с активацией и сбросом пароля имеет следующие инструкции для настройки:
+# nikassdgym
 
-1. Создание файла .env в папке /server и добавление в этот файл содержимого из файла .env.example. Файл .env обычно используется для хранения конфиденциальных данных, таких как ключи API, секреты и параметры конфигурации.
+Сайт онлайн-тренинга Ники Дупиной: лендинг, личный кабинет, видео-упражнения
+и оплата подписки через ЮKassa.
 
-2. Добавление пути для подключения к базе данных - DB_URL. Это предполагает указание URL вашей базы данных, чтобы приложение могло подключиться к ней для хранения данных.
+Прод: https://nikassdgym.ru
 
-3. Внесение данных SMTP_USER и SMTP_PASSWORD. Эти данные обычно используются для отправки электронных писем/уведомлений через SMTP сервер. Руководствуясь <a herf="https://www.youtube.com/watch?v=D1IatZ79wbI&t">данным видеороликом</a>, вам следует просмотреть инструкции по настройке SMTP сервера для отправки электронных писем из вашего приложения.
+## Состав
 
-Следование указанным инструкциям поможет вам настроить шаблон для JWT авторизации с активацией и сбросом пароля таким образом, чтобы он корректно работал с вашими данными и сервисами.
+- `client/` — SPA на React 18 + TypeScript, сборка Vite.
+- `server/` — REST API на Express + MongoDB (Mongoose), JWT-авторизация
+  с подтверждением почты и сбросом пароля.
+- `docker-compose.yml` — оба сервиса; наружу их проксирует nginx хоста
+  (`/` → клиент :3000, `/api` → сервер :5000).
 
-Установка Docker-Compose:
-sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+## Локальный запуск
 
-sudo chmod +x /usr/local/bin/docker-compose
+```bash
+# сервер
+cd server && cp .env.example .env   # заполнить DB_URL, SMTP_*, JWT_*, YOOKASSA_*
+npm install && npm run dev
 
-docker-compose --version
+# клиент
+cd client && npm install && npm run dev
+```
 
--- Вывод будет выглядеть следующим образом:
-Output
-docker-compose version 1.26.0, build 8a1c60f6
+Переменные окружения сервера:
 
+| Переменная | Зачем |
+| --- | --- |
+| `PORT` | порт API, по умолчанию 5000 |
+| `DB_URL` | строка подключения к MongoDB |
+| `CLIENT_URL` | адрес фронта, используется в CORS и в письмах |
+| `API_URL` | публичный адрес API, используется в ссылках из писем |
+| `JWT_ACCESS_SECRET`, `JWT_REFRESH_SECRET` | подпись токенов |
+| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD` | отправка писем |
+| `YOOKASSA_STORE_ID`, `YOOKASSA_SECRET_KEY` | приём платежей |
+| `COOKIE_SECURE` | `false` только для локальной разработки по http |
 
-- Сделать стрелочки 
+Адрес API на клиенте не настраивается: он берётся от текущего домена
+(`window.location.origin + '/api'`), поэтому при смене домена править код не нужно.
+
+## Деплой
+
+На сервере проект лежит в `/root/nikassdgym`:
+
+```bash
+git -C /root/nikassdgym pull
+docker compose -f /root/nikassdgym/docker-compose.yml up -d --build
+```
+
+Сборка клиента тянет за собой видео из `client/src/assets`, образ получается
+около 4 ГБ — перед деплоем стоит проверить свободное место (`df -h /`)
+и подчистить старое (`docker image prune -f`).

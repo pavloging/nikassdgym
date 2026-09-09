@@ -1,25 +1,12 @@
 import { createSlice, PayloadAction, ActionReducerMapBuilder } from '@reduxjs/toolkit';
-import { SerializedError } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { fetchAuth } from './ActionAuth';
 import { fetchLogin } from './ActionLogin';
 import { fetchLogout } from './ActionLogout';
 import { fetchRegistration } from './ActionRegistration';
+import { fetchCreateLinkPay } from './ActionCreateLinkPay';
 import { AuthResponse } from '../../../types/response/AuthResponse';
 import { IUser } from '../../../types/IUser';
-import { fetchCreateLinkPay } from './ActionCreateLinkPay';
-
-type RejectedAction =
-    | unknown
-    | string
-    | ({
-          arg: void;
-          requestId: string;
-          requestStatus: 'rejected';
-          aborted: boolean;
-          condition: boolean;
-      } & ({ rejectedWithValue: true } | ({ rejectedWithValue: false } & object)))
-    | SerializedError;
 
 interface UserState {
     user: IUser;
@@ -28,17 +15,42 @@ interface UserState {
     error: string;
 }
 
+const emptyUser: IUser = {
+    id: '',
+    email: '',
+    isActivated: false,
+    isActivatedSubscription: false,
+    dateActivatedSubscription: new Date(),
+};
+
 const initialState: UserState = {
-    user: {
-        id: '',
-        email: '',
-        isActivated: false,
-        isActivatedSubscription: false,
-        dateActivatedSubscription: new Date()
-    },
+    user: emptyUser,
     isLoading: false,
     isAuth: false,
     error: '',
+};
+
+// Все thunk-и отклоняются через rejectWithValue(getErrorMessage(e)),
+// поэтому payload у rejected — готовая строка для пользователя.
+type RejectedPayload = string | undefined;
+
+const signIn = (state: UserState, action: PayloadAction<AuthResponse>) => {
+    state.isLoading = false;
+    state.isAuth = true;
+    state.error = '';
+    state.user = action.payload.user;
+};
+
+const startLoading = (state: UserState) => {
+    state.isLoading = true;
+};
+
+// Единственное место, где ошибка показывается пользователю: одна ошибка — одно уведомление.
+const failWithToast = (state: UserState, action: PayloadAction<RejectedPayload>) => {
+    state.isLoading = false;
+    const message = action.payload ?? 'Произошла ошибка. Попробуйте позже';
+    state.error = message;
+    toast.error(message);
 };
 
 export const userSlice = createSlice({
@@ -47,83 +59,54 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: (builder: ActionReducerMapBuilder<UserState>) => {
         builder
-            .addCase(fetchAuth.fulfilled, (state, action: PayloadAction<AuthResponse>) => {
-                state.isLoading = false;
-                state.isAuth = true;
-                state.error = '';
-                state.user = action.payload.user;
-            })
-            .addCase(fetchAuth.pending, (state) => {
-                state.isLoading = true;
-            })
-            .addCase(fetchAuth.rejected, (state, action: PayloadAction<RejectedAction>) => {
-                toast.error(action.payload as string);
-                state.isLoading = false;
-                state.error = action.payload as string;
-            })
-
-            .addCase(fetchRegistration.fulfilled, (state, action: PayloadAction<AuthResponse>) => {
-                toast.success('Вы вошли в систему!');
-                state.isLoading = false;
-                state.isAuth = true;
-                state.error = '';
-                state.user = action.payload.user;
-            })
-            .addCase(fetchRegistration.pending, (state) => {
-                state.isLoading = true;
-            })
-            .addCase(fetchRegistration.rejected, (state, action: PayloadAction<RejectedAction>) => {
-                toast.error(action.payload as string);
-                state.isLoading = false;
-                state.error = action.payload as string;
-            })
-
-            .addCase(fetchLogin.fulfilled, (state, action: PayloadAction<AuthResponse>) => {
-                toast.success('Вы вошли в систему!');
-                state.isLoading = false;
-                state.isAuth = true;
-                state.error = '';
-                state.user = action.payload.user;
-            })
-            .addCase(fetchLogin.pending, (state) => {
-                state.isLoading = true;
-            })
-            .addCase(fetchLogin.rejected, (state, action: PayloadAction<RejectedAction>) => {
-                toast.error(action.payload as string);
-                state.isLoading = false;
-                state.error = action.payload as string;
-            })
-
-            .addCase(fetchLogout.fulfilled, (state) => {
-                toast.success('Вы вышли из системы');
+            // Восстановление сессии при загрузке страницы.
+            // Провал — штатная ситуация (сессия истекла), молча остаёмся гостем.
+            .addCase(fetchAuth.pending, startLoading)
+            .addCase(fetchAuth.fulfilled, signIn)
+            .addCase(fetchAuth.rejected, (state) => {
                 state.isLoading = false;
                 state.isAuth = false;
                 state.error = '';
-                state.user = initialState.user
-            })
-            .addCase(fetchLogout.pending, (state) => {
-                state.isLoading = true;
-            })
-            .addCase(fetchLogout.rejected, (state, action: PayloadAction<RejectedAction>) => {
-                toast.error(action.payload as string);
-                state.isLoading = false;
-                state.error = action.payload as string;
+                state.user = emptyUser;
             })
 
-            .addCase(fetchCreateLinkPay.fulfilled, (state, action: PayloadAction<IUser>) => {
-                toast.success('Вы активировали тариф');
+            .addCase(fetchRegistration.pending, startLoading)
+            .addCase(fetchRegistration.fulfilled, (state, action: PayloadAction<AuthResponse>) => {
+                signIn(state, action);
+                toast.success('Вы вошли в систему!');
+            })
+            .addCase(fetchRegistration.rejected, failWithToast)
+
+            .addCase(fetchLogin.pending, startLoading)
+            .addCase(fetchLogin.fulfilled, (state, action: PayloadAction<AuthResponse>) => {
+                signIn(state, action);
+                toast.success('Вы вошли в систему!');
+            })
+            .addCase(fetchLogin.rejected, failWithToast)
+
+            .addCase(fetchLogout.pending, startLoading)
+            .addCase(fetchLogout.fulfilled, (state) => {
+                state.isLoading = false;
+                state.isAuth = false;
+                state.error = '';
+                state.user = emptyUser;
+                toast.success('Вы вышли из системы');
+            })
+            // Сервер мог не ответить, но локально пользователь всё равно выходит.
+            .addCase(fetchLogout.rejected, (state) => {
+                state.isLoading = false;
+                state.isAuth = false;
+                state.user = emptyUser;
+            })
+
+            // Тут только получение ссылки на оплату. Подписка активируется
+            // вебхуком ЮKassa после реального платежа, а не здесь.
+            .addCase(fetchCreateLinkPay.pending, startLoading)
+            .addCase(fetchCreateLinkPay.fulfilled, (state) => {
                 state.isLoading = false;
                 state.error = '';
-                state.user = action.payload
             })
-            .addCase(fetchCreateLinkPay.pending, (state) => {
-                state.isLoading = true;
-            })
-            .addCase(fetchCreateLinkPay.rejected, (state, action: PayloadAction<RejectedAction>) => {
-                toast.error(action.payload as string);
-                state.isLoading = false;
-                state.error = action.payload as string;
-            });
+            .addCase(fetchCreateLinkPay.rejected, failWithToast);
     },
 });
 
