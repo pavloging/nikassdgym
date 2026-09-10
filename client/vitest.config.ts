@@ -1,3 +1,5 @@
+// jsdom держим на 26: в 27 зависимость стала ESM-only и не грузится
+// на node 18, а именно на нём собирается образ клиента и работает CI.
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 
