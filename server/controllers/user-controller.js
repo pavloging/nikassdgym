@@ -3,6 +3,7 @@ const paymentService = require('../service/payment-service');
 const { validationResult } = require('express-validator');
 const ApiError = require('../exceptions/api-error');
 const { refreshCookieOptions } = require('../config/cookie');
+const { findTariff } = require('../config/tariffs');
 
 // Общая проверка для маршрутов с валидацией: возвращает ошибку, если данные не прошли.
 function validationError(req) {
@@ -114,9 +115,16 @@ class UserController {
 
     async createLinkPay(req, res, next) {
         try {
-            const { userId, date, price, name } = req.body;
+            // От клиента берём только название тарифа. Сумма и срок — из серверного
+            // списка, пользователь — из токена.
+            const { name } = req.body;
+            const tariff = findTariff(name);
+            if (!tariff) return next(ApiError.BadRequest('Неизвестный тариф'));
+
+            const { price, date } = tariff;
+            const userId = req.user.id;
             const createdData = await paymentService.createLinkPay({ price, name });
-            await paymentService.savePayment({ userId, date, price, name, order: createdData.id})
+            await paymentService.savePayment({ userId, date, price, name, order: createdData.id });
             return res.json(createdData.confirmation.confirmation_url);
         } catch (e) {
             next(e);

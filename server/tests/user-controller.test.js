@@ -358,6 +358,37 @@ describe('POST /api/createLinkPay', () => {
         expect(paymentService.savePayment).toHaveBeenCalledWith({ ...pay, order: 'order-1' });
     });
 
+    it('сумму, срок и пользователя берёт с сервера, поля из тела игнорирует', async () => {
+        paymentService.createLinkPay.mockResolvedValue(created);
+        paymentService.savePayment.mockResolvedValue(undefined);
+
+        await request(app)
+            .post('/api/createLinkPay')
+            .set('Authorization', `Bearer ${token()}`)
+            .send({ name: '3 месяца', price: 1, date: 10 * 365 * 86400000, userId: 'u-2' });
+
+        expect(paymentService.createLinkPay).toHaveBeenCalledWith({ price: 20999, name: '3 месяца' });
+        expect(paymentService.savePayment).toHaveBeenCalledWith({
+            userId: 'u-1',
+            date: 84 * 86400000,
+            price: 20999,
+            name: '3 месяца',
+            order: 'order-1',
+        });
+    });
+
+    it('неизвестный тариф отклоняет с 400, счёт не создаёт', async () => {
+        const res = await request(app)
+            .post('/api/createLinkPay')
+            .set('Authorization', `Bearer ${token()}`)
+            .send({ name: 'toString', price: 1, date: 86400000 });
+
+        expect(res.status).toBe(400);
+        expect(res.body.message).toBe('Неизвестный тариф');
+        expect(paymentService.createLinkPay).not.toHaveBeenCalled();
+        expect(paymentService.savePayment).not.toHaveBeenCalled();
+    });
+
     it('ошибку ЮKassa отдаёт как 500 без подробностей', async () => {
         paymentService.createLinkPay.mockRejectedValue(new Error('секретная подробность'));
 

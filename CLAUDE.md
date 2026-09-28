@@ -33,13 +33,16 @@
   Если добавить тост и в thunk, снова получим два уведомления на одну ошибку.
 - `fetchAuth` при загрузке страницы намеренно молчит: истёкшая сессия — норма.
 - Подписку активирует только вебхук ЮKassa, клиент лишь получает ссылку на оплату.
+- Сумма и срок тарифа — из `server/config/tariffs.js`, пользователь — из токена; от клиента
+  берётся только название тарифа. Витрина `client/src/constants/subscription.ts` правится
+  вместе с серверным списком, расхождение ловит `tariffs.test.js`.
 - Сервер на CommonJS: `vi.mock` не перехватывает `require`, в тестах модули
   подменяются через `server/tests/helpers/mock-module.js`.
 - Тесты идут без сети и без базы. Тест ушёл в сеть — заглушка не встала, чинить.
 
 ## Проверка
 
-`npm --prefix client test` и `npm --prefix server test` (256 и 147 тестов).
+`npm --prefix client test` и `npm --prefix server test` (256 и 151 тест).
 CI (`.github/workflows/tests.yml`, push в `main` и PR, node 18): клиент — lint,
 `tsc --noEmit`, тесты; сервер — тесты. Деплоя в CI нет.
 
