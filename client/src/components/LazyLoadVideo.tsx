@@ -21,8 +21,13 @@ const LazyLoadVideo = ({ src, img, type, isControls }: ILazyLoadVideo) => {
                     className="exercise__video"
                     controls={isControls}
                     poster={img}
-                    onClick={() =>
-                        toast.error('У вас не активна подписка. Пожалуйста, активируйте её, чтобы упражнения отображались')
+                    onClick={
+                        isControls
+                            ? undefined
+                            : () =>
+                                  toast.error(
+                                      'У вас не активна подписка. Пожалуйста, активируйте её, чтобы упражнения отображались'
+                                  )
                     }
                 >
                     <source src={isControls ? src : ''} type={type} />

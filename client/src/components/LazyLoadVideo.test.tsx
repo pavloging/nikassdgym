@@ -58,6 +58,15 @@ describe('LazyLoadVideo', () => {
         );
     });
 
+    // Раньше тост летел на любой тап, и подписчица видела «не активна подписка».
+    it('клик по видео с подпиской не показывает ошибку', async () => {
+        const { container } = render(<LazyLoadVideo {...props} isControls />);
+
+        await userEvent.click(container.querySelector('video') as HTMLElement);
+
+        expect(toastError).not.toHaveBeenCalled();
+    });
+
     it('тип видео передаётся в source', () => {
         const { container } = render(<LazyLoadVideo {...props} isControls />);
         expect(container.querySelector('source')).toHaveAttribute('type', 'video/mp4');
