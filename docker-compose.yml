@@ -5,7 +5,7 @@ services:
         build: ./server
         image: server
         ports:
-            - 5000:5000
+            - 127.0.0.1:5000:5000
         environment:
             - LOG_DIR=/app/logs
         volumes:
@@ -21,7 +21,7 @@ services:
         build: ./client
         image: client
         ports:
-            - 3000:3000
+            - 127.0.0.1:3000:3000
         depends_on:
             - server
         restart: always

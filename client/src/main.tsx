@@ -5,12 +5,15 @@ import { store } from './redux/store.ts';
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
+import { startClientLog } from './utils/clientLog.ts';
 import 'react-toastify/dist/ReactToastify.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './style/index.css';
 import './style/ui.css';
 import './style/media.css';
+
+startClientLog();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <ErrorBoundary>

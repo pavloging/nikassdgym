@@ -14,6 +14,9 @@ class IntersectionObserverStub {
 }
 vi.stubGlobal('IntersectionObserver', IntersectionObserverStub);
 
+// Журнал посетителя шлёт события на сервер через fetch. В тестах сети нет.
+vi.stubGlobal('fetch', vi.fn(() => Promise.resolve(new Response(null, { status: 204 }))));
+
 // jsdom не реализует scrollTo — страницы дёргают его при монтировании.
 vi.stubGlobal('scrollTo', vi.fn());
 

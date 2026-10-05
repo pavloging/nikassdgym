@@ -26,6 +26,12 @@ app.use(
 app.use('/api', router);
 app.use(errorMiddleware);
 
+// Падение процесса и обрыв связи с базой тоже попадают в лог на диске.
+process.on('uncaughtExceptionMonitor', (err, origin) => console.error(`process ${origin}:`, err));
+mongoose.connection.on('disconnected', () => console.error('mongo disconnected'));
+mongoose.connection.on('reconnected', () => console.log('mongo reconnected'));
+mongoose.connection.on('error', (e) => console.error('mongo error:', e.message));
+
 const start = async () => {
     try {
         await mongoose.connect(process.env.DB_URL, {

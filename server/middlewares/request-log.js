@@ -16,6 +16,11 @@ function safePath(url) {
     return SECRET_PATHS.reduce((path, pattern) => path.replace(pattern, '$1***'), url);
 }
 
+// IP посетителя передаёт nginx в X-Real-IP. Без него виден только адрес docker-сети.
+function clientIp(req) {
+    return req.headers?.['x-real-ip'] || req.socket?.remoteAddress || '-';
+}
+
 function requestLog(req, res, next) {
     const started = Date.now();
     let done = false;
@@ -23,9 +28,13 @@ function requestLog(req, res, next) {
     const write = (status) => {
         if (done) return;
         done = true;
+        // Принятый журнал браузера сам пишет свои строки, лишняя строка тут только шум.
+        if (status === 204 && req.originalUrl.startsWith('/api/client-log')) return;
         const email = maskEmail(req.body?.email);
         const who = email ? ` ${email}` : '';
-        console.log(`${req.method} ${safePath(req.originalUrl)}${who} -> ${status} ${Date.now() - started}ms`);
+        console.log(
+            `${req.method} ${safePath(req.originalUrl)}${who} ${clientIp(req)} -> ${status} ${Date.now() - started}ms`
+        );
     };
 
     res.on('finish', () => write(res.statusCode));
@@ -33,4 +42,4 @@ function requestLog(req, res, next) {
     next();
 }
 
-module.exports = { requestLog, maskEmail, safePath };
+module.exports = { requestLog, maskEmail, safePath, clientIp };

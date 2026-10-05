@@ -5,6 +5,7 @@ import { AppDispatch } from '../redux/store';
 import { fetchLogin } from '../redux/redusers/user/ActionLogin';
 import { fetchRegistration } from '../redux/redusers/user/ActionRegistration';
 import CustomCheckbox from './CustomCheckbox';
+import { logEvent, maskEmail } from '../utils/clientLog';
 
 interface LoginistrationFormProps {
     isLogin: boolean;
@@ -24,6 +25,7 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
     // Текст ошибки показывает редьюсер, здесь остаётся только не уводить
     // пользователя со страницы, если вход не удался.
     const handleRegistration = async () => {
+        logEvent('click registration', { email: maskEmail(email) });
         const result = await dispatch(fetchRegistration({ email, password }));
         if (fetchRegistration.rejected.match(result)) return;
 
@@ -31,6 +33,7 @@ const LoginistrationForm: FC<LoginistrationFormProps> = ({ isLogin }) => {
     };
 
     const handleLogin = async () => {
+        logEvent('click login', { email: maskEmail(email) });
         const result = await dispatch(fetchLogin({ email, password }));
         if (fetchLogin.rejected.match(result)) return;
 

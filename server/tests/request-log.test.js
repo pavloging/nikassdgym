@@ -22,7 +22,7 @@ describe('requestLog', () => {
         res.emit('finish');
 
         expect(next).toHaveBeenCalled();
-        expect(log.mock.calls[0][0]).toMatch(/^GET \/api\/refresh -> 200 \d+ms$/);
+        expect(log.mock.calls[0][0]).toMatch(/^GET \/api\/refresh - -> 200 \d+ms$/);
     });
 
     it('показывает, чья регистрация, но почту маскирует', () => {
@@ -32,7 +32,7 @@ describe('requestLog', () => {
         requestLog(req, res, vi.fn());
         res.emit('finish');
 
-        expect(log.mock.calls[0][0]).toMatch(/^POST \/api\/registration ni\*\*\*@example\.com -> 400 \d+ms$/);
+        expect(log.mock.calls[0][0]).toMatch(/^POST \/api\/registration ni\*\*\*@example\.com - -> 400 \d+ms$/);
         expect(log.mock.calls[0][0]).not.toContain('nika@');
     });
 
@@ -54,6 +54,27 @@ describe('requestLog', () => {
         res.emit('close');
 
         expect(log).toHaveBeenCalledTimes(1);
+    });
+});
+
+describe('IP посетителя', () => {
+    it('берёт IP из X-Real-IP, который ставит nginx', () => {
+        const res = makeRes(200);
+        const req = { method: 'GET', originalUrl: '/api/refresh', headers: { 'x-real-ip': '91.122.143.252' } };
+
+        requestLog(req, res, vi.fn());
+        res.emit('finish');
+
+        expect(log.mock.calls[0][0]).toMatch(/^GET \/api\/refresh 91\.122\.143\.252 -> 200 \d+ms$/);
+    });
+
+    it('принятый журнал браузера отдельной строкой не пишет', () => {
+        const res = makeRes(204);
+
+        requestLog({ method: 'POST', originalUrl: '/api/client-log' }, res, vi.fn());
+        res.emit('finish');
+
+        expect(log).not.toHaveBeenCalled();
     });
 });
 

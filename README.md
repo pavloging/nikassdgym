@@ -98,7 +98,8 @@ git -C /root/nikassdgym pull
 cd /root/nikassdgym && docker compose up -d --build
 ```
 
-- Два контейнера: `client` (node:18, `vite preview` на :3000) и `server` (node:16, :5000).
+- Два контейнера: `client` (node:18, `vite preview` на :3000) и `server` (node:16, :5000),
+  порты слушают только 127.0.0.1.
   Наружу их проксирует nginx хоста: один конфиг `/etc/nginx/sites-enabled/default`,
   сертификат от certbot (таймер `certbot.timer`, обновляется сам).
 - **Диск 20 ГБ и он тесный.** Образ клиента ~4 ГБ из-за видео в бандле. При нехватке —
@@ -107,7 +108,8 @@ cd /root/nikassdgym && docker compose up -d --build
 - Логи контейнеров с ротацией: до 5 файлов по 10 МБ на контейнер (`docker-compose.yml`).
 
 **Логи, когда человек пишет «не могу зайти».**
-- API пишет строку на каждый запрос: `POST /api/registration ni***@mail.ru -> 200 340ms`.
+- API пишет строку на каждый запрос: `POST /api/registration ni***@mail.ru 91.122.143.252 -> 200 340ms`
+  (IP посетителя приходит от nginx в `X-Real-IP`).
   Почта замаскирована, токены в пути заменены на `***`. Статус `оборван` значит, что
   браузер или nginx не дождались ответа. Отправка письма пишется отдельно:
   `mail activation -> ok 812ms` или `-> ошибка ...`.
@@ -116,7 +118,18 @@ cd /root/nikassdgym && docker compose up -d --build
   Ротация по дням, 90 дней, конфиг `deploy/logrotate-nikassdgym` → `/etc/logrotate.d/nikassdgym`.
   Смотреть: `grep -hE 'registration|login|mail' /var/log/nikassdgym/api.log*`
   (сжатые дни — `zgrep`).
-- nginx пишет всё в `/var/log/nginx/access.log` (по дням, 90 дней с 2026-10-05). Запроса нет ни в логе
+- Браузер посетителя шлёт свой журнал (`client/src/utils/clientLog.ts` → `POST /api/client-log`):
+  открытые страницы, нажатия «Войти»/«Зарегистрироваться», каждый запрос к API со статусом
+  и временем, ошибки JS, рендера и загрузки файлов, переходы онлайн/офлайн. В логе это строки
+  `client <сессия> ...`, первая строка сессии — `ctx` с IP, браузером (в т.ч. встроенный
+  Instagram/Telegram), типом сети. Запрос, который не дошёл до сервера, виден как
+  `error api` со `status: null`: такие события копятся в браузере и доезжают при следующем
+  открытии сайта. Найти человека: `grep 'si\*\*\*@mail.ru' api.log`, взять id сессии,
+  потом `grep 'client <id>'`.
+- Ручка `/api/client-log` открытая: до 50 событий за раз, до 60 запросов в минуту с IP,
+  почта в строках маскируется и на сервере.
+- nginx пишет всё в `/var/log/nginx/access.log` (по дням, 90 дней с 2026-10-05), в конце строки
+  `rt=` полное время запроса и `urt=` время ответа приложения (формат `timed` в `/etc/nginx/nginx.conf`). Запроса нет ни в логе
   API, ни в nginx — он не дошёл до сервера, искать причину на стороне человека.
 
 **Домен.** `nikassdgym.ru` у BEGET-RU, оплачен до 2027-05-07. Whois на 2026-09-28:

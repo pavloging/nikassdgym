@@ -1,4 +1,5 @@
 import { Component, CSSProperties, ErrorInfo, ReactNode } from 'react';
+import { logEvent } from '../utils/clientLog';
 
 interface Props {
     children: ReactNode;
@@ -49,6 +50,7 @@ class ErrorBoundary extends Component<Props, State> {
 
     componentDidCatch(error: Error, info: ErrorInfo) {
         console.error('Ошибка рендера:', error, info.componentStack);
+        logEvent('error render', { msg: error.message, stack: error.stack, at: info.componentStack });
     }
 
     render() {

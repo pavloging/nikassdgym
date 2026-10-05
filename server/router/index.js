@@ -1,5 +1,6 @@
 const Router = require('express').Router;
 const userController = require('../controllers/user-controller');
+const { clientLog } = require('../controllers/client-log-controller');
 const router = new Router();
 const authMiddleware = require('../middlewares/auth-middleware');
 const { registrationValidation, loginValidation } = require('../middlewares/validations.js');
@@ -17,5 +18,8 @@ router.post('/createLinkPay', authMiddleware, userController.createLinkPay);
 router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
 router.post('/webhook', userController.webhook);
+
+// Журнал шагов и ошибок из браузера посетителя.
+router.post('/client-log', clientLog);
 
 module.exports = router;
