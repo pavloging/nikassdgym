@@ -40,12 +40,13 @@
   подменяются через `server/tests/helpers/mock-module.js`.
 - Тесты идут без сети и без базы. Тест ушёл в сеть — заглушка не встала, чинить.
 - Каждый запрос к API пишется в лог одной строкой (`middlewares/request-log.js`),
-  отправка письма тоже (`mail-service.send`). Почту в лог только маской, токены из пути
+  отправка письма тоже (`mail-service.send`). Всё, что сервер пишет в консоль, дублируется
+  в `/var/log/nikassdgym/api.log` на хосте (`utils/file-log.js`, включается `LOG_DIR`). Почту в лог только маской, токены из пути
   вырезать. Как читать логи по жалобе — README, «Логи, когда человек пишет «не могу зайти»».
 
 ## Проверка
 
-`npm --prefix client test` и `npm --prefix server test` (257 и 161 тест).
+`npm --prefix client test` и `npm --prefix server test` (257 и 165 тестов).
 CI (`.github/workflows/tests.yml`, push в `main` и PR, node 18): клиент — lint,
 `tsc --noEmit`, тесты; сервер — тесты. Деплоя в CI нет.
 

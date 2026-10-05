@@ -1,4 +1,8 @@
 require('dotenv').config();
+const { teeConsoleToFile } = require('./utils/file-log');
+
+// На проде LOG_DIR задан в docker-compose.yml: лог дублируется в файл на диске хоста.
+if (process.env.LOG_DIR) teeConsoleToFile(process.env.LOG_DIR);
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');

@@ -111,8 +111,12 @@ cd /root/nikassdgym && docker compose up -d --build
   Почта замаскирована, токены в пути заменены на `***`. Статус `оборван` значит, что
   браузер или nginx не дождались ответа. Отправка письма пишется отдельно:
   `mail activation -> ok 812ms` или `-> ошибка ...`.
-  Смотреть: `docker logs --since 48h nikassdgym-server-1 | grep -E 'registration|login|mail'`.
-- nginx пишет всё в `/var/log/nginx/access.log` (по дням, 14 дней). Запроса нет ни в логе
+  Те же строки с временем UTC лежат на диске хоста в `/var/log/nikassdgym/api.log`
+  и переживают пересоздание контейнера (`LOG_DIR` и том в `docker-compose.yml`).
+  Ротация по дням, 90 дней, конфиг `deploy/logrotate-nikassdgym` → `/etc/logrotate.d/nikassdgym`.
+  Смотреть: `grep -hE 'registration|login|mail' /var/log/nikassdgym/api.log*`
+  (сжатые дни — `zgrep`).
+- nginx пишет всё в `/var/log/nginx/access.log` (по дням, 90 дней с 2026-10-05). Запроса нет ни в логе
   API, ни в nginx — он не дошёл до сервера, искать причину на стороне человека.
 
 **Домен.** `nikassdgym.ru` у BEGET-RU, оплачен до 2027-05-07. Whois на 2026-09-28:

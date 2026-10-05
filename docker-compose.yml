@@ -6,6 +6,10 @@ services:
         image: server
         ports:
             - 5000:5000
+        environment:
+            - LOG_DIR=/app/logs
+        volumes:
+            - /var/log/nikassdgym:/app/logs
         restart: always
         logging:
             driver: 'json-file'

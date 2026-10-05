@@ -1,0 +1,13 @@
+# Ротация лога API (server/utils/file-log.js). Ставится на сервер:
+# cp /root/nikassdgym/deploy/logrotate-nikassdgym /etc/logrotate.d/nikassdgym
+# copytruncate: процесс держит файл открытым, без него писал бы в удалённый файл.
+/var/log/nikassdgym/*.log {
+	daily
+	rotate 90
+	dateext
+	compress
+	delaycompress
+	missingok
+	notifempty
+	copytruncate
+}
