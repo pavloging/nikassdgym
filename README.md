@@ -104,7 +104,16 @@ cd /root/nikassdgym && docker compose up -d --build
 - **Диск 20 ГБ и он тесный.** Образ клиента ~4 ГБ из-за видео в бандле. При нехватке —
   `docker image prune -f`, `docker builder prune -f`. Перед прунингом пометить текущие
   образы (`docker tag client:latest client:before-fix`), иначе откатываться будет некуда.
-- Логи контейнеров без ротации: `driver: json-file` без лимитов.
+- Логи контейнеров с ротацией: до 5 файлов по 10 МБ на контейнер (`docker-compose.yml`).
+
+**Логи, когда человек пишет «не могу зайти».**
+- API пишет строку на каждый запрос: `POST /api/registration ni***@mail.ru -> 200 340ms`.
+  Почта замаскирована, токены в пути заменены на `***`. Статус `оборван` значит, что
+  браузер или nginx не дождались ответа. Отправка письма пишется отдельно:
+  `mail activation -> ok 812ms` или `-> ошибка ...`.
+  Смотреть: `docker logs --since 48h nikassdgym-server-1 | grep -E 'registration|login|mail'`.
+- nginx пишет всё в `/var/log/nginx/access.log` (по дням, 14 дней). Запроса нет ни в логе
+  API, ни в nginx — он не дошёл до сервера, искать причину на стороне человека.
 
 **Домен.** `nikassdgym.ru` у BEGET-RU, оплачен до 2027-05-07. Whois на 2026-09-28:
 `state: REGISTERED, DELEGATED, UNVERIFIED`. Непройденная верификация владельца у .RU

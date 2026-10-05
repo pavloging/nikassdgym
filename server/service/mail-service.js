@@ -15,8 +15,21 @@ class MailService {
         })
     }
 
+    // Время и исход отправки пишем в лог: зависший SMTP держит регистрацию,
+    // и человек видит бесконечную загрузку.
+    async send(kind, letter) {
+        const started = Date.now();
+        try {
+            await this.transporter.sendMail(letter);
+            console.log(`mail ${kind} -> ok ${Date.now() - started}ms`);
+        } catch (e) {
+            console.error(`mail ${kind} -> ошибка ${Date.now() - started}ms: ${e.message}`);
+            throw e;
+        }
+    }
+
     async sendActivationMail(to, link) {
-        await this.transporter.sendMail({
+        await this.send('activation', {
             from: process.env.SMTP_USER,
             to,
             subject: 'Активация аккаунта на ' + process.env.CLIENT_URL,
@@ -32,7 +45,7 @@ class MailService {
     }
 
     async sendResetPassword(to, link) {
-        await this.transporter.sendMail({
+        await this.send('reset', {
             from: process.env.SMTP_USER,
             to,
             subject: 'Сброс пароля для ' + process.env.CLIENT_URL,

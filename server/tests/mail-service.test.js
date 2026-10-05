@@ -20,6 +20,8 @@ const letter = () => sendMail.mock.calls[0][0];
 
 beforeEach(() => {
     sendMail.mockClear().mockResolvedValue({ messageId: 'id-1' });
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
 });
 
 describe('настройка транспорта', () => {
@@ -96,5 +98,24 @@ describe('sendResetPassword', () => {
         await expect(mailService.sendResetPassword('nika@example.com', 'ссылка')).rejects.toThrow(
             'SMTP недоступен'
         );
+    });
+});
+
+describe('лог отправки', () => {
+    it('пишет время успешной отправки', async () => {
+        await mailService.sendActivationMail('nika@example.com', 'ссылка');
+
+        expect(console.log.mock.calls[0][0]).toMatch(/^mail activation -> ok \d+ms$/);
+    });
+
+    // По этой строке видно, что регистрацию держал почтовый сервер.
+    it('пишет ошибку SMTP с временем, адрес получателя не печатает', async () => {
+        sendMail.mockRejectedValue(new Error('Connection timeout'));
+
+        await expect(mailService.sendResetPassword('nika@example.com', 'ссылка')).rejects.toThrow();
+
+        const line = console.error.mock.calls[0][0];
+        expect(line).toMatch(/^mail reset -> ошибка \d+ms: Connection timeout$/);
+        expect(line).not.toContain('nika@');
     });
 });
