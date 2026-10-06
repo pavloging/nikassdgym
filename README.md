@@ -11,7 +11,8 @@
 - Лендинг (`/`), тарифы (`/subscription`), каталог упражнений (`/exercises`,
   `/exercises/:name`): пять групп — разминка, грудь/руки, спина, ноги, пресс.
 - Аккаунт: регистрация с активацией по письму, вход, выход, сброс пароля по письму.
-  Access-токен в `localStorage`, refresh в httpOnly-куке на 30 дней.
+  Access-токен в `localStorage`, refresh в httpOnly-куке на 30 дней. Сохранённый токен
+  стирается, только когда `/api/refresh` ответил 401: обрыв связи вход не сбрасывает.
 - Оплата: три тарифа (24 часа, 1 месяц = 28 дней, 3 месяца = 84 дня). Сервер создаёт
   платёж в ЮKassa и отдаёт ссылку, вебхук `POST /api/webhook` на статусе
   `waiting_for_capture` продлевает подписку и подтверждает платёж (capture).
@@ -77,7 +78,7 @@
 
 **Тесты.** `npm --prefix client test` (vitest + jsdom 26 + Testing Library) и
 `npm --prefix server test` (vitest + supertest). Оба набора идут без сети и без базы.
-- Клиент: 256 тестов, покрытие строк 99,9%. Заглушки данных — `src/test/mocks.ts`,
+- Клиент: 268 тестов, покрытие строк 99,9%. Заглушки данных — `src/test/mocks.ts`,
   рендер с провайдерами — `src/test/utils.tsx`, глобальные заглушки jsdom
   (IntersectionObserver, scrollTo) — `src/test/setup.ts`.
 - Сервер: 151 тест, покрытие 100%. Проект на CommonJS, `vi.mock` не перехватывает
@@ -101,7 +102,11 @@ cd /root/nikassdgym && docker compose up -d --build
 - Два контейнера: `client` (node:18, `vite preview` на :3000) и `server` (node:16, :5000),
   порты слушают только 127.0.0.1.
   Наружу их проксирует nginx хоста: один конфиг `/etc/nginx/sites-enabled/default`,
-  сертификат от certbot (таймер `certbot.timer`, обновляется сам).
+  сертификат от certbot (таймер `certbot.timer`, обновляется сам). С 2026-10-06 nginx
+  отдаёт по HTTP/2 и сам ставит кэш: `/assets/` (имена с хэшем) — год, `immutable`;
+  картинки из `public` без хэша — сутки; страницы и API — как отдаёт приложение (`no-cache`).
+  Заменённая картинка в `public` у посетителей обновится в течение суток; чтобы сразу —
+  новое имя файла. Бэкап конфига до правки — `/root/nginx-default.bak-2026-10-06`.
 - **Диск 20 ГБ и он тесный.** Образ клиента ~4 ГБ из-за видео в бандле. При нехватке —
   `docker image prune -f`, `docker builder prune -f`. Перед прунингом пометить текущие
   образы (`docker tag client:latest client:before-fix`), иначе откатываться будет некуда.

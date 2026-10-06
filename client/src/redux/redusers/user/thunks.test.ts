@@ -72,6 +72,41 @@ describe('fetchAuth', () => {
         expect(result.payload).toBe('Пользователь не авторизован');
     });
 
+    // При плохом интернете вход слетал: обрыв проверки сессии стирал токен.
+    it('без сети токен не трогает, вход восстановится при следующем открытии', async () => {
+        storage.set(TOKEN_KEY, 'saved-token');
+        plain.onGet(`${API_URL}/refresh`).networkError();
+        const store = makeStore();
+
+        await store.dispatch(fetchAuth());
+
+        expect(storage.get(TOKEN_KEY)).toBe('saved-token');
+        expect(store.getState().user.isAuth).toBe(false);
+    });
+
+    it('на ошибке сервера токен не трогает', async () => {
+        storage.set(TOKEN_KEY, 'saved-token');
+        plain.onGet(`${API_URL}/refresh`).reply(500, { message: 'Непредвиденная ошибка' });
+
+        await makeStore().dispatch(fetchAuth());
+
+        expect(storage.get(TOKEN_KEY)).toBe('saved-token');
+    });
+
+    it('провал проверки сессии пишет в журнал посетителя', async () => {
+        plain.onGet(`${API_URL}/refresh`).networkError();
+
+        await makeStore().dispatch(fetchAuth());
+
+        // Событие с префиксом error журнал отправляет сразу, fetch в тестах заглушен.
+        const sent = vi
+            .mocked(fetch)
+            .mock.calls.flatMap(([, init]) => JSON.parse(String(init?.body)).events as { e: string; d?: unknown }[]);
+        expect(sent).toContainEqual(
+            expect.objectContaining({ e: 'error refresh', d: expect.objectContaining({ status: null }) })
+        );
+    });
+
     it('без сети отклоняется понятным текстом', async () => {
         plain.onGet(`${API_URL}/refresh`).networkError();
 

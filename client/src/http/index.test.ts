@@ -73,6 +73,15 @@ describe('интерцептор ответа', () => {
         expect(storage.get(TOKEN_KEY)).toBeNull();
     });
 
+    it('если обновить сессию помешал обрыв связи — токен оставляет', async () => {
+        storage.set(TOKEN_KEY, 'saved-token');
+        mock.onGet('/secret').reply(401, { message: 'Пользователь не авторизован', errors: [] });
+        plainMock.onGet(`${API_URL}/refresh`).networkError();
+
+        await expect($api.get('/secret')).rejects.toMatchObject({ response: { status: 401 } });
+        expect(storage.get(TOKEN_KEY)).toBe('saved-token');
+    });
+
     // Иначе один протухший токен уводит клиент в бесконечный цикл обновлений.
     it('повторяет запрос не больше одного раза', async () => {
         mock.onGet('/secret').reply(401, { message: 'Пользователь не авторизован', errors: [] });

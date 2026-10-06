@@ -37,10 +37,7 @@ const Header = () => {
         };
     }, []);
 
-    const handleActivateSubscription = () => {
-        if (store.isAuth) navigate('/subscription');
-        else navigate('/registration');
-    };
+    const handleActivateSubscription = () => navigate('/subscription');
 
     const formatDate = (isoDate: string) => {
         // Создаем объект даты из строки ISO
@@ -105,7 +102,12 @@ const Header = () => {
 
                 {!isDesktop && <span className="header__title">Ника Дупина</span>}
 
-                {store.user.isActivatedSubscription ? (
+                {!store.isAuth ? (
+                    // Гостю статус подписки неизвестен: «не активна» пугала тех, у кого слетел вход.
+                    <button className="header__btn" onClick={() => navigate('/login')}>
+                        Войти
+                    </button>
+                ) : store.user.isActivatedSubscription ? (
                     <button className="header__btn">
                         Подписка активна до{' '}
                         {formatDate(String(store.user.dateActivatedSubscription))}

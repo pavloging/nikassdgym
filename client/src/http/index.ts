@@ -7,6 +7,10 @@ import { logEvent, safePath } from '../utils/clientLog';
 // поэтому при смене домена ничего править в коде не нужно.
 export const API_URL = `${window.location.origin}/api`;
 
+// Сервер сам ответил «сессия истекла». Только в этом случае стираем сохранённый вход:
+// обрыв связи вход не трогает, иначе при плохом интернете человек выпадал из аккаунта.
+export const isSessionExpired = (e: unknown) => axios.isAxiosError(e) && e.response?.status === 401;
+
 type RetriableConfig = InternalAxiosRequestConfig & { _isRetry?: boolean; startedAt?: number };
 
 const elapsed = (config?: RetriableConfig) => (config?.startedAt ? Date.now() - config.startedAt : null);
@@ -54,9 +58,9 @@ $api.interceptors.response.use(
                 });
                 storage.set(TOKEN_KEY, response.data.accessToken);
                 return $api.request(originalRequest);
-            } catch {
-                // Сессия не восстановилась — чистим протухший токен, чтобы не долбить сервер.
-                storage.remove(TOKEN_KEY);
+            } catch (refreshError) {
+                // Сессия истекла: чистим протухший токен, чтобы не долбить сервер.
+                if (isSessionExpired(refreshError)) storage.remove(TOKEN_KEY);
             }
         }
 

@@ -72,12 +72,14 @@ describe('Header', () => {
         expect(screen.getByRole('button', { name: /Подписка активна до\s+07\.03/ })).toBeInTheDocument();
     });
 
-    it('гостя с кнопки подписки уводит на регистрацию', async () => {
+    // Раньше гость видел «Подписка не активна» и думал, что оплата пропала, хотя у него просто слетел вход.
+    it('гостю вместо статуса подписки показывает «Войти» и ведёт на вход', async () => {
         renderWithProviders(<Header />, { store: makeStore({ isAuth: false }) });
 
-        await userEvent.click(screen.getByRole('button', { name: 'Подписка не активна' }));
+        expect(screen.queryByRole('button', { name: 'Подписка не активна' })).not.toBeInTheDocument();
+        await userEvent.click(screen.getByRole('button', { name: 'Войти' }));
 
-        expect(navigate).toHaveBeenCalledWith('/registration');
+        expect(navigate).toHaveBeenCalledWith('/login');
     });
 
     it('авторизованного с кнопки подписки уводит на тарифы', async () => {
